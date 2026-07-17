@@ -1,35 +1,16 @@
 export const siteConfig = {
+
   name: "EON AI",
 
   description:
-    "EON AI is a personal intelligence company building AI companions for human evolution.",
-
-  tagline:
-    "Building the intelligence layer for human evolution.",
-
-
-  colors: {
-    background: "#050505",
-
-    gold: "#D6B25E",
-
-    purple: "#8B5CF6",
-
-    blue: "#4F8CFF",
-
-    text: "#F4F1EA",
-  },
+    "Personal Intelligence Company building AI systems for human evolution.",
 
 
   navigation: [
+
     {
       name: "About",
       href: "/about",
-    },
-
-    {
-      name: "Research",
-      href: "/research",
     },
 
     {
@@ -38,29 +19,34 @@ export const siteConfig = {
     },
 
     {
-      name: "Company",
-      href: "/company",
+      name: "Research",
+      href: "/research",
     },
+
+    {
+      name: "Contact",
+      href: "/contact",
+    },
+
   ],
 
 
   products: [
+
     {
       name: "SoulMirror AI",
-
-      description:
-        "Personal intelligence for self-discovery and human understanding.",
-
       href: "/products/soulmirror",
+      description:
+        "AI self-discovery companion.",
     },
 
     {
-      name: "FutureSelf AI",
-
+      name: "EON Intelligence",
+      href: "/products/eon",
       description:
-        "AI systems designed to help people shape their future.",
-
-      href: "/products/futureself",
+        "Future personal intelligence systems.",
     },
+
   ],
+
 };
