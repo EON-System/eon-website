@@ -1,34 +1,69 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 export function Background() {
   return (
-    <>
+    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+
       {/* Base */}
-      <div className="fixed inset-0 -z-50 bg-[#050505]" />
+      <div className="absolute inset-0 bg-[#050505]" />
 
-      {/* Gold Glow */}
-      <div className="fixed left-1/2 top-1/2 -z-40 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D6B25E]/10 blur-[180px]" />
 
-      {/* Blue Accent */}
-      <div className="fixed right-[-250px] top-[15%] -z-40 h-[500px] w-[500px] rounded-full bg-[#4F8CFF]/10 blur-[150px]" />
+      {/* Golden Core Glow */}
+      <motion.div
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.15, 0.25, 0.15],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute left-1/2 top-[-200px] h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-[#D6B25E] blur-[180px]"
+      />
 
-      {/* Bottom Glow */}
-      <div className="fixed bottom-[-300px] left-1/2 -z-40 h-[800px] w-[800px] -translate-x-1/2 rounded-full bg-white/[0.03] blur-[200px]" />
 
-      {/* Noise */}
+      {/* Blue Intelligence Glow */}
+      <motion.div
+        animate={{
+          x: [0, 80, 0],
+          y: [0, 40, 0],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute right-[-200px] top-[30%] h-[500px] w-[500px] rounded-full bg-[#4F8CFF] opacity-10 blur-[160px]"
+      />
+
+
+      {/* Purple Future Glow */}
+      <motion.div
+        animate={{
+          x: [0, -60, 0],
+          y: [0, 60, 0],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute bottom-[-200px] left-[20%] h-[600px] w-[600px] rounded-full bg-[#8B5CF6] opacity-10 blur-[180px]"
+      />
+
+
+      {/* Noise Layer */}
       <div
-        className="fixed inset-0 -z-30 opacity-[0.03] mix-blend-soft-light"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage:
-            "url('/textures/noise.png')",
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E\")",
         }}
       />
 
-      {/* Grid */}
-      <div className="fixed inset-0 -z-20 bg-[linear-gradient(rgba(255,255,255,.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.025)_1px,transparent_1px)] bg-[size:64px_64px]" />
-
-      {/* Radial Mask */}
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_center,transparent_20%,#050505_90%)]" />
-    </>
+    </div>
   );
 }
