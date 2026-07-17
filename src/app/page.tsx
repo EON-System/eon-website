@@ -1,26 +1,33 @@
 import { HeroSection } from "@/components/sections/hero";
-import { VisionSection } from "@/components/sections/vision";
 import { ProductsSection } from "@/components/sections/products";
-import { CoreSection } from "@/components/sections/core";
-import { MissionSection } from "@/components/sections/mission";
-import { ContactSection } from "@/components/sections/contact";
 import { TechnologySection } from "@/components/sections/technology";
+import { VisionSection } from "@/components/sections/vision";
 import { FounderSection } from "@/components/sections/founder";
 import { SocialProofSection } from "@/components/sections/social-proof";
+import { MissionSection } from "@/components/sections/mission";
+import { ContactSection } from "@/components/sections/contact";
 
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <main className="bg-[#050505] text-white overflow-hidden">
+    <main className="overflow-hidden">
+
       <HeroSection />
-      <VisionSection />
-      <FounderSection />
+
       <ProductsSection />
+
       <TechnologySection />
-      <CoreSection />
-      <MissionSection />
+
+      <VisionSection />
+
+      <FounderSection />
+
       <SocialProofSection />
+
+      <MissionSection />
+
       <ContactSection />
+
     </main>
   );
 }
