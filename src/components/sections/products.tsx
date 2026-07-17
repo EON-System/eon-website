@@ -1,94 +1,122 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Section } from "@/components/layout/section";
+
 import { Container } from "@/components/ui/container";
-import { SectionTitle } from "@/components/ui/section-title";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Section } from "@/components/layout/section";
+
 
 const products = [
   {
-    title: "SoulMirror AI",
-    subtitle: "Understand Yourself",
+    name: "SoulMirror AI",
+    category: "Self Discovery Intelligence",
     description:
-      "Discover your personality, emotions, dreams and inner patterns through an AI companion built for self-discovery.",
-    status: "Available Soon",
+      "An AI companion for exploring identity, emotions, dreams and personal growth.",
     href: "/products/soulmirror",
   },
+
   {
-    title: "FutureSelf AI",
-    subtitle: "Create Your Future",
+    name: "FutureSelf AI",
+    category: "Future Intelligence",
     description:
-      "Explore future scenarios, simulate life decisions and build long-term personal growth with AI guidance.",
-    status: "Coming Soon",
+      "A personal AI experience designed to help you imagine and build your future.",
     href: "/products/futureself",
   },
 ];
 
+
 export function ProductsSection() {
   return (
     <Section id="products">
+
       <Container>
 
-        <SectionTitle
-          badge="Products"
-          title={
-            <>
-              One ecosystem.
-              <br />
-              Multiple AI companions.
-            </>
-          }
-          description="Every EON AI product solves a different part of human growth while sharing one philosophy and one technology foundation."
-        />
+        <div className="mx-auto max-w-5xl text-center">
 
-        <div className="mt-20 grid gap-8 lg:grid-cols-2">
-          {products.map((product, index) => (
-            <motion.div
-              key={product.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.15,
-              }}
-            >
-              <Card className="flex h-full flex-col justify-between p-10">
+          <span className="text-xs uppercase tracking-[0.35em] text-[#D6B25E]">
+            EON AI Products
+          </span>
 
-                <div>
 
-                  <span className="inline-flex rounded-full border border-[#D6B25E]/30 bg-[#D6B25E]/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-[#D6B25E]">
-                    {product.status}
-                  </span>
+          <h2 className="mt-8 text-5xl font-semibold md:text-6xl">
+            A new generation of
+            <br />
+            personal intelligence.
+          </h2>
 
-                  <h3 className="mt-8 text-4xl font-semibold">
-                    {product.title}
-                  </h3>
 
-                  <p className="mt-3 text-lg text-[#D6B25E]">
-                    {product.subtitle}
-                  </p>
+          <p className="mx-auto mt-6 max-w-2xl text-white/60">
+            We create AI companions designed around
+            human understanding, growth and future possibilities.
+          </p>
 
-                  <p className="mt-8 leading-8 text-white/60">
-                    {product.description}
-                  </p>
 
-                </div>
-
-                <div className="mt-12">
-                  <Button href={product.href}>
-                    Learn More
-                  </Button>
-                </div>
-
-              </Card>
-            </motion.div>
-          ))}
         </div>
 
+
+
+        <div className="mt-16 grid gap-8 md:grid-cols-2">
+
+
+          {products.map((product, index) => (
+
+            <motion.div
+              key={product.name}
+              initial={{
+                opacity: 0,
+                y: 40,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                delay: index * 0.15,
+              }}
+              className="group rounded-[40px] border border-white/10 bg-white/[0.03] p-10 backdrop-blur-xl transition hover:border-[#D6B25E]/40"
+            >
+
+
+              <span className="text-xs uppercase tracking-[0.3em] text-[#D6B25E]">
+                {product.category}
+              </span>
+
+
+
+              <h3 className="mt-8 text-4xl font-semibold">
+                {product.name}
+              </h3>
+
+
+
+              <p className="mt-5 leading-8 text-white/60">
+                {product.description}
+              </p>
+
+
+
+              <Link
+                href={product.href}
+                className="mt-10 inline-flex rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm transition group-hover:bg-[#D6B25E] group-hover:text-black"
+              >
+                Explore Product
+              </Link>
+
+
+            </motion.div>
+
+          ))}
+
+
+        </div>
+
+
       </Container>
+
     </Section>
   );
 }
