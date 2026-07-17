@@ -4,6 +4,7 @@ import { ProductsSection } from "@/components/sections/products";
 import { CoreSection } from "@/components/sections/core";
 import { MissionSection } from "@/components/sections/mission";
 import { ContactSection } from "@/components/sections/contact";
+import { TechnologySection } from "@/components/sections/technology";
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
       <HeroSection />
       <VisionSection />
       <ProductsSection />
+      <TechnologySection />
       <CoreSection />
       <MissionSection />
       <ContactSection />
