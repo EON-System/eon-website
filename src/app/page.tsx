@@ -7,6 +7,7 @@ import { SocialProofSection } from "@/components/sections/social-proof";
 import { MissionSection } from "@/components/sections/mission";
 import { ContactSection } from "@/components/sections/contact";
 import { WaitlistSection } from "@/components/sections/waitlist";
+import { AboutSection } from "@/components/sections/about";
 
 
 export default function Home() {
@@ -14,6 +15,8 @@ export default function Home() {
     <main className="overflow-hidden">
 
       <HeroSection />
+
+      <AboutSection />
 
       <ProductsSection />
 
