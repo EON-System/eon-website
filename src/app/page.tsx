@@ -6,6 +6,8 @@ import { MissionSection } from "@/components/sections/mission";
 import { ContactSection } from "@/components/sections/contact";
 import { TechnologySection } from "@/components/sections/technology";
 import { FounderSection } from "@/components/sections/founder";
+import { SocialProofSection } from "@/components/sections/social-proof";
+
 
 export default function HomePage() {
   return (
@@ -17,6 +19,7 @@ export default function HomePage() {
       <TechnologySection />
       <CoreSection />
       <MissionSection />
+      <SocialProofSection />
       <ContactSection />
     </main>
   );
