@@ -6,6 +6,7 @@ import { FounderSection } from "@/components/sections/founder";
 import { SocialProofSection } from "@/components/sections/social-proof";
 import { MissionSection } from "@/components/sections/mission";
 import { ContactSection } from "@/components/sections/contact";
+import { WaitlistSection } from "@/components/sections/waitlist";
 
 
 export default function Home() {
@@ -25,6 +26,8 @@ export default function Home() {
       <SocialProofSection />
 
       <MissionSection />
+
+      <WaitlistSection />
 
       <ContactSection />
 
