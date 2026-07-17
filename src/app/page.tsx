@@ -1,38 +1,26 @@
-import { HeroSection } from "@/components/sections/hero";
-import { ProductsSection } from "@/components/sections/products";
-import { TechnologySection } from "@/components/sections/technology";
-import { VisionSection } from "@/components/sections/vision";
-import { FounderSection } from "@/components/sections/founder";
-import { SocialProofSection } from "@/components/sections/social-proof";
-import { MissionSection } from "@/components/sections/mission";
-import { ContactSection } from "@/components/sections/contact";
-import { WaitlistSection } from "@/components/sections/waitlist";
-import { AboutSection } from "@/components/sections/about";
+import { HeroSection } from "@/components/sections/hero-section";
+import { AboutV2 } from "@/components/sections/about-v2";
+import { ResearchV2 } from "@/components/sections/research-v2";
+import { ProductsV2 } from "@/components/sections/products-v2";
+import { CompanyV2 } from "@/components/sections/company-v2";
+import { VisionV2 } from "@/components/sections/vision-v2";
 
 
 export default function Home() {
   return (
-    <main className="overflow-hidden">
+    <main>
 
       <HeroSection />
 
-      <AboutSection />
+      <AboutV2 />
 
-      <ProductsSection />
+      <ResearchV2 />
 
-      <TechnologySection />
+      <ProductsV2 />
 
-      <VisionSection />
+      <CompanyV2 />
 
-      <FounderSection />
-
-      <SocialProofSection />
-
-      <MissionSection />
-
-      <WaitlistSection />
-
-      <ContactSection />
+      <VisionV2 />
 
     </main>
   );
