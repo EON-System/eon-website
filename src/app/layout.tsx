@@ -5,12 +5,10 @@ import "./globals.css";
 import { Navbar } from "@/components/navigation/navbar";
 import { Footer } from "@/components/navigation/footer";
 
+import { metadata } from "@/config/metadata";
 
-export const metadata: Metadata = {
-  title: "EON AI",
-  description:
-    "EON AI is a personal intelligence company building AI companions for human evolution.",
-};
+
+export { metadata };
 
 
 export default function RootLayout({
