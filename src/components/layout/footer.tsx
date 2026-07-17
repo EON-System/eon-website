@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 const products = [
@@ -11,97 +13,156 @@ const products = [
   },
 ];
 
+
 const company = [
   {
-    name: "About",
-    href: "#about",
-  },
-  {
-    name: "Technology",
-    href: "#technology",
+    name: "Vision",
+    href: "#vision",
   },
   {
     name: "Mission",
     href: "#mission",
+  },
+  {
+    name: "Contact",
+    href: "#contact",
+  },
+];
+
+
+const socials = [
+  {
+    name: "X",
+    href: "#",
+  },
+  {
+    name: "Instagram",
+    href: "#",
+  },
+  {
+    name: "LinkedIn",
+    href: "#",
   },
 ];
 
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-white/10 py-16">
+    <footer className="border-t border-white/10 px-6 py-16">
 
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-3 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-4">
+
 
         {/* Brand */}
+
         <div>
+
           <Link
             href="/"
-            className="text-xl font-semibold tracking-[0.25em]"
+            className="text-xl font-semibold tracking-[0.35em]"
           >
             EON AI
           </Link>
 
-          <p className="mt-5 max-w-sm text-sm leading-7 text-white/50">
-            Creating the world's best personal AI products.
-            Building intelligent companions for human evolution.
+
+          <p className="mt-6 max-w-xs leading-7 text-white/50">
+            Building AI companions for human evolution.
           </p>
+
         </div>
 
 
+
         {/* Products */}
+
         <div>
-          <h3 className="mb-5 text-sm font-medium text-white">
+
+          <h3 className="text-sm uppercase tracking-[0.3em] text-[#D6B25E]">
             Products
           </h3>
 
-          <div className="flex flex-col gap-3">
+
+          <div className="mt-6 space-y-4">
+
             {products.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm text-white/50 transition hover:text-white"
+                className="block text-white/50 transition hover:text-white"
               >
                 {item.name}
               </Link>
             ))}
+
           </div>
+
         </div>
 
 
+
         {/* Company */}
+
         <div>
-          <h3 className="mb-5 text-sm font-medium text-white">
+
+          <h3 className="text-sm uppercase tracking-[0.3em] text-[#D6B25E]">
             Company
           </h3>
 
-          <div className="flex flex-col gap-3">
+
+          <div className="mt-6 space-y-4">
+
             {company.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm text-white/50 transition hover:text-white"
+                className="block text-white/50 transition hover:text-white"
               >
                 {item.name}
               </Link>
             ))}
+
           </div>
+
         </div>
 
+
+
+        {/* Social */}
+
+        <div>
+
+          <h3 className="text-sm uppercase tracking-[0.3em] text-[#D6B25E]">
+            Follow
+          </h3>
+
+
+          <div className="mt-6 space-y-4">
+
+            {socials.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="block text-white/50 transition hover:text-white"
+              >
+                {item.name}
+              </a>
+            ))}
+
+          </div>
+
+        </div>
+
+
       </div>
 
 
-      <div className="mx-auto mt-16 flex max-w-7xl flex-col gap-4 border-t border-white/10 px-6 pt-8 text-sm text-white/40 md:flex-row md:items-center md:justify-between lg:px-8">
 
-        <p>
-          © {new Date().getFullYear()} EON AI. All rights reserved.
-        </p>
+      <div className="mx-auto mt-16 max-w-7xl border-t border-white/10 pt-8 text-sm text-white/40">
 
-        <p>
-          Personal Intelligence Company
-        </p>
+        © {new Date().getFullYear()} EON AI. All rights reserved.
 
       </div>
+
 
     </footer>
   );
