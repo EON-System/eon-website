@@ -1,61 +1,205 @@
-import { Section } from "@/components/ui/section";
+import { Reveal } from "@/components/motion/reveal";
+import { GlassCard } from "@/components/ui/glass-card";
 import { Container } from "@/components/ui/container";
-import { Badge } from "@/components/ui/badge";
-import { Heading } from "@/components/ui/heading";
-import { Card } from "@/components/ui/card";
+import { Section } from "@/components/ui/section";
 
 
-const areas = [
-  "Personal AI",
-  "Memory Systems",
-  "Human Behavior",
-  "Future Interfaces",
+const researchItems = [
+
+  {
+    number: "01",
+    title: "Personal AI",
+    description:
+      "Creating intelligent systems that adapt to individual human needs."
+  },
+
+
+  {
+    number: "02",
+    title: "Memory Systems",
+    description:
+      "Exploring AI architectures that understand context and personal history."
+  },
+
+
+  {
+    number: "03",
+    title: "Human Behavior",
+    description:
+      "Studying the connection between intelligence and human experience."
+  },
+
+
+  {
+    number: "04",
+    title: "Future Interfaces",
+    description:
+      "Building new ways for humans to interact with intelligent systems."
+  }
+
 ];
 
 
+
 export function ResearchV2() {
+
+
   return (
+
     <Section id="research">
+
 
       <Container>
 
-        <Badge>
-          Research
-        </Badge>
+
+        <Reveal>
 
 
-        <div className="mt-8 max-w-3xl">
-
-          <Heading>
-            Exploring the future of personal intelligence.
-          </Heading>
-
-        </div>
+          <div className="max-w-4xl">
 
 
+            <p className="
+              text-sm
+              uppercase
+              tracking-[0.4em]
+              text-[#D6B25E]
+            ">
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
+              Research
 
-          {areas.map((item)=>(
-            <Card key={item}>
+            </p>
 
-              <h3 className="text-2xl font-semibold">
-                {item}
-              </h3>
 
-              <p className="mt-4 text-white/50">
-                Advancing AI technologies
-                for human potential.
-              </p>
 
-            </Card>
+            <h2 className="
+              mt-6
+              text-5xl
+              font-semibold
+              leading-tight
+              text-[#F4F1EA]
+              md:text-6xl
+            ">
+
+              Exploring the future
+              of intelligence.
+
+            </h2>
+
+
+
+            <p className="
+              mt-8
+              max-w-2xl
+              text-lg
+              leading-8
+              text-white/50
+            ">
+
+              EON AI researches the next generation
+              of personal intelligence systems.
+
+            </p>
+
+
+          </div>
+
+
+        </Reveal>
+
+
+
+
+
+        <div className="
+          mt-20
+          grid
+          gap-6
+          md:grid-cols-2
+        ">
+
+
+
+          {researchItems.map((item,index)=>(
+
+
+            <Reveal
+
+              key={item.number}
+
+              delay={index * 0.1}
+
+            >
+
+
+              <GlassCard>
+
+
+                <div className="
+                  flex
+                  items-start
+                  justify-between
+                ">
+
+
+                  <span className="
+                    text-5xl
+                    font-semibold
+                    text-[#D6B25E]/50
+                  ">
+
+                    {item.number}
+
+                  </span>
+
+
+                </div>
+
+
+
+
+                <h3 className="
+                  mt-12
+                  text-3xl
+                  font-semibold
+                  text-[#F4F1EA]
+                ">
+
+                  {item.title}
+
+                </h3>
+
+
+
+                <p className="
+                  mt-5
+                  text-base
+                  leading-7
+                  text-white/50
+                ">
+
+                  {item.description}
+
+                </p>
+
+
+
+              </GlassCard>
+
+
+            </Reveal>
+
+
           ))}
+
 
         </div>
 
 
       </Container>
 
+
     </Section>
+
   );
+
 }
