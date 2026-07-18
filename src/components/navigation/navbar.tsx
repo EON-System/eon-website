@@ -1,97 +1,171 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { motion } from "framer-motion";
 
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 
 
 export function Navbar() {
 
-  const [open, setOpen] = useState(false);
-
-
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/40 backdrop-blur-xl">
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
+    <motion.header
 
+      initial={{
+
+        opacity:0,
+
+        y:-20,
+
+      }}
+
+
+      animate={{
+
+        opacity:1,
+
+        y:0,
+
+      }}
+
+
+      transition={{
+
+        duration:1,
+
+      }}
+
+
+      className="
+        fixed
+        top-6
+        left-0
+        right-0
+        z-50
+      "
+
+    >
+
+
+      <nav
+
+        className="
+          mx-auto
+          flex
+          max-w-6xl
+          items-center
+          justify-between
+          rounded-3xl
+          border
+          border-white/10
+          bg-black/40
+          px-6
+          py-4
+          backdrop-blur-2xl
+          shadow-[0_10px_50px_rgba(0,0,0,0.4)]
+        "
+
+      >
+
+
+
+        {/* Logo */}
 
         <Link
+
           href="/"
-          className="text-xl font-semibold tracking-tight"
+
+          className="
+            text-lg
+            font-semibold
+            tracking-[0.25em]
+            text-[#F4F1EA]
+          "
+
         >
+
           EON AI
+
         </Link>
 
 
 
-        <nav className="hidden items-center gap-8 md:flex">
+        {/* Navigation */}
 
-          {siteConfig.navigation.map((item) => (
+        <div className="
+          hidden
+          items-center
+          gap-8
+          md:flex
+        ">
+
+
+          {siteConfig.navigation.map((item)=>(
+
 
             <Link
-              key={item.name}
+
+              key={item.href}
+
               href={item.href}
-              className="text-sm text-white/60 transition hover:text-white"
+
+              className="
+                text-sm
+                text-white/50
+                transition
+
+                hover:text-[#F4F1EA]
+              "
+
             >
+
               {item.name}
+
             </Link>
+
 
           ))}
 
-        </nav>
-
-
-
-        <div className="hidden md:block">
-
-          <Button href="/contact">
-            Contact
-          </Button>
 
         </div>
 
 
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-white"
+        {/* CTA */}
+
+        <Link
+
+          href="/contact"
+
+          className="
+            rounded-xl
+            border
+            border-[#D6B25E]/40
+            bg-[#D6B25E]/5
+            px-5
+            py-2.5
+            text-sm
+            text-[#F4F1EA]
+            transition
+
+            hover:border-[#D6B25E]
+
+            hover:bg-[#D6B25E]/10
+          "
+
         >
-          Menu
-        </button>
+
+          Contact
+
+        </Link>
 
 
-      </div>
+      </nav>
 
 
-      {open && (
+    </motion.header>
 
-        <div className="border-t border-white/10 px-6 py-6 md:hidden">
-
-          <nav className="flex flex-col gap-5">
-
-            {siteConfig.navigation.map((item) => (
-
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-white/70"
-                onClick={() => setOpen(false)}
-              >
-                {item.name}
-              </Link>
-
-            ))}
-
-          </nav>
-
-        </div>
-
-      )}
-
-
-    </header>
   );
+
 }
