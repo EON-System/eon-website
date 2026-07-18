@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { cn } from "@/lib/utils";
 
 
@@ -11,6 +12,10 @@ interface EonButtonProps {
   variant?: "primary" | "secondary";
 
   className?: string;
+
+  type?: "button" | "submit" | "reset";
+
+  onClick?: () => void;
 
 }
 
@@ -26,7 +31,12 @@ export function EonButton({
 
   className,
 
+  type = "button",
+
+  onClick,
+
 }: EonButtonProps) {
+
 
 
   const styles = cn(
@@ -37,15 +47,24 @@ export function EonButton({
     inline-flex
     items-center
     justify-center
+
     overflow-hidden
+
     rounded-2xl
-    px-8
-    py-4
+
+    px-6
+    py-3.5
+
+    sm:px-8
+    sm:py-4
+
     text-sm
     font-medium
+
+    backdrop-blur-xl
+
     transition-all
     duration-500
-    backdrop-blur-xl
     `,
 
 
@@ -53,14 +72,14 @@ export function EonButton({
 
       border
       border-[#D6B25E]/40
+
       bg-black/40
+
       text-[#F4F1EA]
 
-      hover:
-      border-[#D6B25E]
+      hover:border-[#D6B25E]
 
-      hover:
-      shadow-[0_0_40px_rgba(214,178,94,0.25)]
+      hover:shadow-[0_0_45px_rgba(214,178,94,0.25)]
 
     `,
 
@@ -69,14 +88,14 @@ export function EonButton({
 
       border
       border-white/10
+
       bg-white/[0.03]
+
       text-white/70
 
-      hover:
-      bg-white/[0.08]
+      hover:bg-white/[0.08]
 
-      hover:
-      text-white
+      hover:text-white
 
     `,
 
@@ -105,15 +124,17 @@ export function EonButton({
       <span
 
         className="
-        absolute
-        inset-0
-        translate-y-full
-        bg-[#D6B25E]/10
-        transition-transform
-        duration-500
+          absolute
+          inset-0
 
-        group-hover:
-        translate-y-0
+          translate-y-full
+
+          bg-[#D6B25E]/10
+
+          transition-transform
+          duration-500
+
+          group-hover:translate-y-0
         "
 
       />
@@ -149,7 +170,15 @@ export function EonButton({
 
   return (
 
-    <button className={styles}>
+    <button
+
+      type={type}
+
+      onClick={onClick}
+
+      className={styles}
+
+    >
 
       {content}
 
