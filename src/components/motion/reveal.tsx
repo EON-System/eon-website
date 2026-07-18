@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 
+import { motionConfig } from "@/lib/motion";
+
 
 interface RevealProps {
 
@@ -12,6 +14,7 @@ interface RevealProps {
   className?: string;
 
 }
+
 
 
 export function Reveal({
@@ -29,15 +32,19 @@ export function Reveal({
 
     <motion.div
 
+
       initial={{
 
         opacity: 0,
 
-        y: 40,
+        y: 60,
 
-        filter: "blur(10px)",
+        scale: 0.96,
+
+        filter: "blur(14px)",
 
       }}
+
 
 
       whileInView={{
@@ -46,36 +53,35 @@ export function Reveal({
 
         y: 0,
 
+        scale: 1,
+
         filter: "blur(0px)",
 
       }}
 
 
-      viewport={{
 
-        once: true,
+      viewport={motionConfig.viewport}
 
-        margin: "-100px",
-
-      }}
 
 
       transition={{
 
-        duration: 1,
+        ...motionConfig.transition,
 
         delay,
-
-        ease: [0.22, 1, 0.36, 1],
 
       }}
 
 
+
       className={className}
+
 
     >
 
       {children}
+
 
     </motion.div>
 
