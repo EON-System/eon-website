@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { Navbar } from "@/components/navigation/navbar";
 import { Footer } from "@/components/navigation/footer";
+import { EonIntro } from "@/components/core/eon-intro";
 
 import { metadata } from "@/config/metadata";
 
@@ -21,6 +22,8 @@ export default function RootLayout({
     <html lang="en">
 
       <body className="bg-[#050505] text-[#F4F1EA] antialiased">
+ 
+        <EonIntro />
 
         <Navbar />
 
