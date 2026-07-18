@@ -1,30 +1,52 @@
 import { cn } from "@/lib/utils";
 
 
-type SectionProps = {
+interface SectionProps {
+
   children: React.ReactNode;
+
+  className?: string;
 
   id?: string;
 
-  className?: string;
-};
+}
 
 
 export function Section({
+
   children,
-  id,
+
   className,
+
+  id,
+
 }: SectionProps) {
 
+
   return (
+
     <section
+
       id={id}
+
       className={cn(
-        "relative py-24 md:py-32",
+
+        `
+        relative
+        py-32
+        overflow-hidden
+        `,
+
         className
+
       )}
+
     >
+
       {children}
+
     </section>
+
   );
+
 }
