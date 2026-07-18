@@ -1,61 +1,197 @@
-import Link from "next/link";
-
-import { Section } from "@/components/ui/section";
+import { Reveal } from "@/components/motion/reveal";
+import { GlassCard } from "@/components/ui/glass-card";
 import { Container } from "@/components/ui/container";
-import { Badge } from "@/components/ui/badge";
-import { Heading } from "@/components/ui/heading";
-import { Card } from "@/components/ui/card";
+import { Section } from "@/components/ui/section";
 
-import { siteConfig } from "@/config/site";
+import { EonButton } from "@/components/ui/eon-button";
+
+
+const products = [
+
+  {
+    name: "SoulMirror AI",
+
+    description:
+      "An AI companion designed for self-discovery, reflection and personal evolution.",
+
+    tag:
+      "Personal Intelligence",
+
+  },
+
+
+  {
+    name: "EON Intelligence",
+
+    description:
+      "A new generation of personal AI systems built around human memory and identity.",
+
+    tag:
+      "Future Platform",
+
+  },
+
+];
+
 
 
 export function ProductsV2() {
+
+
   return (
+
     <Section id="products">
+
 
       <Container>
 
-        <Badge>
-          Products
-        </Badge>
+
+        <Reveal>
 
 
-        <div className="mt-8 max-w-3xl">
-
-          <Heading>
-            AI products designed
-            around humans.
-          </Heading>
-
-        </div>
+          <div className="max-w-3xl">
 
 
+            <p className="
+              text-sm
+              uppercase
+              tracking-[0.4em]
+              text-[#D6B25E]
+            ">
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
+              Products
+
+            </p>
 
 
-          {siteConfig.products.map((product)=>(
-            <Link
+
+            <h2 className="
+              mt-6
+              text-5xl
+              font-semibold
+              tracking-tight
+              text-[#F4F1EA]
+            ">
+
+              Intelligence products
+              for the next era.
+
+            </h2>
+
+
+          </div>
+
+
+        </Reveal>
+
+
+
+
+
+        <div className="
+          mt-20
+          grid
+          gap-8
+          lg:grid-cols-2
+        ">
+
+
+
+          {products.map((product,index)=>(
+
+
+            <Reveal
+
               key={product.name}
-              href={product.href}
+
+              delay={index * 0.15}
+
             >
 
-              <Card>
 
-                <h3 className="text-3xl font-semibold">
-                  {product.name}
-                </h3>
+              <GlassCard
 
+                className="
+                  min-h-[420px]
+                "
 
-                <p className="mt-4 text-white/50">
-                  {product.description}
-                </p>
+              >
 
 
-              </Card>
+                <div className="
+                  flex
+                  h-full
+                  flex-col
+                  justify-between
+                ">
 
-            </Link>
+
+                  <div>
+
+
+                    <span className="
+                      text-xs
+                      uppercase
+                      tracking-[0.35em]
+                      text-[#D6B25E]
+                    ">
+
+                      {product.tag}
+
+                    </span>
+
+
+
+                    <h3 className="
+                      mt-8
+                      text-4xl
+                      font-semibold
+                      text-[#F4F1EA]
+                    ">
+
+                      {product.name}
+
+                    </h3>
+
+
+
+                    <p className="
+                      mt-6
+                      max-w-md
+                      text-lg
+                      leading-8
+                      text-white/50
+                    ">
+
+                      {product.description}
+
+                    </p>
+
+
+                  </div>
+
+
+
+
+                  <EonButton href="/contact">
+
+                    Explore
+
+                  </EonButton>
+
+
+
+                </div>
+
+
+              </GlassCard>
+
+
+            </Reveal>
+
+
           ))}
+
 
 
         </div>
@@ -63,6 +199,9 @@ export function ProductsV2() {
 
       </Container>
 
+
     </Section>
+
   );
+
 }
