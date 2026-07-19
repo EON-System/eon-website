@@ -13,8 +13,11 @@ export default function Home() {
   return (
 
     <main className="
-      overflow-hidden
-    ">
+  min-h-screen
+  bg-red-500
+  text-white
+  overflow-hidden
+">
 
 
       <Hero />
