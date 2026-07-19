@@ -8,7 +8,9 @@ interface ButtonProps {
 
   href?: string;
 
-  variant?: "primary" | "secondary";
+  type ButtonProps = {
+  variant?: "primary" | "secondary" | "glass";
+}
 
   className?: string;
 
