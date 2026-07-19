@@ -8,7 +8,7 @@ interface ButtonProps {
 
   href?: string;
 
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "glass";
 
   className?: string;
 
@@ -66,9 +66,7 @@ export function Button({
 
       text-[#F4F1EA]
 
-
       hover:border-[#D6B25E]
-
 
       hover:shadow-[0_0_45px_rgba(214,178,94,0.25)]
 
@@ -84,10 +82,27 @@ export function Button({
 
       text-white/70
 
-
       hover:bg-white/[0.08]
 
       hover:text-white
+
+    `,
+
+
+    variant === "glass" && `
+
+      border
+      border-white/10
+
+      bg-white/[0.05]
+
+      text-[#F4F1EA]
+
+      backdrop-blur-2xl
+
+      hover:bg-white/[0.12]
+
+      hover:border-white/20
 
     `,
 
@@ -102,15 +117,11 @@ export function Button({
 
     <>
 
-      <span className="
-        relative
-        z-10
-      ">
+      <span className="relative z-10">
 
         {children}
 
       </span>
-
 
 
       <span
@@ -122,13 +133,10 @@ export function Button({
         bg-[#D6B25E]/10
         transition-transform
         duration-500
-
         group-hover:translate-y-0
         "
 
       />
-
-
 
     </>
 
