@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 
-import { Navbar } from "@/components/navigation/navbar";
-import { Footer } from "@/components/navigation/footer";
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
 import { EonIntro } from "@/components/core/eon-intro";
 
 
