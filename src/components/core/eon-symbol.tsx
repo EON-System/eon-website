@@ -1,198 +1,231 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Canvas, useFrame } from "@react-three/fiber";
+import {
+  Environment,
+  Float,
+  MeshTransmissionMaterial,
+  Sphere,
+} from "@react-three/drei";
+
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
+
+import { useRef } from "react";
+import * as THREE from "three";
+
+
+function Core() {
+
+  const core = useRef<THREE.Mesh>(null);
+  const ring1 = useRef<THREE.Mesh>(null);
+  const ring2 = useRef<THREE.Mesh>(null);
+
+
+  useFrame((state) => {
+
+    const t = state.clock.getElapsedTime();
+
+
+    if (core.current) {
+
+      core.current.rotation.y = t * 0.15;
+
+      core.current.position.y =
+        Math.sin(t * 0.8) * 0.08;
+
+    }
+
+
+    if (ring1.current) {
+
+      ring1.current.rotation.z =
+        t * 0.25;
+
+    }
+
+
+    if (ring2.current) {
+
+      ring2.current.rotation.z =
+        -t * 0.18;
+
+    }
+
+  });
+
+
+
+  return (
+
+    <group>
+
+
+      {/* Glass AI Core */}
+
+      <Sphere
+        ref={core}
+        args={[1.15, 128, 128]}
+      >
+
+        <MeshTransmissionMaterial
+
+          thickness={1.8}
+
+          roughness={0.08}
+
+          transmission={1}
+
+          chromaticAberration={0.04}
+
+          anisotropy={0.3}
+
+          color="#D6B25E"
+
+        />
+
+      </Sphere>
+
+
+
+      {/* Inner golden energy */}
+
+      <Sphere args={[0.45, 64, 64]}>
+
+        <meshStandardMaterial
+
+          color="#D6B25E"
+
+          emissive="#D6B25E"
+
+          emissiveIntensity={3}
+
+        />
+
+      </Sphere>
+
+
+
+      {/* Energy ring 1 */}
+
+      <mesh ref={ring1}>
+
+        <torusGeometry
+          args={[1.55,0.012,32,256]}
+        />
+
+        <meshBasicMaterial
+
+          color="#D6B25E"
+
+          transparent
+
+          opacity={0.7}
+
+        />
+
+      </mesh>
+
+
+
+      {/* Energy ring 2 */}
+
+      <mesh ref={ring2}>
+
+        <torusGeometry
+          args={[1.85,0.008,32,256]}
+        />
+
+        <meshBasicMaterial
+
+          color="#F4F1EA"
+
+          transparent
+
+          opacity={0.25}
+
+        />
+
+      </mesh>
+
+
+    </group>
+
+  );
+
+}
+
 
 
 export function EonSymbol() {
 
+
   return (
 
     <div className="
-      relative
-      flex
       h-[520px]
       w-[520px]
-      items-center
-      justify-center
     ">
 
 
-      {/* Golden atmosphere */}
+      <Canvas
 
-      <motion.div
-
-        animate={{
-          scale:[1,1.15,1],
-          opacity:[0.25,0.45,0.25]
+        camera={{
+          position:[0,0,5],
+          fov:45
         }}
-
-        transition={{
-          duration:8,
-          repeat:Infinity,
-          ease:"easeInOut"
-        }}
-
-        className="
-          absolute
-          h-80
-          w-80
-          rounded-full
-          bg-[#D6B25E]/20
-          blur-[120px]
-        "
-
-      />
-
-
-
-      {/* AI Core */}
-
-      <motion.div
-
-        animate={{
-          rotate:360
-        }}
-
-        transition={{
-          duration:45,
-          repeat:Infinity,
-          ease:"linear"
-        }}
-
-        className="
-          absolute
-          h-72
-          w-72
-          rounded-full
-          border
-          border-[#D6B25E]/30
-        "
-
-      />
-
-
-
-      <motion.div
-
-        animate={{
-          rotate:-360
-        }}
-
-        transition={{
-          duration:60,
-          repeat:Infinity,
-          ease:"linear"
-        }}
-
-        className="
-          absolute
-          h-96
-          w-96
-          rounded-full
-          border
-          border-white/10
-        "
-
-      />
-
-
-
-      {/* Light rings */}
-
-      <svg
-
-        viewBox="0 0 500 500"
-
-        className="
-          absolute
-          h-full
-          w-full
-        "
 
       >
 
-        <motion.path
 
-          d="
-          M250 80
-          C390 120 420 260 300 380
-          C180 460 70 350 100 220
-          C120 130 180 80 250 80
-          "
+        <ambientLight intensity={0.5}/>
 
-          fill="none"
 
-          stroke="#D6B25E"
+        <pointLight
 
-          strokeOpacity="0.45"
+          position={[3,3,3]}
 
-          strokeWidth="2"
+          intensity={8}
 
-          animate={{
-            rotate:360
-          }}
-
-          transition={{
-            duration:40,
-            repeat:Infinity,
-            ease:"linear"
-          }}
-
-          style={{
-            transformOrigin:"center"
-          }}
+          color="#D6B25E"
 
         />
 
 
-        <motion.path
+        <Float
 
-          d="
-          M250 130
-          C340 160 360 270 280 330
-          C190 390 120 300 150 220
-          C170 170 210 140 250 130
-          "
+          speed={2}
 
-          fill="none"
+          rotationIntensity={0.4}
 
-          stroke="#F4F1EA"
+          floatIntensity={0.3}
 
-          strokeOpacity="0.18"
+        >
 
-          strokeWidth="1"
+          <Core />
 
-        />
-
-
-      </svg>
+        </Float>
 
 
 
-      {/* Intelligence center */}
+        <Environment preset="city"/>
 
-      <motion.div
 
-        animate={{
-          scale:[1,1.2,1]
-        }}
+        <EffectComposer>
 
-        transition={{
-          duration:5,
-          repeat:Infinity,
-          ease:"easeInOut"
-        }}
+          <Bloom
 
-        className="
-          relative
-          h-20
-          w-20
-          rounded-full
-          bg-[#D6B25E]
-          shadow-[0_0_100px_40px_rgba(214,178,94,0.35)]
-        "
+            intensity={1.5}
 
-      />
+            luminanceThreshold={0}
+
+            luminanceSmoothing={0.8}
+
+          />
+
+        </EffectComposer>
+
+
+      </Canvas>
 
 
     </div>
