@@ -10,20 +10,20 @@ export function EonSymbol() {
     <div className="
       relative
       flex
-      h-[460px]
-      w-[460px]
+      h-[520px]
+      w-[520px]
       items-center
       justify-center
     ">
 
 
-      {/* Glow */}
+      {/* Golden atmosphere */}
 
       <motion.div
 
         animate={{
-          opacity:[0.25,0.45,0.25],
-          scale:[1,1.15,1]
+          scale:[1,1.15,1],
+          opacity:[0.25,0.45,0.25]
         }}
 
         transition={{
@@ -38,111 +38,161 @@ export function EonSymbol() {
           w-80
           rounded-full
           bg-[#D6B25E]/20
-          blur-[100px]
+          blur-[120px]
         "
 
       />
 
 
 
-      {/* Prism */}
+      {/* AI Core */}
 
       <motion.div
 
         animate={{
-          rotateY:[0,360]
+          rotate:360
         }}
 
         transition={{
-          duration:25,
+          duration:45,
           repeat:Infinity,
           ease:"linear"
         }}
 
         className="
-          relative
+          absolute
           h-72
-          w-56
-          rounded-[32px]
+          w-72
+          rounded-full
           border
           border-[#D6B25E]/30
-          bg-gradient-to-br
-          from-white/[0.12]
-          via-white/[0.03]
-          to-transparent
-          backdrop-blur-3xl
-          shadow-[0_0_80px_rgba(214,178,94,0.18)]
+        "
+
+      />
+
+
+
+      <motion.div
+
+        animate={{
+          rotate:-360
+        }}
+
+        transition={{
+          duration:60,
+          repeat:Infinity,
+          ease:"linear"
+        }}
+
+        className="
+          absolute
+          h-96
+          w-96
+          rounded-full
+          border
+          border-white/10
+        "
+
+      />
+
+
+
+      {/* Light rings */}
+
+      <svg
+
+        viewBox="0 0 500 500"
+
+        className="
+          absolute
+          h-full
+          w-full
         "
 
       >
 
+        <motion.path
 
-        {/* Inner glass */}
+          d="
+          M250 80
+          C390 120 420 260 300 380
+          C180 460 70 350 100 220
+          C120 130 180 80 250 80
+          "
 
-        <div className="
-          absolute
-          inset-5
-          rounded-[24px]
-          border
-          border-white/10
-          bg-gradient-to-b
-          from-[#D6B25E]/20
-          to-transparent
-        "/>
+          fill="none"
 
+          stroke="#D6B25E"
 
+          strokeOpacity="0.45"
 
-        {/* EON */}
+          strokeWidth="2"
 
-        <div className="
-          absolute
-          inset-0
-          flex
-          flex-col
-          items-center
-          justify-center
-        ">
+          animate={{
+            rotate:360
+          }}
 
-          <span className="
-            text-5xl
-            font-semibold
-            tracking-[-0.08em]
-            text-[#F4F1EA]
-          ">
-            EON
-          </span>
+          transition={{
+            duration:40,
+            repeat:Infinity,
+            ease:"linear"
+          }}
+
+          style={{
+            transformOrigin:"center"
+          }}
+
+        />
 
 
-          <span className="
-            mt-3
-            text-[10px]
-            uppercase
-            tracking-[0.5em]
-            text-[#D6B25E]
-          ">
-            Intelligence
-          </span>
+        <motion.path
+
+          d="
+          M250 130
+          C340 160 360 270 280 330
+          C190 390 120 300 150 220
+          C170 170 210 140 250 130
+          "
+
+          fill="none"
+
+          stroke="#F4F1EA"
+
+          strokeOpacity="0.18"
+
+          strokeWidth="1"
+
+        />
 
 
-        </div>
-
-
-      </motion.div>
+      </svg>
 
 
 
-      {/* Floating particles */}
+      {/* Intelligence center */}
 
-      <div className="
-        absolute
-        right-24
-        top-24
-        h-2
-        w-2
-        rounded-full
-        bg-[#D6B25E]
-        shadow-[0_0_40px_10px_rgba(214,178,94,0.5)]
-      "/>
+      <motion.div
+
+        animate={{
+          scale:[1,1.2,1]
+        }}
+
+        transition={{
+          duration:5,
+          repeat:Infinity,
+          ease:"easeInOut"
+        }}
+
+        className="
+          relative
+          h-20
+          w-20
+          rounded-full
+          bg-[#D6B25E]
+          shadow-[0_0_100px_40px_rgba(214,178,94,0.35)]
+        "
+
+      />
 
 
     </div>
