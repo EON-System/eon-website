@@ -67,6 +67,7 @@ export function Hero() {
 
             >
 
+
               <p className="
                 text-sm
                 uppercase
@@ -118,6 +119,9 @@ export function Hero() {
 
 
 
+
+              {/* Buttons */}
+
               <div className="
                 mt-12
                 flex
@@ -126,30 +130,46 @@ export function Hero() {
               ">
 
 
-                <button className="
-                  group
-                  relative
-                  overflow-hidden
-                  rounded-2xl
-                  border
-                  border-[#D6B25E]/40
-                  bg-black/40
-                  px-8
-                  py-4
-                  text-sm
-                  font-medium
-                  text-[#F4F1EA]
-                  backdrop-blur-xl
-                  transition
-                  hover:border-[#D6B25E]
-                ">
+
+                {/* Products */}
+
+                <a
+
+                  href="#products"
+
+                  className="
+                    group
+                    relative
+                    overflow-hidden
+                    rounded-2xl
+                    border
+                    border-[#D6B25E]/25
+                    bg-white/[0.025]
+                    px-8
+                    py-4
+                    text-sm
+                    font-medium
+                    text-[#F4F1EA]
+                    backdrop-blur-xl
+                    transition-all
+                    duration-700
+                    hover:border-[#D6B25E]/70
+                    hover:text-[#D6B25E]
+                    hover:shadow-[0_0_45px_rgba(214,178,94,0.18)]
+                    cursor-pointer
+                  "
+
+                >
 
                   <span className="
                     relative
                     z-10
                   ">
+
                     Explore Products →
+
                   </span>
+
 
 
                   <span className="
@@ -157,33 +177,73 @@ export function Hero() {
                     inset-0
                     translate-y-full
                     bg-[#D6B25E]/10
-                    transition
+                    transition-transform
+                    duration-700
                     group-hover:translate-y-0
                   "/>
 
 
-                </button>
+                </a>
 
 
 
 
-                <button className="
-                  rounded-2xl
-                  border
-                  border-white/10
-                  bg-white/[0.03]
-                  px-8
-                  py-4
-                  text-sm
-                  text-white/70
-                  backdrop-blur-xl
-                  transition
-                  hover:bg-white/[0.08]
-                ">
 
-                  About EON AI
+                {/* About */}
 
-                </button>
+                <a
+
+                  href="#about"
+
+                  className="
+                    group
+                    relative
+                    overflow-hidden
+                    rounded-2xl
+                    border
+                    border-white/[0.12]
+                    bg-white/[0.03]
+                    px-8
+                    py-4
+                    text-sm
+                    font-medium
+                    text-white/70
+                    backdrop-blur-xl
+                    transition-all
+                    duration-700
+                    hover:border-[#D6B25E]/50
+                    hover:text-[#D6B25E]
+                    hover:bg-white/[0.05]
+                    hover:shadow-[0_0_35px_rgba(214,178,94,0.12)]
+                    cursor-pointer
+                  "
+
+                >
+
+                  <span className="
+                    relative
+                    z-10
+                  ">
+
+                    About EON AI
+
+                  </span>
+
+
+
+                  <span className="
+                    absolute
+                    inset-0
+                    translate-y-full
+                    bg-[#D6B25E]/5
+                    transition-transform
+                    duration-700
+                    group-hover:translate-y-0
+                  "/>
+
+
+                </a>
+
 
 
               </div>
@@ -194,6 +254,7 @@ export function Hero() {
 
 
           </div>
+
 
 
 
