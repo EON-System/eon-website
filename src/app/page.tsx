@@ -9,34 +9,23 @@ import { ContactV2 } from "@/components/sections/contact-v2";
 
 export default function Home() {
 
-
   return (
 
     <main className="
-  min-h-screen
-  bg-red-500
-  text-white
-  overflow-hidden
-">
-
+      overflow-hidden
+    ">
 
       <Hero />
 
-
       <AboutV2 />
-
 
       <ProductsV2 />
 
-
       <ResearchV2 />
-
 
       <NewsV2 />
 
-
       <ContactV2 />
-
 
     </main>
 
