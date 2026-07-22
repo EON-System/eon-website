@@ -37,23 +37,35 @@ body {
 
   min-height: 100vh;
 
+  position: relative;
+
+  overflow-x: hidden;
+
   background:
 
     radial-gradient(
-      circle at 50% -10%,
-      rgba(139, 92, 246, 0.14),
-      transparent 35%
+      circle at 50% -20%,
+      rgba(139,92,246,0.18),
+      transparent 38%
     ),
 
     radial-gradient(
-      circle at 50% 20%,
-      rgba(214, 178, 94, 0.10),
+      circle at 80% 20%,
+      rgba(214,178,94,0.10),
       transparent 30%
     ),
 
-    var(--background);
+    radial-gradient(
+      circle at 10% 80%,
+      rgba(139,92,246,0.08),
+      transparent 25%
+    ),
+
+    #0B0B0F;
+
 
   color: var(--foreground);
+
 
   font-family:
     var(--font-inter),
@@ -61,9 +73,65 @@ body {
     Helvetica,
     sans-serif;
 
+
   -webkit-font-smoothing: antialiased;
 
   -moz-osx-font-smoothing: grayscale;
+
+}
+
+
+
+/* Ambient light layer */
+
+body::before {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+
+  background:
+
+    radial-gradient(
+      circle at center,
+      transparent 30%,
+      rgba(0,0,0,0.45) 100%
+    );
+
+
+  z-index: -1;
+
+}
+
+
+
+/* Premium grain texture */
+
+body::after {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+
+  opacity: 0.035;
+
+
+  background-image:
+
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23noise)'/%3E%3C/svg%3E");
+
+
+  z-index: 10;
 
 }
 
@@ -74,9 +142,11 @@ body {
 ::selection {
 
   background:
+
     rgba(214,178,94,0.35);
 
   color:
+
     #ffffff;
 
 }
@@ -91,9 +161,11 @@ h3,
 h4 {
 
   letter-spacing:
+
     -0.04em;
 
   font-weight:
+
     600;
 
 }
@@ -103,6 +175,7 @@ h4 {
 p {
 
   letter-spacing:
+
     -0.01em;
 
 }
@@ -114,6 +187,7 @@ p {
 a {
 
   text-decoration:
+
     none;
 
 }
@@ -125,6 +199,7 @@ a {
 ::-webkit-scrollbar {
 
   width:
+
     8px;
 
 }
@@ -134,6 +209,7 @@ a {
 ::-webkit-scrollbar-track {
 
   background:
+
     #08080B;
 
 }
@@ -143,9 +219,11 @@ a {
 ::-webkit-scrollbar-thumb {
 
   background:
+
     rgba(214,178,94,0.25);
 
   border-radius:
+
     999px;
 
 }
@@ -155,6 +233,7 @@ a {
 ::-webkit-scrollbar-thumb:hover {
 
   background:
+
     rgba(214,178,94,0.45);
 
 }
@@ -169,13 +248,16 @@ a {
 
     rgba(255,255,255,0.035);
 
+
   backdrop-filter:
 
     blur(24px);
 
+
   -webkit-backdrop-filter:
 
     blur(24px);
+
 
   border:
 
@@ -185,7 +267,7 @@ a {
 
 
 
-/* Gold Glow */
+/* Gold glow */
 
 .gold-glow {
 
@@ -198,7 +280,7 @@ a {
 
 
 
-/* AI Glow */
+/* AI purple glow */
 
 .ai-glow {
 
@@ -211,23 +293,32 @@ a {
 
 
 
-/* Container */
+/* EON container */
 
 .container-eon {
 
   width:
+
     100%;
 
+
   max-width:
+
     1280px;
 
+
   margin:
+
     0 auto;
 
+
   padding-left:
+
     24px;
 
+
   padding-right:
+
     24px;
 
 }
@@ -242,9 +333,12 @@ a {
   h1 {
 
     font-size:
+
       3rem;
 
+
     line-height:
+
       1.05;
 
   }
@@ -254,9 +348,12 @@ a {
   h2 {
 
     font-size:
+
       2.25rem;
 
+
     line-height:
+
       1.1;
 
   }
