@@ -9,104 +9,139 @@ export function EonSymbol() {
 
     <div className="
       relative
-      h-[500px]
-      w-[500px]
+      flex
+      h-[460px]
+      w-[460px]
+      items-center
+      justify-center
     ">
 
 
+      {/* Glow */}
+
       <motion.div
 
         animate={{
-          rotate:360
+          opacity:[0.25,0.45,0.25],
+          scale:[1,1.15,1]
         }}
 
         transition={{
-          duration:60,
+          duration:8,
           repeat:Infinity,
-          ease:"linear"
+          ease:"easeInOut"
         }}
 
         className="
           absolute
-          inset-20
+          h-80
+          w-80
           rounded-full
-          border
-          border-[#D6B25E]/20
+          bg-[#D6B25E]/20
+          blur-[100px]
         "
 
       />
 
 
 
+      {/* Prism */}
+
       <motion.div
 
         animate={{
-          rotate:-360
+          rotateY:[0,360]
         }}
 
         transition={{
-          duration:90,
+          duration:25,
           repeat:Infinity,
           ease:"linear"
         }}
 
         className="
+          relative
+          h-72
+          w-56
+          rounded-[32px]
+          border
+          border-[#D6B25E]/30
+          bg-gradient-to-br
+          from-white/[0.12]
+          via-white/[0.03]
+          to-transparent
+          backdrop-blur-3xl
+          shadow-[0_0_80px_rgba(214,178,94,0.18)]
+        "
+
+      >
+
+
+        {/* Inner glass */}
+
+        <div className="
           absolute
-          inset-10
-          rounded-full
+          inset-5
+          rounded-[24px]
           border
           border-white/10
-        "
+          bg-gradient-to-b
+          from-[#D6B25E]/20
+          to-transparent
+        "/>
 
-      />
 
 
+        {/* EON */}
+
+        <div className="
+          absolute
+          inset-0
+          flex
+          flex-col
+          items-center
+          justify-center
+        ">
+
+          <span className="
+            text-5xl
+            font-semibold
+            tracking-[-0.08em]
+            text-[#F4F1EA]
+          ">
+            EON
+          </span>
+
+
+          <span className="
+            mt-3
+            text-[10px]
+            uppercase
+            tracking-[0.5em]
+            text-[#D6B25E]
+          ">
+            Intelligence
+          </span>
+
+
+        </div>
+
+
+      </motion.div>
+
+
+
+      {/* Floating particles */}
 
       <div className="
         absolute
-        inset-0
-        flex
-        items-center
-        justify-center
-      ">
-
-
-        <motion.div
-
-          animate={{
-            opacity:[0.3,0.8,0.3]
-          }}
-
-          transition={{
-            duration:6,
-            repeat:Infinity
-          }}
-
-          className="
-            h-40
-            w-40
-            rounded-full
-            bg-[#D6B25E]/20
-            blur-[80px]
-          "
-
-        />
-
-
-      </div>
-
-
-      <div className="
-        absolute
-        left-1/2
-        top-1/2
+        right-24
+        top-24
         h-2
         w-2
-        -translate-x-1/2
-        -translate-y-1/2
         rounded-full
         bg-[#D6B25E]
-        shadow-[0_0_60px_20px_rgba(214,178,94,0.5)]
+        shadow-[0_0_40px_10px_rgba(214,178,94,0.5)]
       "/>
 
 
