@@ -3,6 +3,22 @@
 import Link from "next/link";
 
 
+const links = [
+  {
+    name: "Products",
+    href: "/products",
+  },
+  {
+    name: "Research",
+    href: "/research",
+  },
+  {
+    name: "About",
+    href: "/about",
+  },
+];
+
+
 export function Navbar() {
 
   return (
@@ -13,24 +29,43 @@ export function Navbar() {
       left-0
       right-0
       z-50
+      px-6
     ">
 
 
       <nav className="
+        relative
         mx-auto
         flex
         max-w-6xl
         items-center
         justify-between
-        rounded-3xl
+        overflow-hidden
+        rounded-[28px]
         border
         border-white/[0.08]
-        bg-black/40
+        bg-[#080808]/70
         px-8
         py-4
-        backdrop-blur-2xl
-        shadow-[0_20px_80px_rgba(0,0,0,0.45)]
+        backdrop-blur-3xl
+        shadow-[0_30px_100px_rgba(0,0,0,0.6)]
       ">
+
+
+        {/* glass reflection */}
+
+        <div className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          top-0
+          h-px
+          bg-gradient-to-r
+          from-transparent
+          via-white/20
+          to-transparent
+        "/>
+
 
 
         {/* Logo */}
@@ -40,6 +75,7 @@ export function Navbar() {
           href="/"
 
           className="
+            group
             flex
             items-center
             gap-2
@@ -50,8 +86,12 @@ export function Navbar() {
           <span className="
             text-xl
             font-semibold
-            tracking-[-0.05em]
+            tracking-[-0.06em]
             text-[#F4F1EA]
+            transition-all
+            duration-700
+            group-hover:text-[#D6B25E]
+            group-hover:drop-shadow-[0_0_15px_rgba(214,178,94,0.35)]
           ">
 
             EON
@@ -62,8 +102,11 @@ export function Navbar() {
           <span className="
             text-xl
             font-light
-            tracking-[-0.05em]
-            text-white/40
+            tracking-[-0.06em]
+            text-white/35
+            transition-all
+            duration-700
+            group-hover:text-[#D6B25E]/70
           ">
 
             AI
@@ -75,60 +118,65 @@ export function Navbar() {
 
 
 
+
         {/* Menu */}
 
         <div className="
           hidden
           items-center
-          gap-10
+          gap-12
           md:flex
         ">
 
 
-          <Link
-            href="/products"
-            className="
-              text-sm
-              text-white/60
-              transition
-              hover:text-white
-            "
-          >
-            Products
-          </Link>
+          {links.map((item)=>(
+
+            <Link
+
+              key={item.name}
+
+              href={item.href}
+
+              className="
+                group
+                relative
+                text-sm
+                text-white/55
+                transition-all
+                duration-500
+                hover:text-[#D6B25E]
+              "
+
+            >
+
+              {item.name}
 
 
-          <Link
-            href="/research"
-            className="
-              text-sm
-              text-white/60
-              transition
-              hover:text-white
-            "
-          >
-            Research
-          </Link>
+              <span className="
+                absolute
+                -bottom-2
+                left-0
+                h-px
+                w-0
+                bg-[#D6B25E]
+                transition-all
+                duration-700
+                group-hover:w-full
+              "/>
 
 
-          <Link
-            href="/about"
-            className="
-              text-sm
-              text-white/60
-              transition
-              hover:text-white
-            "
-          >
-            About
-          </Link>
+            </Link>
+
+          ))}
 
 
         </div>
 
 
 
-        {/* Button */}
+
+
+        {/* CTA */}
 
         <Link
 
@@ -136,26 +184,45 @@ export function Navbar() {
 
           className="
             group
+            relative
+            overflow-hidden
             rounded-2xl
             border
-            border-[#D6B25E]/30
-            bg-white/[0.03]
-            px-6
+            border-[#D6B25E]/25
+            bg-white/[0.025]
+            px-7
             py-3
             text-sm
+            font-medium
             text-[#F4F1EA]
             backdrop-blur-xl
-            transition
-            duration-300
+            transition-all
+            duration-700
             hover:border-[#D6B25E]/70
-            hover:bg-[#D6B25E]/10
-            hover:shadow-[0_0_35px_rgba(214,178,94,0.15)]
+            hover:text-[#D6B25E]
+            hover:shadow-[0_0_45px_rgba(214,178,94,0.18)]
             cursor-pointer
           "
 
         >
 
-          Contact
+          <span className="
+            relative
+            z-10
+          ">
+            Contact
+          </span>
+
+
+          <span className="
+            absolute
+            inset-0
+            translate-y-full
+            bg-[#D6B25E]/10
+            transition-transform
+            duration-700
+            group-hover:translate-y-0
+          "/>
 
 
         </Link>
