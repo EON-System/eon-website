@@ -51,23 +51,21 @@ body {
     ),
 
     radial-gradient(
-      circle at 15% 30%,
-      rgba(122,31,31,0.14),
-      transparent 28%
+      circle at 15% 40%,
+      rgba(122,31,31,0.16),
+      transparent 30%
     ),
 
     radial-gradient(
       circle at 85% 70%,
-      rgba(214,178,94,0.06),
+      rgba(214,178,94,0.07),
       transparent 25%
     ),
 
     var(--background);
 
 
-  color:
-
-    var(--foreground);
+  color: var(--foreground);
 
 
   font-family:
@@ -78,24 +76,17 @@ body {
     sans-serif;
 
 
-  -webkit-font-smoothing:
+  -webkit-font-smoothing: antialiased;
 
-    antialiased;
-
-
-  -moz-osx-font-smoothing:
-
-    grayscale;
+  -moz-osx-font-smoothing: grayscale;
 
 }
 
 
 
-/* Deep luxury atmosphere */
+/* Technology grid */
 
-body::before {
-
-  content: "";
+.eon-grid {
 
   position: fixed;
 
@@ -103,17 +94,66 @@ body::before {
 
   pointer-events: none;
 
+  z-index: -2;
 
-  background:
+
+  opacity: 0.08;
+
+
+  background-image:
 
     linear-gradient(
-      180deg,
-      rgba(255,255,255,0.02),
-      transparent 30%
+      rgba(214,178,94,0.15) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(214,178,94,0.15) 1px,
+      transparent 1px
     );
 
 
-  z-index: -1;
+  background-size:
+
+    120px 120px;
+
+
+  mask-image:
+
+    radial-gradient(
+      circle at center,
+      black,
+      transparent 70%
+    );
+
+}
+
+
+
+/* Soft light */
+
+body::before {
+
+  content:"";
+
+  position: fixed;
+
+  inset:0;
+
+  pointer-events:none;
+
+
+  background:
+
+    radial-gradient(
+      circle at center,
+      transparent 30%,
+      rgba(0,0,0,0.5)
+    );
+
+
+  z-index:-1;
 
 }
 
@@ -123,24 +163,24 @@ body::before {
 
 body::after {
 
-  content: "";
+  content:"";
 
-  position: fixed;
+  position:fixed;
 
-  inset: 0;
+  inset:0;
 
-  pointer-events: none;
+  pointer-events:none;
 
 
-  opacity: 0.025;
+  opacity:0.025;
 
 
   background-image:
 
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23noise)'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
 
 
-  z-index: 10;
+  z-index:10;
 
 }
 
@@ -154,10 +194,7 @@ body::after {
 
     rgba(214,178,94,0.35);
 
-
-  color:
-
-    white;
+  color:white;
 
 }
 
@@ -170,14 +207,9 @@ h2,
 h3,
 h4 {
 
-  letter-spacing:
+  letter-spacing:-0.04em;
 
-    -0.04em;
-
-
-  font-weight:
-
-    600;
+  font-weight:600;
 
 }
 
@@ -185,9 +217,7 @@ h4 {
 
 p {
 
-  letter-spacing:
-
-    -0.01em;
+  letter-spacing:-0.01em;
 
 }
 
@@ -197,9 +227,18 @@ p {
 
 a {
 
-  text-decoration:
+  text-decoration:none;
 
-    none;
+}
+
+
+
+/* Cursor */
+
+button,
+a {
+
+  cursor:pointer;
 
 }
 
@@ -209,22 +248,16 @@ a {
 
 ::-webkit-scrollbar {
 
-  width:
-
-    8px;
+  width:8px;
 
 }
-
 
 
 ::-webkit-scrollbar-track {
 
-  background:
-
-    #0A0705;
+  background:#090604;
 
 }
-
 
 
 ::-webkit-scrollbar-thumb {
@@ -234,9 +267,7 @@ a {
     rgba(214,178,94,0.25);
 
 
-  border-radius:
-
-    999px;
+  border-radius:999px;
 
 }
 
@@ -269,26 +300,25 @@ a {
 
 
 
-/* Gold glow */
+/* Glow */
 
 .gold-glow {
 
   box-shadow:
 
     0 0 60px
+
     rgba(214,178,94,0.22);
 
 }
 
-
-
-/* Warm glow */
 
 .warm-glow {
 
   box-shadow:
 
     0 0 100px
+
     rgba(122,31,31,0.25);
 
 }
@@ -299,29 +329,15 @@ a {
 
 .container-eon {
 
-  width:
+  width:100%;
 
-    100%;
+  max-width:1280px;
 
+  margin:0 auto;
 
-  max-width:
+  padding-left:24px;
 
-    1280px;
-
-
-  margin:
-
-    0 auto;
-
-
-  padding-left:
-
-    24px;
-
-
-  padding-right:
-
-    24px;
+  padding-right:24px;
 
 }
 
@@ -329,36 +345,25 @@ a {
 
 /* Mobile */
 
-@media (max-width:768px) {
+@media(max-width:768px){
 
 
-  h1 {
+h1 {
 
-    font-size:
+  font-size:3rem;
 
-      3rem;
+  line-height:1.05;
 
-
-    line-height:
-
-      1.05;
-
-  }
+}
 
 
+h2 {
 
-  h2 {
+  font-size:2.25rem;
 
-    font-size:
+  line-height:1.1;
 
-      2.25rem;
-
-
-    line-height:
-
-      1.1;
-
-  }
+}
 
 
 }
