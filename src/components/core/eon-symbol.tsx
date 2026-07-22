@@ -1,231 +1,171 @@
 "use client";
 
-import { Canvas, useFrame } from "@react-three/fiber";
-import {
-  Environment,
-  Float,
-  MeshTransmissionMaterial,
-  Sphere,
-} from "@react-three/drei";
-
-import { EffectComposer, Bloom } from "@react-three/postprocessing";
-
-import { useRef } from "react";
-import * as THREE from "three";
-
-
-function Core() {
-
-  const core = useRef<THREE.Mesh>(null);
-  const ring1 = useRef<THREE.Mesh>(null);
-  const ring2 = useRef<THREE.Mesh>(null);
-
-
-  useFrame((state) => {
-
-    const t = state.clock.getElapsedTime();
-
-
-    if (core.current) {
-
-      core.current.rotation.y = t * 0.15;
-
-      core.current.position.y =
-        Math.sin(t * 0.8) * 0.08;
-
-    }
-
-
-    if (ring1.current) {
-
-      ring1.current.rotation.z =
-        t * 0.25;
-
-    }
-
-
-    if (ring2.current) {
-
-      ring2.current.rotation.z =
-        -t * 0.18;
-
-    }
-
-  });
-
-
-
-  return (
-
-    <group>
-
-
-      {/* Glass AI Core */}
-
-      <Sphere
-        ref={core}
-        args={[1.15, 128, 128]}
-      >
-
-        <MeshTransmissionMaterial
-
-          thickness={1.8}
-
-          roughness={0.08}
-
-          transmission={1}
-
-          chromaticAberration={0.04}
-
-          anisotropy={0.3}
-
-          color="#D6B25E"
-
-        />
-
-      </Sphere>
-
-
-
-      {/* Inner golden energy */}
-
-      <Sphere args={[0.45, 64, 64]}>
-
-        <meshStandardMaterial
-
-          color="#D6B25E"
-
-          emissive="#D6B25E"
-
-          emissiveIntensity={3}
-
-        />
-
-      </Sphere>
-
-
-
-      {/* Energy ring 1 */}
-
-      <mesh ref={ring1}>
-
-        <torusGeometry
-          args={[1.55,0.012,32,256]}
-        />
-
-        <meshBasicMaterial
-
-          color="#D6B25E"
-
-          transparent
-
-          opacity={0.7}
-
-        />
-
-      </mesh>
-
-
-
-      {/* Energy ring 2 */}
-
-      <mesh ref={ring2}>
-
-        <torusGeometry
-          args={[1.85,0.008,32,256]}
-        />
-
-        <meshBasicMaterial
-
-          color="#F4F1EA"
-
-          transparent
-
-          opacity={0.25}
-
-        />
-
-      </mesh>
-
-
-    </group>
-
-  );
-
-}
-
+import { motion } from "framer-motion";
 
 
 export function EonSymbol() {
 
-
   return (
 
     <div className="
+      relative
+      flex
       h-[520px]
       w-[520px]
+      items-center
+      justify-center
     ">
 
 
-      <Canvas
+      {/* Deep golden aura */}
 
-        camera={{
-          position:[0,0,5],
-          fov:45
+      <motion.div
+
+        animate={{
+          scale:[1,1.2,1],
+          opacity:[0.25,0.5,0.25]
         }}
 
-      >
+        transition={{
+          duration:7,
+          repeat:Infinity,
+          ease:"easeInOut"
+        }}
 
+        className="
+          absolute
+          h-[420px]
+          w-[420px]
+          rounded-full
+          bg-[#D6B25E]/20
+          blur-[130px]
+        "
 
-        <ambientLight intensity={0.5}/>
-
-
-        <pointLight
-
-          position={[3,3,3]}
-
-          intensity={8}
-
-          color="#D6B25E"
-
-        />
-
-
-        <Float
-
-          speed={2}
-
-          rotationIntensity={0.4}
-
-          floatIntensity={0.3}
-
-        >
-
-          <Core />
-
-        </Float>
+      />
 
 
 
-        <Environment preset="city"/>
+      {/* Outer ring */}
+
+      <motion.div
+
+        animate={{
+          rotate:360
+        }}
+
+        transition={{
+          duration:45,
+          repeat:Infinity,
+          ease:"linear"
+        }}
+
+        className="
+          absolute
+          h-[430px]
+          w-[430px]
+          rounded-full
+          border
+          border-[#D6B25E]/50
+          shadow-[0_0_90px_rgba(214,178,94,0.35)]
+        "
+
+      />
 
 
-        <EffectComposer>
 
-          <Bloom
+      {/* Outer ring glow */}
 
-            intensity={1.5}
+      <motion.div
 
-            luminanceThreshold={0}
+        animate={{
+          opacity:[0.2,0.55,0.2]
+        }}
 
-            luminanceSmoothing={0.8}
+        transition={{
+          duration:5,
+          repeat:Infinity
+        }}
 
-          />
+        className="
+          absolute
+          h-[430px]
+          w-[430px]
+          rounded-full
+          border
+          border-[#D6B25E]/30
+          blur-[8px]
+        "
 
-        </EffectComposer>
+      />
 
 
-      </Canvas>
+
+      {/* Inner ring */}
+
+      <motion.div
+
+        animate={{
+          rotate:-360
+        }}
+
+        transition={{
+          duration:30,
+          repeat:Infinity,
+          ease:"linear"
+        }}
+
+        className="
+          absolute
+          h-[250px]
+          w-[250px]
+          rounded-full
+          border
+          border-[#D6B25E]
+          shadow-[0_0_70px_rgba(214,178,94,0.65)]
+        "
+
+      />
+
+
+
+      {/* Inner glow */}
+
+      <motion.div
+
+        animate={{
+          scale:[1,1.15,1],
+          opacity:[0.5,0.9,0.5]
+        }}
+
+        transition={{
+          duration:4,
+          repeat:Infinity,
+          ease:"easeInOut"
+        }}
+
+        className="
+          absolute
+          h-[250px]
+          w-[250px]
+          rounded-full
+          border
+          border-[#D6B25E]/40
+          blur-[15px]
+        "
+
+      />
+
+
+
+      {/* Small center light */}
+
+      <div className="
+        h-3
+        w-3
+        rounded-full
+        bg-[#F4F1EA]
+        shadow-[0_0_50px_20px_rgba(214,178,94,0.8)]
+      "/>
 
 
     </div>
