@@ -1,89 +1,171 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
-
-const links = [
-  {
-    name: "Products",
-    href: "#products",
-  },
-  {
-    name: "Technology",
-    href: "#technology",
-  },
-  {
-    name: "Vision",
-    href: "#vision",
-  },
-  {
-    name: "Mission",
-    href: "#mission",
-  },
-];
 
 
 export function Navbar() {
-  return (
-    <motion.header
-      initial={{
-        opacity: 0,
-        y: -20,
-      }}
-      animate={{
-        opacity: 1,
-        y: 0,
-      }}
-      transition={{
-        duration: 0.6,
-      }}
-      className="fixed left-0 top-0 z-50 w-full px-6 py-6"
-    >
 
-      <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-black/40 px-6 py-4 backdrop-blur-xl">
+  return (
+
+    <header className="
+      fixed
+      top-6
+      left-0
+      right-0
+      z-50
+    ">
+
+
+      <nav className="
+        mx-auto
+        flex
+        max-w-6xl
+        items-center
+        justify-between
+        rounded-3xl
+        border
+        border-white/[0.08]
+        bg-black/40
+        px-8
+        py-4
+        backdrop-blur-2xl
+        shadow-[0_20px_80px_rgba(0,0,0,0.45)]
+      ">
 
 
         {/* Logo */}
 
         <Link
+
           href="/"
-          className="text-lg font-semibold tracking-[0.35em]"
+
+          className="
+            flex
+            items-center
+            gap-2
+          "
+
         >
-          EON AI
+
+          <span className="
+            text-xl
+            font-semibold
+            tracking-[-0.05em]
+            text-[#F4F1EA]
+          ">
+
+            EON
+
+          </span>
+
+
+          <span className="
+            text-xl
+            font-light
+            tracking-[-0.05em]
+            text-white/40
+          ">
+
+            AI
+
+          </span>
+
+
         </Link>
 
 
 
-        {/* Desktop */}
+        {/* Menu */}
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="
+          hidden
+          items-center
+          gap-10
+          md:flex
+        ">
 
-          {links.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-sm text-white/50 transition hover:text-white"
-            >
-              {link.name}
-            </Link>
-          ))}
+
+          <Link
+            href="/products"
+            className="
+              text-sm
+              text-white/60
+              transition
+              hover:text-white
+            "
+          >
+            Products
+          </Link>
+
+
+          <Link
+            href="/research"
+            className="
+              text-sm
+              text-white/60
+              transition
+              hover:text-white
+            "
+          >
+            Research
+          </Link>
+
+
+          <Link
+            href="/about"
+            className="
+              text-sm
+              text-white/60
+              transition
+              hover:text-white
+            "
+          >
+            About
+          </Link>
+
 
         </div>
 
 
 
-        {/* CTA */}
+        {/* Button */}
 
         <Link
-          href="#contact"
-          className="rounded-full bg-[#D6B25E] px-5 py-2.5 text-sm text-black transition hover:scale-105"
+
+          href="/contact"
+
+          className="
+            group
+            rounded-2xl
+            border
+            border-[#D6B25E]/30
+            bg-white/[0.03]
+            px-6
+            py-3
+            text-sm
+            text-[#F4F1EA]
+            backdrop-blur-xl
+            transition
+            duration-300
+            hover:border-[#D6B25E]/70
+            hover:bg-[#D6B25E]/10
+            hover:shadow-[0_0_35px_rgba(214,178,94,0.15)]
+            cursor-pointer
+          "
+
         >
-          Early Access
+
+          Contact
+
+
         </Link>
 
 
       </nav>
 
-    </motion.header>
+
+    </header>
+
   );
+
 }
