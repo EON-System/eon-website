@@ -6,15 +6,15 @@ import Link from "next/link";
 const links = [
   {
     name: "Products",
-    href: "/products",
+    href: "#products",
   },
   {
     name: "Research",
-    href: "/research",
+    href: "#research",
   },
   {
     name: "About",
-    href: "/about",
+    href: "#about",
   },
 ];
 
@@ -52,7 +52,7 @@ export function Navbar() {
       ">
 
 
-        {/* glass reflection */}
+        {/* Glass highlight */}
 
         <div className="
           pointer-events-none
@@ -64,7 +64,7 @@ export function Navbar() {
           from-transparent
           via-white/20
           to-transparent
-        "/>
+        " />
 
 
 
@@ -119,7 +119,8 @@ export function Navbar() {
 
 
 
-        {/* Menu */}
+
+        {/* Navigation */}
 
         <div className="
           hidden
@@ -129,13 +130,13 @@ export function Navbar() {
         ">
 
 
-          {links.map((item)=>(
+          {links.map((link) => (
 
             <Link
 
-              key={item.name}
+              key={link.name}
 
-              href={item.href}
+              href={link.href}
 
               className="
                 group
@@ -149,7 +150,7 @@ export function Navbar() {
 
             >
 
-              {item.name}
+              {link.name}
 
 
               <span className="
@@ -162,7 +163,7 @@ export function Navbar() {
                 transition-all
                 duration-700
                 group-hover:w-full
-              "/>
+              " />
 
 
             </Link>
@@ -176,11 +177,11 @@ export function Navbar() {
 
 
 
-        {/* CTA */}
+        {/* Contact */}
 
         <Link
 
-          href="/contact"
+          href="#contact"
 
           className="
             group
@@ -222,7 +223,7 @@ export function Navbar() {
             transition-transform
             duration-700
             group-hover:translate-y-0
-          "/>
+          " />
 
 
         </Link>
