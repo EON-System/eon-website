@@ -8,14 +8,13 @@ import { Footer } from "@/components/layout/footer";
 import { EonIntro } from "@/components/core/eon-intro";
 
 
-
 const inter = Inter({
 
-  subsets: ["latin"],
+  subsets:["latin"],
 
-  variable: "--font-inter",
+  variable:"--font-inter",
 
-  display: "swap",
+  display:"swap",
 
 });
 
@@ -26,10 +25,8 @@ export const metadata: Metadata = {
   title:
     "EON AI — Personal Intelligence Company",
 
-
   description:
     "Building AI companions for human evolution.",
-
 
 };
 
@@ -41,47 +38,46 @@ export default function RootLayout({
 
 }: Readonly<{
 
-  children: React.ReactNode;
+  children:React.ReactNode;
 
 }>) {
 
 
-  return (
+return (
 
-    <html
+<html
 
-      lang="en"
+lang="en"
 
-      className={inter.variable}
+className={inter.variable}
 
-    >
-
-
-      <body className="
-        bg-[#050505]
-        text-[#F4F1EA]
-        antialiased
-      ">
+>
 
 
-
-        <EonIntro />
-
-
-        <Navbar />
+<body>
 
 
-        {children}
+<div className="eon-grid" />
 
 
-        <Footer />
+<EonIntro />
 
 
-      </body>
+<Navbar />
 
 
-    </html>
+{children}
 
-  );
+
+<Footer />
+
+
+</body>
+
+
+</html>
+
+);
+
 
 }
