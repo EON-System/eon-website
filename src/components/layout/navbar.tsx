@@ -52,7 +52,7 @@ export function Navbar() {
       ">
 
 
-        {/* Glass highlight */}
+        {/* Glass reflection */}
 
         <div className="
           pointer-events-none
@@ -72,7 +72,7 @@ export function Navbar() {
 
         <Link
 
-          href="/"
+          href="#top"
 
           className="
             group
@@ -153,6 +153,7 @@ export function Navbar() {
               {link.name}
 
 
+
               <span className="
                 absolute
                 -bottom-2
@@ -160,6 +161,7 @@ export function Navbar() {
                 h-px
                 w-0
                 bg-[#D6B25E]
+                shadow-[0_0_12px_rgba(214,178,94,0.8)]
                 transition-all
                 duration-700
                 group-hover:w-full
@@ -177,7 +179,7 @@ export function Navbar() {
 
 
 
-        {/* Contact */}
+        {/* Contact Button */}
 
         <Link
 
@@ -211,8 +213,11 @@ export function Navbar() {
             relative
             z-10
           ">
+
             Contact
+
           </span>
+
 
 
           <span className="
