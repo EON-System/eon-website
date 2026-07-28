@@ -17,6 +17,8 @@ export default function Home() {
 
       <Hero />
 
+      <ProductShowcase />
+
       <AboutV2 />
 
       <ProductsV2 />
