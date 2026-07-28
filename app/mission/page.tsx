@@ -1,227 +1,215 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Background } from "@/components/background";
-
-
-const principles = [
-  {
-    title: "Intelligence",
-    text: "Creating AI systems that understand context, emotions and human intentions."
-  },
-  {
-    title: "Memory",
-    text: "Building persistent digital intelligence that grows through experience."
-  },
-  {
-    title: "Evolution",
-    text: "Helping people explore possibilities and become better versions of themselves."
-  },
-];
 
 
 export default function MissionPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-[#F4F1EA]">
-
-      <Background />
-
-
-      {/* Hero */}
-
-      <section
-        className="
-          mx-auto
-          flex
-          min-h-screen
-          max-w-7xl
-          flex-col
-          justify-center
-          px-6
-          py-32
-        "
-      >
-
-        <motion.div
-          initial={{
-            opacity:0,
-            y:40,
-          }}
-          animate={{
-            opacity:1,
-            y:0,
-          }}
-          transition={{
-            duration:1,
-          }}
-        >
-
-          <p
-            className="
-              mb-8
-              text-xs
-              uppercase
-              tracking-[0.45em]
-              text-[#D6B25E]
-            "
-          >
-            EON AI Mission
-          </p>
-
-
-          <h1
-            className="
-              max-w-5xl
-              text-5xl
-              font-medium
-              leading-[1.05]
-              tracking-tight
-              md:text-8xl
-            "
-          >
-            Creating AI that
-            understands humans.
-          </h1>
-
-
-          <p
-            className="
-              mt-10
-              max-w-3xl
-              text-lg
-              leading-8
-              text-white/50
-              md:text-xl
-            "
-          >
-            Our mission is to build personal intelligence systems
-            that transform the relationship between humans and technology.
-          </p>
-
-
-        </motion.div>
-
-
-      </section>
-
-
-
-
-      {/* Principles */}
-
-      <section
-        className="
-          mx-auto
-          max-w-7xl
-          px-6
-          pb-32
-        "
-      >
-
-        <div
-          className="
-            grid
-            gap-8
-            md:grid-cols-3
-          "
-        >
-
-          {principles.map((item,index)=>(
-            <motion.div
-              key={item.title}
-              initial={{
-                opacity:0,
-                y:40,
-              }}
-              whileInView={{
-                opacity:1,
-                y:0,
-              }}
-              viewport={{
-                once:true,
-              }}
-              transition={{
-                delay:index * 0.15,
-                duration:0.7,
-              }}
-              className="
-                rounded-3xl
-                border
-                border-white/10
-                bg-white/[0.03]
-                p-8
-                backdrop-blur-xl
-              "
-            >
-
-              <h2
-                className="
-                  text-2xl
-                  font-medium
-                "
-              >
-                {item.title}
-              </h2>
-
-
-              <p
-                className="
-                  mt-5
-                  leading-7
-                  text-white/50
-                "
-              >
-                {item.text}
-              </p>
-
-
-            </motion.div>
-          ))}
-
-
-        </div>
-
-      </section>
-
-
-
-
-      {/* Final Statement */}
+    <main
+      className="
+        min-h-screen
+        overflow-hidden
+        px-6
+        py-32
+      "
+    >
 
       <section
         className="
           mx-auto
           max-w-5xl
-          px-6
-          pb-40
           text-center
         "
       >
 
-        <motion.h2
+        <motion.p
           initial={{
-            opacity:0,
-            scale:0.96,
+            opacity: 0,
+            y: 20,
           }}
-          whileInView={{
-            opacity:1,
-            scale:1,
-          }}
-          viewport={{
-            once:true,
-          }}
-          transition={{
-            duration:0.8,
+          animate={{
+            opacity: 1,
+            y: 0,
           }}
           className="
-            text-3xl
-            leading-tight
-            md:text-6xl
+            text-xs
+            uppercase
+            tracking-[0.5em]
+            text-[#D6B25E]
           "
         >
-          Technology should not replace humanity.
-          It should amplify it.
-        </motion.h2>
+          Our Mission
+        </motion.p>
+
+
+
+        <motion.h1
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 1,
+          }}
+          className="
+            mt-10
+            text-5xl
+            font-medium
+            leading-tight
+            md:text-8xl
+          "
+        >
+          Creating AI
+          that evolves with humanity.
+        </motion.h1>
+
+
+
+        <motion.p
+          initial={{
+            opacity:0,
+          }}
+          animate={{
+            opacity:1,
+          }}
+          transition={{
+            delay:0.4,
+          }}
+          className="
+            mx-auto
+            mt-10
+            max-w-3xl
+            text-lg
+            leading-8
+            text-white/50
+          "
+        >
+          Our mission is to build personal intelligence
+          systems that help people understand themselves,
+          make better decisions and unlock their future potential.
+        </motion.p>
+
+
+
+
+        <div
+          className="
+            mt-24
+            grid
+            gap-8
+            text-left
+            md:grid-cols-3
+          "
+        >
+
+          <div
+            className="
+              rounded-3xl
+              border
+              border-white/10
+              bg-white/[0.03]
+              p-8
+            "
+          >
+
+            <h2
+              className="
+                text-2xl
+                font-medium
+              "
+            >
+              Human First
+            </h2>
+
+            <p
+              className="
+                mt-4
+                leading-7
+                text-white/50
+              "
+            >
+              Technology should amplify human potential,
+              not replace human identity.
+            </p>
+
+          </div>
+
+
+
+
+          <div
+            className="
+              rounded-3xl
+              border
+              border-white/10
+              bg-white/[0.03]
+              p-8
+            "
+          >
+
+            <h2
+              className="
+                text-2xl
+                font-medium
+              "
+            >
+              Personal Intelligence
+            </h2>
+
+            <p
+              className="
+                mt-4
+                leading-7
+                text-white/50
+              "
+            >
+              Every person deserves AI that understands
+              their unique journey.
+            </p>
+
+          </div>
+
+
+
+
+          <div
+            className="
+              rounded-3xl
+              border
+              border-white/10
+              bg-white/[0.03]
+              p-8
+            "
+          >
+
+            <h2
+              className="
+                text-2xl
+                font-medium
+              "
+            >
+              Future Evolution
+            </h2>
+
+            <p
+              className="
+                mt-4
+                leading-7
+                text-white/50
+              "
+            >
+              Building the foundation for the next
+              generation of human-AI relationships.
+            </p>
+
+          </div>
+
+
+        </div>
 
 
       </section>
