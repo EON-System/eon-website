@@ -5,6 +5,8 @@ import { EonIntelligence } from "@/components/eon-intelligence";
 import { IntelligenceEvolution } from "@/components/intelligence-evolution";
 import { FutureIntelligence } from "@/components/future-intelligence";
 
+import { HeroTransition } from "@/components/motion/hero-transition";
+
 import { AboutV2 } from "@/components/sections/about-v2";
 import { ResearchV2 } from "@/components/sections/research-v2";
 import { NewsV2 } from "@/components/sections/news-v2";
@@ -20,6 +22,11 @@ export default function Home() {
     >
 
       <Hero />
+
+
+      {/* Cinematic bridge */}
+
+      <HeroTransition />
 
 
       {/* Product universe */}
