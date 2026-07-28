@@ -1,38 +1,51 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 
 const products = [
   {
     name: "SoulMirror AI",
-    subtitle: "Understand yourself.",
+    tagline: "Understand yourself.",
     description:
-      "An AI companion for self-discovery, reflection and understanding your inner world.",
+      "An AI companion designed for self-discovery, reflection and understanding your inner world.",
+    features: [
+      "Memory",
+      "Identity",
+      "Reflection",
+    ],
     href: "/products/soulmirror",
-    accent: "from-[#D6B25E]/30",
+    glow: "bg-[#D6B25E]/20",
   },
   {
     name: "FutureSelf AI",
-    subtitle: "Meet your future.",
+    tagline: "Meet the person you can become.",
     description:
-      "Explore possibilities, decisions and the person you can become.",
+      "A personal intelligence system that helps you explore possibilities and future versions of yourself.",
+    features: [
+      "Vision",
+      "Growth",
+      "Evolution",
+    ],
     href: "/products/futureself",
-    accent: "from-[#8B5CF6]/30",
+    glow: "bg-[#8B5CF6]/20",
   },
 ];
 
 
 export function ProductShowcase() {
+
   return (
+
     <section
+      id="products"
       className="
         relative
         mx-auto
         max-w-7xl
         px-6
-        py-32
+        py-40
       "
     >
 
@@ -42,7 +55,7 @@ export function ProductShowcase() {
       <motion.div
         initial={{
           opacity:0,
-          y:40,
+          y:50,
         }}
         whileInView={{
           opacity:1,
@@ -52,17 +65,15 @@ export function ProductShowcase() {
           once:true,
         }}
         transition={{
-          duration:0.8,
+          duration:1,
         }}
         className="
-          mb-20
-          max-w-3xl
+          max-w-4xl
         "
       >
 
         <p
           className="
-            mb-6
             text-xs
             uppercase
             tracking-[0.45em]
@@ -75,15 +86,16 @@ export function ProductShowcase() {
 
         <h2
           className="
-            text-4xl
+            mt-8
+            text-5xl
             font-medium
-            leading-tight
+            leading-[1.05]
             tracking-tight
-            md:text-7xl
+            md:text-8xl
           "
         >
-          Intelligence systems
-          designed around you.
+          Intelligence
+          built around humans.
         </h2>
 
 
@@ -96,9 +108,8 @@ export function ProductShowcase() {
 
       <div
         className="
-          grid
-          gap-8
-          md:grid-cols-2
+          mt-32
+          space-y-40
         "
       >
 
@@ -108,7 +119,7 @@ export function ProductShowcase() {
             key={product.name}
             initial={{
               opacity:0,
-              y:50,
+              y:100,
             }}
             whileInView={{
               opacity:1,
@@ -116,148 +127,212 @@ export function ProductShowcase() {
             }}
             viewport={{
               once:true,
+              amount:0.25,
             }}
             transition={{
-              duration:0.8,
-              delay:index*0.15,
+              duration:1.2,
             }}
+            className="
+              relative
+              overflow-hidden
+              rounded-[50px]
+              border
+              border-white/10
+              bg-white/[0.025]
+              p-8
+              md:p-16
+            "
           >
 
-            <Link
-              href={product.href}
+
+            {/* Ambient light */}
+
+            <div
+              className={`
+                absolute
+                -right-40
+                -top-40
+                h-[600px]
+                w-[600px]
+                rounded-full
+                ${product.glow}
+                blur-[160px]
+              `}
+            />
+
+
+
+            <div
               className="
-                group
                 relative
-                block
-                min-h-[520px]
-                overflow-hidden
-                rounded-[40px]
-                border
-                border-white/10
-                bg-white/[0.03]
-                p-10
-                backdrop-blur-xl
-                transition
-                duration-500
-                hover:border-white/20
+                grid
+                gap-16
+                lg:grid-cols-2
+                lg:items-center
               "
             >
 
 
-              {/* Glow */}
 
-              <div
-                className={`
-                  absolute
-                  -right-32
-                  -top-32
-                  h-[450px]
-                  w-[450px]
-                  rounded-full
-                  bg-gradient-to-br
-                  ${product.accent}
-                  to-transparent
-                  opacity-40
-                  blur-[120px]
-                  transition
-                  duration-700
-                  group-hover:scale-125
-                `}
-              />
+              {/* Text */}
+
+              <div>
+
+
+                <p
+                  className="
+                    text-xs
+                    uppercase
+                    tracking-[0.4em]
+                    text-white/40
+                  "
+                >
+                  Product 0{index+1}
+                </p>
 
 
 
-              {/* Content */}
-
-              <div
-                className="
-                  relative
-                  flex
-                  h-full
-                  flex-col
-                  justify-between
-                "
-              >
-
-                <div>
-
-                  <p
-                    className="
-                      text-sm
-                      uppercase
-                      tracking-[0.35em]
-                      text-white/40
-                    "
-                  >
-                    Product
-                  </p>
+                <h3
+                  className="
+                    mt-8
+                    text-4xl
+                    font-medium
+                    md:text-6xl
+                  "
+                >
+                  {product.name}
+                </h3>
 
 
-                  <h3
-                    className="
-                      mt-8
-                      text-4xl
-                      font-medium
-                      md:text-5xl
-                    "
-                  >
-                    {product.name}
-                  </h3>
+
+                <p
+                  className="
+                    mt-6
+                    text-2xl
+                    text-[#D6B25E]
+                  "
+                >
+                  {product.tagline}
+                </p>
 
 
-                  <p
-                    className="
-                      mt-6
-                      text-xl
-                      text-[#D6B25E]
-                    "
-                  >
-                    {product.subtitle}
-                  </p>
 
-
-                  <p
-                    className="
-                      mt-6
-                      max-w-md
-                      leading-7
-                      text-white/50
-                    "
-                  >
-                    {product.description}
-                  </p>
-
-                </div>
+                <p
+                  className="
+                    mt-8
+                    max-w-lg
+                    text-lg
+                    leading-8
+                    text-white/50
+                  "
+                >
+                  {product.description}
+                </p>
 
 
 
                 <div
                   className="
-                    mt-12
+                    mt-10
                     flex
+                    flex-wrap
+                    gap-3
+                  "
+                >
+
+                  {product.features.map((item)=>(
+
+                    <span
+                      key={item}
+                      className="
+                        rounded-full
+                        border
+                        border-white/10
+                        bg-white/[0.03]
+                        px-5
+                        py-2
+                        text-sm
+                        text-white/60
+                      "
+                    >
+                      {item}
+                    </span>
+
+                  ))}
+
+                </div>
+
+
+
+                <Link
+                  href={product.href}
+                  className="
+                    mt-12
+                    inline-flex
                     items-center
                     gap-3
                     text-sm
                     uppercase
                     tracking-[0.3em]
-                    text-white/50
+                    text-white/70
                     transition
-                    group-hover:text-white
+                    hover:text-[#D6B25E]
                   "
                 >
-                  Explore
 
-                  <span>
-                    →
-                  </span>
+                  Explore product →
 
-                </div>
+                </Link>
 
 
               </div>
 
 
-            </Link>
+
+
+
+              {/* Visual Scene */}
+
+              <motion.div
+                animate={{
+                  y:[0,-15,0],
+                }}
+                transition={{
+                  duration:8,
+                  repeat:Infinity,
+                  ease:"easeInOut",
+                }}
+                className="
+                  relative
+                  flex
+                  aspect-square
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-white/10
+                  bg-black/20
+                  backdrop-blur-xl
+                "
+              >
+
+
+                <div
+                  className="
+                    h-40
+                    w-40
+                    rounded-full
+                    border
+                    border-[#D6B25E]/30
+                    shadow-[0_0_80px_rgba(214,178,94,0.25)]
+                  "
+                />
+
+
+              </motion.div>
+
+
+            </div>
 
 
           </motion.div>
@@ -269,5 +344,6 @@ export function ProductShowcase() {
 
 
     </section>
+
   );
 }
