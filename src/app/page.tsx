@@ -1,6 +1,7 @@
 import { Hero } from "@/components/hero/hero";
 
 import { ProductShowcase } from "@/components/product-showcase";
+import { EonEcosystem } from "@/components/eon-ecosystem";
 import { EonIntelligence } from "@/components/eon-intelligence";
 import { IntelligenceEvolution } from "@/components/intelligence-evolution";
 import { FutureIntelligence } from "@/components/future-intelligence";
@@ -32,6 +33,11 @@ export default function Home() {
       {/* Product universe */}
 
       <ProductShowcase />
+
+
+      {/* One AI ecosystem */}
+
+      <EonEcosystem />
 
 
       {/* Philosophy */}
