@@ -1,221 +1,263 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Background } from "@/components/background";
-
-
-const features = [
-  {
-    title: "Future Simulation",
-    text: "Explore possible versions of your future through AI-powered scenarios and decisions.",
-  },
-  {
-    title: "Life Intelligence",
-    text: "Understand how your choices, habits and goals shape your next chapters.",
-  },
-  {
-    title: "Personal Evolution",
-    text: "Build a clearer path toward the person you want to become.",
-  },
-];
+import Link from "next/link";
 
 
 export default function FutureSelfPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-[#F4F1EA]">
-
-      <Background />
-
-
-      {/* Hero */}
+    <main
+      className="
+        min-h-screen
+        overflow-hidden
+        px-6
+        py-32
+      "
+    >
 
       <section
         className="
           mx-auto
-          flex
-          min-h-screen
-          max-w-7xl
-          flex-col
-          justify-center
-          px-6
-          py-32
+          max-w-6xl
         "
       >
 
-        <motion.div
-          initial={{
-            opacity:0,
-            y:40,
-          }}
-          animate={{
-            opacity:1,
-            y:0,
-          }}
-          transition={{
-            duration:1,
-          }}
+
+        {/* Hero */}
+
+        <div
+          className="
+            text-center
+          "
         >
 
-          <p
+          <motion.p
+            initial={{
+              opacity:0,
+              y:20,
+            }}
+            animate={{
+              opacity:1,
+              y:0,
+            }}
             className="
-              mb-8
               text-xs
               uppercase
-              tracking-[0.45em]
+              tracking-[0.5em]
               text-[#D6B25E]
             "
           >
-            Product by EON AI
-          </p>
+            EON AI Product
+          </motion.p>
 
 
-          <h1
+
+
+          <motion.h1
+            initial={{
+              opacity:0,
+              y:40,
+            }}
+            animate={{
+              opacity:1,
+              y:0,
+            }}
+            transition={{
+              duration:1,
+            }}
             className="
-              max-w-5xl
+              mt-10
               text-5xl
               font-medium
-              leading-[1.05]
-              tracking-tight
+              leading-tight
               md:text-8xl
             "
           >
-            Meet the intelligence
-            of your future.
-          </h1>
+            FutureSelf AI
+          </motion.h1>
+
+
 
 
           <p
             className="
-              mt-10
+              mt-6
+              text-2xl
+              text-[#D6B25E]
+            "
+          >
+            Meet the person you can become.
+          </p>
+
+
+
+
+          <p
+            className="
+              mx-auto
+              mt-8
               max-w-3xl
               text-lg
               leading-8
               text-white/50
-              md:text-xl
             "
           >
-            FutureSelf AI helps you explore possibilities,
-            visualize growth and understand the person you can become.
+            A personal intelligence system that helps you
+            explore future possibilities, visualize growth
+            and understand the path ahead.
           </p>
+
+
+        </div>
+
+
+
+
+
+
+        {/* Future Vision Scene */}
+
+        <motion.div
+          initial={{
+            opacity:0,
+            scale:0.8,
+          }}
+          animate={{
+            opacity:1,
+            scale:1,
+          }}
+          transition={{
+            duration:1.2,
+          }}
+          className="
+            relative
+            mx-auto
+            mt-24
+            flex
+            aspect-square
+            max-w-xl
+            items-center
+            justify-center
+            overflow-hidden
+            rounded-full
+            border
+            border-[#8B5CF6]/30
+            bg-white/[0.02]
+          "
+        >
+
+
+          <div
+            className="
+              absolute
+              h-80
+              w-80
+              rounded-full
+              bg-[#8B5CF6]/20
+              blur-[140px]
+            "
+          />
+
+
+
+          <div
+            className="
+              relative
+              flex
+              h-44
+              w-44
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-[#D6B25E]/40
+              bg-black/30
+              shadow-[0_0_100px_rgba(139,92,246,0.25)]
+            "
+          >
+
+            <span
+              className="
+                text-xs
+                uppercase
+                tracking-[0.35em]
+                text-[#D6B25E]
+              "
+            >
+              Future
+            </span>
+
+          </div>
 
 
         </motion.div>
 
-      </section>
 
 
 
 
-      {/* Features */}
 
-      <section
-        className="
-          mx-auto
-          max-w-7xl
-          px-6
-          pb-32
-        "
-      >
+
+        {/* Features */}
 
         <div
           className="
+            mt-32
             grid
             gap-8
             md:grid-cols-3
           "
         >
 
-          {features.map((item,index)=>(
-            <motion.div
-              key={item.title}
-              initial={{
-                opacity:0,
-                y:40,
-              }}
-              whileInView={{
-                opacity:1,
-                y:0,
-              }}
-              viewport={{
-                once:true,
-              }}
-              transition={{
-                delay:index*0.15,
-              }}
-              className="
-                rounded-3xl
-                border
-                border-white/10
-                bg-white/[0.03]
-                p-8
-                backdrop-blur-xl
-              "
-            >
-
-              <h2
-                className="
-                  text-2xl
-                  font-medium
-                "
-              >
-                {item.title}
-              </h2>
+          <Feature
+            title="Future Vision"
+            text="Explore possible versions of yourself and imagine different life paths."
+          />
 
 
-              <p
-                className="
-                  mt-5
-                  leading-7
-                  text-white/50
-                "
-              >
-                {item.text}
-              </p>
+          <Feature
+            title="Personal Growth"
+            text="Transform insights into actions and meaningful progress."
+          />
 
 
-            </motion.div>
-          ))}
+          <Feature
+            title="Life Simulation"
+            text="Discover how choices today can influence your future."
+          />
+
 
         </div>
 
-      </section>
 
 
 
 
-      {/* Closing */}
 
-      <section
-        className="
-          mx-auto
-          max-w-5xl
-          px-6
-          pb-40
-          text-center
-        "
-      >
 
-        <motion.h2
-          initial={{
-            opacity:0,
-            scale:0.96,
-          }}
-          whileInView={{
-            opacity:1,
-            scale:1,
-          }}
-          viewport={{
-            once:true,
-          }}
+        <div
           className="
-            text-3xl
-            leading-tight
-            md:text-6xl
+            mt-20
+            text-center
           "
         >
-          Your future is not predicted.
-          It is created.
-        </motion.h2>
+
+          <Link
+            href="/"
+            className="
+              text-sm
+              uppercase
+              tracking-[0.3em]
+              text-white/60
+              transition
+              hover:text-[#D6B25E]
+            "
+          >
+            Back to EON AI →
+          </Link>
+
+        </div>
+
 
 
       </section>
@@ -223,4 +265,55 @@ export default function FutureSelfPage() {
 
     </main>
   );
+}
+
+
+
+
+
+function Feature({
+  title,
+  text,
+}: {
+  title:string;
+  text:string;
+}) {
+
+  return (
+
+    <div
+      className="
+        rounded-3xl
+        border
+        border-white/10
+        bg-white/[0.03]
+        p-8
+      "
+    >
+
+      <h3
+        className="
+          text-2xl
+          font-medium
+        "
+      >
+        {title}
+      </h3>
+
+
+      <p
+        className="
+          mt-4
+          leading-7
+          text-white/50
+        "
+      >
+        {text}
+      </p>
+
+
+    </div>
+
+  );
+
 }
