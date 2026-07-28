@@ -1,64 +1,73 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Background } from "@/components/background";
-
-
-const contacts = [
-  {
-    title: "General",
-    value: "hello@eon.ai",
-  },
-  {
-    title: "Research",
-    value: "research@eon.ai",
-  },
-  {
-    title: "Partnerships",
-    value: "partners@eon.ai",
-  },
-];
 
 
 const socials = [
   {
     name: "X",
-    href: "#",
+    href: "https://x.com/eon_ai_inc?s=11",
   },
   {
     name: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/eon_ai_inc?igsh=bnY4cW1renYzNjh1&utm_source=qr",
   },
   {
     name: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/in/eon-ai-a2a9a4422?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+  },
+  {
+    name: "TikTok",
+    href: "https://www.tiktok.com/@eon_ai1?_r=1&_t=ZS-98PeJHP2AiN",
   },
 ];
 
 
 export default function ContactPage() {
+
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-[#F4F1EA]">
 
-      <Background />
-
-
-      {/* Hero */}
+    <main
+      className="
+        min-h-screen
+        overflow-hidden
+        px-6
+        py-32
+      "
+    >
 
       <section
         className="
           mx-auto
-          flex
-          min-h-screen
-          max-w-7xl
-          flex-col
-          justify-center
-          px-6
-          py-32
+          max-w-5xl
+          text-center
         "
       >
 
-        <motion.div
+
+        <motion.p
+          initial={{
+            opacity:0,
+            y:20,
+          }}
+          animate={{
+            opacity:1,
+            y:0,
+          }}
+          className="
+            text-xs
+            uppercase
+            tracking-[0.5em]
+            text-[#D6B25E]
+          "
+        >
+          Contact EON AI
+        </motion.p>
+
+
+
+
+        <motion.h1
           initial={{
             opacity:0,
             y:40,
@@ -70,189 +79,144 @@ export default function ContactPage() {
           transition={{
             duration:1,
           }}
+          className="
+            mt-10
+            text-5xl
+            font-medium
+            leading-tight
+            md:text-8xl
+          "
         >
+          Let's build the
+          future of intelligence.
+        </motion.h1>
+
+
+
+
+
+        <p
+          className="
+            mx-auto
+            mt-10
+            max-w-2xl
+            text-lg
+            leading-8
+            text-white/50
+          "
+        >
+          Interested in our products, partnerships
+          or the future of personal AI?
+          Connect with EON AI.
+        </p>
+
+
+
+
+
+        <div
+          className="
+            mt-20
+            rounded-[40px]
+            border
+            border-white/10
+            bg-white/[0.03]
+            p-10
+            backdrop-blur-xl
+          "
+        >
+
 
           <p
             className="
-              mb-8
               text-xs
               uppercase
-              tracking-[0.45em]
+              tracking-[0.4em]
               text-[#D6B25E]
             "
           >
-            Contact EON AI
+            Email
           </p>
 
 
-          <h1
+
+          <a
+            href="mailto:eon.ai.inc@gmail.com"
             className="
-              max-w-5xl
-              text-5xl
-              font-medium
-              leading-[1.05]
-              tracking-tight
-              md:text-8xl
+              mt-6
+              block
+              text-2xl
+              transition
+              hover:text-[#D6B25E]
+              md:text-4xl
             "
           >
-            Let's build the
-            future together.
-          </h1>
+            eon.ai.inc@gmail.com
+          </a>
 
 
-          <p
-            className="
-              mt-10
-              max-w-2xl
-              text-lg
-              leading-8
-              text-white/50
-              md:text-xl
-            "
-          >
-            We collaborate with creators, researchers and partners
-            building the next generation of intelligent experiences.
-          </p>
-
-
-        </motion.div>
-
-      </section>
+        </div>
 
 
 
 
-      {/* Contact Cards */}
-
-      <section
-        className="
-          mx-auto
-          max-w-7xl
-          px-6
-          pb-32
-        "
-      >
 
         <div
           className="
-            grid
-            gap-6
-            md:grid-cols-3
+            mt-12
+            flex
+            flex-wrap
+            justify-center
+            gap-4
           "
         >
 
-          {contacts.map((item,index)=>(
-            <motion.a
-              key={item.title}
-              href={`mailto:${item.value}`}
-              initial={{
-                opacity:0,
-                y:30,
-              }}
-              whileInView={{
-                opacity:1,
-                y:0,
-              }}
-              viewport={{
-                once:true,
-              }}
-              transition={{
-                delay:index * 0.15,
-              }}
+          {socials.map((social)=>(
+
+            <a
+              key={social.name}
+              href={social.href}
+              target="_blank"
+              rel="noreferrer"
               className="
-                rounded-3xl
+                rounded-full
                 border
                 border-white/10
                 bg-white/[0.03]
-                p-8
-                backdrop-blur-xl
+                px-6
+                py-3
+                text-sm
+                text-white/60
                 transition
-                hover:border-[#D6B25E]/30
+                hover:border-[#D6B25E]/50
+                hover:text-[#D6B25E]
               "
             >
+              {social.name}
+            </a>
 
-              <p
-                className="
-                  text-xs
-                  uppercase
-                  tracking-[0.35em]
-                  text-[#D6B25E]
-                "
-              >
-                {item.title}
-              </p>
-
-
-              <p
-                className="
-                  mt-6
-                  text-lg
-                  text-white/70
-                "
-              >
-                {item.value}
-              </p>
-
-
-            </motion.a>
           ))}
-
 
         </div>
 
-      </section>
 
 
 
-
-      {/* Social */}
-
-      <section
-        className="
-          mx-auto
-          max-w-7xl
-          px-6
-          pb-40
-        "
-      >
 
         <div
           className="
+            mt-24
             border-t
             border-white/10
             pt-10
+            text-sm
+            text-white/40
           "
         >
 
-          <p
-            className="
-              text-xs
-              uppercase
-              tracking-[0.35em]
-              text-white/40
-            "
-          >
-            Follow EON AI
-          </p>
-
-
-          <div className="mt-8 flex gap-8">
-
-            {socials.map((item)=>(
-              <a
-                key={item.name}
-                href={item.href}
-                className="
-                  text-white/50
-                  transition
-                  hover:text-white
-                "
-              >
-                {item.name}
-              </a>
-            ))}
-
-          </div>
+          © {new Date().getFullYear()} EON AI.
+          Building personal intelligence systems
+          for human evolution.
 
         </div>
 
@@ -260,7 +224,7 @@ export default function ContactPage() {
       </section>
 
 
-
     </main>
+
   );
 }
