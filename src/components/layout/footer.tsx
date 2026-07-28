@@ -19,15 +19,19 @@ const products = [
 const company = [
   {
     name: "Vision",
-    href: "#vision",
+    href: "/vision",
   },
   {
     name: "Mission",
-    href: "#mission",
+    href: "/mission",
+  },
+  {
+    name: "Research",
+    href: "/research",
   },
   {
     name: "Contact",
-    href: "#contact",
+    href: "/contact",
   },
 ];
 
@@ -35,15 +39,19 @@ const company = [
 const socials = [
   {
     name: "X",
-    href: "#",
+    href: "https://x.com/eon_ai_inc?s=11",
   },
   {
     name: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/eon_ai_inc?igsh=bnY4cW1renYzNjh1&utm_source=qr",
   },
   {
     name: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/in/eon-ai-a2a9a4422?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+  },
+  {
+    name: "TikTok",
+    href: "https://www.tiktok.com/@eon_ai1?_r=1&_t=ZS-98PeJHP2AiN",
   },
 ];
 
@@ -60,9 +68,6 @@ export function Footer() {
         py-24
       "
     >
-
-
-      {/* Ambient gold light */}
 
       <div
         className="
@@ -112,7 +117,6 @@ export function Footer() {
         >
 
 
-
           {/* Brand */}
 
           <div>
@@ -123,7 +127,7 @@ export function Footer() {
                 text-2xl
                 font-semibold
                 tracking-[0.4em]
-                text-[#F4F1EA]
+                text-[#F4B25E]
               "
             >
               EON AI
@@ -202,6 +206,7 @@ export function Footer() {
 
 
 
+
           {/* Company */}
 
           <div>
@@ -243,6 +248,7 @@ export function Footer() {
 
 
 
+
           {/* Social */}
 
           <div>
@@ -265,6 +271,8 @@ export function Footer() {
                 <a
                   key={item.name}
                   href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="
                     block
                     text-white/50
@@ -287,7 +295,6 @@ export function Footer() {
 
 
 
-        {/* Bottom */}
 
         <div
           className="
