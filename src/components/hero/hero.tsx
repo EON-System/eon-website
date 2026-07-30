@@ -1,6 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { 
+  motion,
+  useScroll,
+  useTransform
+} from "framer-motion";
+
+import { useRef } from "react";
 
 import { EonSymbol } from "@/components/core/eon-symbol";
 
@@ -12,59 +18,99 @@ import { Container } from "@/components/ui/container";
 
 export function Hero() {
 
+  const heroRef = useRef<HTMLDivElement>(null);
+
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: [
+      "start start",
+      "end start",
+    ],
+  });
+
+
+  const contentY = useTransform(
+    scrollYProgress,
+    [0,1],
+    [0,-120]
+  );
+
+
+  const contentOpacity = useTransform(
+    scrollYProgress,
+    [0,0.7],
+    [1,0]
+  );
+
+
+  const symbolScale = useTransform(
+    scrollYProgress,
+    [0,1],
+    [1,0.85]
+  );
+
+
+  const symbolOpacity = useTransform(
+    scrollYProgress,
+    [0,0.8],
+    [1,0.25]
+  );
+
+
+  const heroScale = useTransform(
+    scrollYProgress,
+    [0,1],
+    [1,0.96]
+  );
+
+
+
   return (
 
-    <Section className="
-      relative
-      min-h-screen
-      overflow-hidden
-      flex
-      items-center
-    ">
+    <motion.div
+      ref={heroRef}
+      style={{
+        scale: heroScale,
+      }}
+    >
+
+      <Section className="
+        relative
+        min-h-screen
+        overflow-hidden
+        flex
+        items-center
+      ">
 
 
-      <HeroBackground />
-
-
-      <div className="
-        absolute
-        inset-0
-        bg-[radial-gradient(circle_at_70%_50%,rgba(214,178,94,0.12),transparent_35%)]
-      "/>
-
-
-
-      <Container className="relative z-10">
+        <HeroBackground />
 
 
         <div className="
-          grid
-          items-center
-          gap-16
-          lg:grid-cols-2
-        ">
+          absolute
+          inset-0
+          bg-[radial-gradient(circle_at_70%_50%,rgba(214,178,94,0.12),transparent_35%)]
+        "/>
 
 
 
-          <div>
+        <Container className="relative z-10">
+
+
+          <div className="
+            grid
+            items-center
+            gap-16
+            lg:grid-cols-2
+          ">
 
 
             <motion.div
-
-              initial={{
-                opacity:0,
-                y:30
+              style={{
+                y:contentY,
+                opacity:contentOpacity,
               }}
-
-              animate={{
-                opacity:1,
-                y:0
-              }}
-
-              transition={{
-                duration:1
-              }}
-
             >
 
 
@@ -91,11 +137,8 @@ export function Hero() {
 
                 Building AI
                 <br/>
-
                 companions
-
                 <br/>
-
                 for human evolution.
 
               </h1>
@@ -118,10 +161,6 @@ export function Hero() {
 
 
 
-
-
-              {/* Buttons */}
-
               <div className="
                 mt-12
                 flex
@@ -130,13 +169,8 @@ export function Hero() {
               ">
 
 
-
-                {/* Products */}
-
                 <a
-
                   href="#products"
-
                   className="
                     group
                     relative
@@ -156,21 +190,12 @@ export function Hero() {
                     hover:border-[#D6B25E]/70
                     hover:text-[#D6B25E]
                     hover:shadow-[0_0_45px_rgba(214,178,94,0.18)]
-                    cursor-pointer
                   "
-
                 >
 
-                  <span className="
-                    relative
-                    z-10
-                  ">
-
+                  <span className="relative z-10">
                     Explore Products →
-
                   </span>
-
-
 
                   <span className="
                     absolute
@@ -182,19 +207,12 @@ export function Hero() {
                     group-hover:translate-y-0
                   "/>
 
-
                 </a>
 
 
 
-
-
-                {/* About */}
-
                 <a
-
                   href="#about"
-
                   className="
                     group
                     relative
@@ -209,46 +227,54 @@ export function Hero() {
                     font-medium
                     text-white/70
                     backdrop-blur-xl
-                    transition-all
-                    duration-700
-                    hover:border-[#D6B25E]/50
-                    hover:text-[#D6B25E]
-                    hover:bg-white/[0.05]
-                    hover:shadow-[0_0_35px_rgba(214,178,94,0.12)]
-                    cursor-pointer
                   "
-
                 >
 
-                  <span className="
-                    relative
-                    z-10
-                  ">
-
+                  <span className="relative z-10">
                     About EON AI
-
                   </span>
 
-
-
-                  <span className="
-                    absolute
-                    inset-0
-                    translate-y-full
-                    bg-[#D6B25E]/5
-                    transition-transform
-                    duration-700
-                    group-hover:translate-y-0
-                  "/>
-
-
                 </a>
-
 
 
               </div>
 
 
+            </motion.div>
+
+
+
+
+
+            <motion.div
+
+              style={{
+                scale:symbolScale,
+                opacity:symbolOpacity,
+              }}
+
+              initial={{
+                opacity:0,
+                scale:0.8
+              }}
+
+              animate={{
+                opacity:1,
+                scale:1
+              }}
+
+              transition={{
+                duration:1.4
+              }}
+
+              className="
+                flex
+                justify-center
+              "
+
+            >
+
+              <EonSymbol />
 
             </motion.div>
 
@@ -256,48 +282,12 @@ export function Hero() {
           </div>
 
 
+        </Container>
 
 
+      </Section>
 
-
-          <motion.div
-
-            initial={{
-              opacity:0,
-              scale:0.8
-            }}
-
-            animate={{
-              opacity:1,
-              scale:1
-            }}
-
-            transition={{
-              duration:1.4
-            }}
-
-            className="
-              flex
-              justify-center
-            "
-
-          >
-
-            <EonSymbol />
-
-          </motion.div>
-
-
-
-
-        </div>
-
-
-      </Container>
-
-
-    </Section>
+    </motion.div>
 
   );
-
 }
