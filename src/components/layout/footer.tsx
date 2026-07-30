@@ -6,331 +6,378 @@ import { motion } from "framer-motion";
 
 const products = [
   {
-    name: "SoulMirror AI",
-    href: "/products/soulmirror",
+    name:"SoulMirror AI",
+    href:"/products/soulmirror",
   },
   {
-    name: "FutureSelf AI",
-    href: "/products/futureself",
+    name:"FutureSelf",
+    href:"/products/futureself",
   },
 ];
 
 
 const company = [
   {
-    name: "Vision",
-    href: "/vision",
+    name:"Vision",
+    href:"/vision",
   },
   {
-    name: "Mission",
-    href: "/mission",
+    name:"Mission",
+    href:"/mission",
   },
   {
-    name: "Research",
-    href: "/research",
+    name:"Research",
+    href:"/research",
   },
   {
-    name: "Contact",
-    href: "/contact",
+    name:"Contact",
+    href:"/contact",
+  },
+];
+
+
+const resources = [
+  {
+    name:"Privacy",
+    href:"/privacy",
+  },
+  {
+    name:"Terms",
+    href:"/terms",
+  },
+  {
+    name:"Security",
+    href:"/security",
+  },
+  {
+    name:"Cookies",
+    href:"/cookies",
   },
 ];
 
 
 const socials = [
   {
-    name: "X",
-    href: "https://x.com/eon_ai_inc?s=11",
+    name:"X",
+    href:"https://x.com/eon_ai_inc?s=11",
   },
   {
-    name: "Instagram",
-    href: "https://www.instagram.com/eon_ai_inc?igsh=bnY4cW1renYzNjh1&utm_source=qr",
+    name:"Instagram",
+    href:"https://www.instagram.com/eon_ai_inc",
   },
   {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/eon-ai-a2a9a4422?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    name:"LinkedIn",
+    href:"https://www.linkedin.com/in/eon-ai-a2a9a4422",
   },
   {
-    name: "TikTok",
-    href: "https://www.tiktok.com/@eon_ai1?_r=1&_t=ZS-98PeJHP2AiN",
+    name:"TikTok",
+    href:"https://www.tiktok.com/@eon_ai1",
   },
 ];
 
 
-export function Footer() {
-  return (
-    <footer
-      className="
-        relative
-        overflow-hidden
-        border-t
-        border-white/10
-        px-6
-        py-24
-      "
-    >
-
-      <div
-        className="
-          absolute
-          left-1/2
-          top-0
-          h-[300px]
-          w-[500px]
-          -translate-x-1/2
-          rounded-full
-          bg-[#D6B25E]/10
-          blur-[160px]
-        "
-      />
-
-
-
-      <motion.div
-        initial={{
-          opacity:0,
-          y:30,
-        }}
-        whileInView={{
-          opacity:1,
-          y:0,
-        }}
-        viewport={{
-          once:true,
-        }}
-        transition={{
-          duration:0.8,
-        }}
-        className="
-          relative
-          mx-auto
-          max-w-7xl
-        "
-      >
-
-
-        <div
-          className="
-            grid
-            gap-16
-            md:grid-cols-4
-          "
-        >
-
-
-          {/* Brand */}
-
-          <div>
-
-            <Link
-              href="/"
-              className="
-                text-2xl
-                font-semibold
-                tracking-[0.4em]
-                text-[#F4B25E]
-              "
-            >
-              EON AI
-            </Link>
-
-
-            <p
-              className="
-                mt-8
-                max-w-xs
-                text-sm
-                leading-8
-                text-white/50
-              "
-            >
-              Building AI companions for human evolution.
-            </p>
-
-
-            <p
-              className="
-                mt-6
-                text-xs
-                uppercase
-                tracking-[0.35em]
-                text-[#D6B25E]/70
-              "
-            >
-              Intelligence Designed
-            </p>
 
+export function Footer(){
 
-          </div>
 
+return (
 
+<footer
 
+className="
+relative
+overflow-hidden
+border-t
+border-white/10
+px-6
+py-32
+"
 
-          {/* Products */}
+>
 
-          <div>
 
-            <h3
-              className="
-                text-xs
-                uppercase
-                tracking-[0.35em]
-                text-[#D6B25E]
-              "
-            >
-              Products
-            </h3>
+<div
 
+className="
+absolute
+left-1/2
+top-0
+h-[350px]
+w-[600px]
+-translate-x-1/2
+rounded-full
+bg-[#D6B25E]/10
+blur-[180px]
+"
 
-            <div className="mt-8 space-y-5">
+/>
 
-              {products.map((item)=>(
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="
-                    block
-                    text-white/50
-                    transition
-                    duration-300
-                    hover:text-white
-                  "
-                >
-                  {item.name}
-                </Link>
-              ))}
 
-            </div>
 
-          </div>
+<motion.div
 
+initial={{
+opacity:0,
+y:40,
+}}
 
+whileInView={{
+opacity:1,
+y:0,
+}}
 
+viewport={{
+once:true,
+}}
 
+transition={{
+duration:1,
+}}
 
-          {/* Company */}
+className="
+relative
+mx-auto
+max-w-7xl
+"
 
-          <div>
+>
 
-            <h3
-              className="
-                text-xs
-                uppercase
-                tracking-[0.35em]
-                text-[#D6B25E]
-              "
-            >
-              Company
-            </h3>
 
 
-            <div className="mt-8 space-y-5">
+<div
 
-              {company.map((item)=>(
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="
-                    block
-                    text-white/50
-                    transition
-                    duration-300
-                    hover:text-white
-                  "
-                >
-                  {item.name}
-                </Link>
-              ))}
+className="
+mb-24
+max-w-3xl
+"
 
-            </div>
+>
 
-          </div>
 
+<Link
 
+href="/"
 
+className="
+text-5xl
+font-semibold
+tracking-[0.18em]
+text-[#F4F1EA]
+transition-all
+duration-700
+hover:text-[#D6B25E]
+"
 
+>
 
-          {/* Social */}
+EON AI
 
-          <div>
+</Link>
 
-            <h3
-              className="
-                text-xs
-                uppercase
-                tracking-[0.35em]
-                text-[#D6B25E]
-              "
-            >
-              Connect
-            </h3>
 
 
-            <div className="mt-8 space-y-5">
+<p
 
-              {socials.map((item)=>(
-                <a
-                  key={item.name}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    block
-                    text-white/50
-                    transition
-                    duration-300
-                    hover:text-white
-                  "
-                >
-                  {item.name}
-                </a>
-              ))}
+className="
+mt-8
+max-w-xl
+text-lg
+leading-8
+text-white/40
+"
 
-            </div>
+>
 
-          </div>
+Building personal intelligence systems
+designed around memory,
+identity and human potential.
 
+</p>
 
-        </div>
 
+</div>
 
 
 
 
-        <div
-          className="
-            mt-20
-            flex
-            flex-col
-            gap-4
-            border-t
-            border-white/10
-            pt-8
-            text-xs
-            uppercase
-            tracking-[0.25em]
-            text-white/30
-            md:flex-row
-            md:items-center
-            md:justify-between
-          "
-        >
 
-          <span>
-            © {new Date().getFullYear()} EON AI
-          </span>
+<div
 
+className="
+grid
+gap-14
+sm:grid-cols-2
+lg:grid-cols-4
+"
 
-          <span>
-            Building the future of personal intelligence
-          </span>
+>
 
 
-        </div>
 
+<FooterColumn
+title="Products"
+items={products}
+/>
 
-      </motion.div>
 
+<FooterColumn
+title="Company"
+items={company}
+/>
 
-    </footer>
-  );
+
+<FooterColumn
+title="Resources"
+items={resources}
+/>
+
+
+<FooterColumn
+title="Connect"
+items={socials}
+/>
+
+
+</div>
+
+
+
+
+
+
+<div
+
+className="
+mt-24
+flex
+flex-col
+gap-4
+border-t
+border-white/10
+pt-8
+text-xs
+uppercase
+tracking-[0.3em]
+text-white/30
+md:flex-row
+md:justify-between
+"
+
+>
+
+
+<span>
+
+© {new Date().getFullYear()} EON AI
+
+</span>
+
+
+<span>
+
+Building the future of personal intelligence
+
+</span>
+
+
+</div>
+
+
+
+</motion.div>
+
+
+</footer>
+
+);
+
+}
+
+
+
+
+function FooterColumn({
+
+title,
+
+items,
+
+}:{
+
+title:string;
+
+items:{
+name:string;
+href:string;
+}[];
+
+}){
+
+
+return (
+
+<div>
+
+
+<h3
+
+className="
+text-xs
+uppercase
+tracking-[0.35em]
+text-[#D6B25E]
+"
+
+>
+
+{title}
+
+</h3>
+
+
+
+<div
+
+className="
+mt-8
+space-y-5
+"
+
+>
+
+
+{items.map((item)=>(
+
+<Link
+
+key={item.name}
+
+href={item.href}
+
+className="
+block
+text-white/45
+transition-all
+duration-500
+hover:text-[#D6B25E]
+"
+
+>
+
+{item.name}
+
+</Link>
+
+
+))}
+
+
+</div>
+
+
+</div>
+
+);
+
+
 }
