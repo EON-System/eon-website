@@ -4,35 +4,17 @@ import { motion } from "framer-motion";
 
 
 const lines = [
-  {
-    x: "20%",
-    height: "55%",
-    delay: 0,
-  },
-  {
-    x: "35%",
-    height: "85%",
-    delay: 0.4,
-  },
-  {
-    x: "50%",
-    height: "100%",
-    delay: 0.8,
-  },
-  {
-    x: "65%",
-    height: "75%",
-    delay: 1.2,
-  },
-  {
-    x: "80%",
-    height: "50%",
-    delay: 1.6,
-  },
+  { x: "5%", height: "45%", delay: 0 },
+  { x: "18%", height: "70%", delay: 0.3 },
+  { x: "32%", height: "90%", delay: 0.6 },
+  { x: "50%", height: "100%", delay: 0.9 },
+  { x: "68%", height: "85%", delay: 1.2 },
+  { x: "82%", height: "65%", delay: 1.5 },
+  { x: "95%", height: "40%", delay: 1.8 },
 ];
 
 
-const particles = Array.from({ length: 18 });
+const particles = Array.from({ length: 30 });
 
 
 export function EonSymbol() {
@@ -45,7 +27,7 @@ export function EonSymbol() {
         relative
         flex
         h-[420px]
-        w-[420px]
+        w-[620px]
         items-center
         justify-center
         overflow-hidden
@@ -53,45 +35,47 @@ export function EonSymbol() {
     >
 
 
-      {/* Energy glow */}
+      {/* Intelligence field */}
 
       <motion.div
 
         animate={{
-          opacity:[0.15,0.35,0.15],
-          scale:[1,1.2,1],
+          opacity:[0.12,0.3,0.12],
+          scale:[1,1.15,1],
         }}
 
         transition={{
-          duration:8,
+          duration:10,
           repeat:Infinity,
+          ease:"easeInOut",
         }}
 
         className="
           absolute
-          h-64
-          w-64
+          h-72
+          w-[500px]
           rounded-full
           bg-[#D6B25E]/10
-          blur-[100px]
+          blur-[120px]
         "
 
       />
 
 
 
-      {/* Vertical intelligence streams */}
+      {/* Energy architecture */}
 
       <div
         className="
           relative
-          h-72
-          w-48
+          h-80
+          w-[520px]
         "
       >
 
 
         {lines.map((line,index)=>(
+
 
           <motion.div
 
@@ -100,11 +84,12 @@ export function EonSymbol() {
             className="
               absolute
               bottom-0
-              w-px
+              w-[2px]
               bg-gradient-to-t
               from-transparent
               via-[#D6B25E]
               to-transparent
+              shadow-[0_0_25px_rgba(214,178,94,0.8)]
             "
 
             style={{
@@ -121,14 +106,14 @@ export function EonSymbol() {
               opacity:[
                 0,
                 1,
-                0.4,
+                0.35,
                 1,
                 0,
               ],
             }}
 
             transition={{
-              duration:3,
+              duration:3.5,
               repeat:Infinity,
               delay:line.delay,
               ease:"easeInOut",
@@ -140,9 +125,10 @@ export function EonSymbol() {
 
 
 
-        {/* Particles */}
+        {/* Floating intelligence particles */}
 
         {particles.map((_,index)=>(
+
 
           <motion.div
 
@@ -150,17 +136,23 @@ export function EonSymbol() {
 
             className="
               absolute
-              h-1
-              w-1
+              h-[3px]
+              w-[3px]
               rounded-full
-              bg-[#D6B25E]
+              bg-[#F4F1EA]
               shadow-[0_0_20px_#D6B25E]
             "
 
             style={{
-              left:`${10 + Math.random()*80}%`,
-              bottom:`${10 + Math.random()*80}%`,
+
+              left:
+                `${Math.random()*100}%`,
+
+              bottom:
+                `${Math.random()*90}%`,
+
             }}
+
 
             animate={{
 
@@ -171,32 +163,29 @@ export function EonSymbol() {
               ],
 
               y:[
-                20,
-                -40,
-                -80,
-              ],
-
-              scale:[
-                0.5,
-                1,
-                0,
+                30,
+                -60,
+                -120,
               ],
 
             }}
+
 
             transition={{
 
               duration:
-                2 + Math.random()*3,
+                3 + Math.random()*3,
 
-              repeat:Infinity,
+              repeat:
+                Infinity,
 
               delay:
-                Math.random()*3,
+                Math.random()*4,
 
             }}
 
           />
+
 
         ))}
 
