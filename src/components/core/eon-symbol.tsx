@@ -5,171 +5,166 @@ import { motion } from "framer-motion";
 
 export function EonSymbol() {
 
+  const rings = [
+    {
+      rotate: 0,
+      scaleX: 1,
+      scaleY: 0.45,
+    },
+    {
+      rotate: 60,
+      scaleX: 1,
+      scaleY: 0.45,
+    },
+    {
+      rotate: 120,
+      scaleX: 1,
+      scaleY: 0.45,
+    },
+    {
+      rotate: 30,
+      scaleX: 0.8,
+      scaleY: 0.35,
+    },
+    {
+      rotate: 90,
+      scaleX: 0.8,
+      scaleY: 0.35,
+    },
+    {
+      rotate: 150,
+      scaleX: 0.8,
+      scaleY: 0.35,
+    },
+  ];
+
+
   return (
 
-    <div className="
-      relative
-      flex
-      h-[520px]
-      w-[520px]
-      items-center
-      justify-center
-    ">
+    <div
+      className="
+        relative
+        flex
+        h-[420px]
+        w-[420px]
+        items-center
+        justify-center
+      "
+    >
 
-
-      {/* Deep golden aura */}
+      {/* Ambient glow */}
 
       <motion.div
 
         animate={{
-          scale:[1,1.2,1],
-          opacity:[0.25,0.5,0.25]
+          opacity:[0.15,0.35,0.15],
+          scale:[1,1.15,1],
         }}
 
         transition={{
-          duration:7,
+          duration:8,
           repeat:Infinity,
-          ease:"easeInOut"
+          ease:"easeInOut",
         }}
 
         className="
           absolute
-          h-[420px]
-          w-[420px]
+          inset-0
           rounded-full
           bg-[#D6B25E]/20
-          blur-[130px]
+          blur-[100px]
         "
 
       />
 
 
 
-      {/* Outer ring */}
+      {/* Symbol */}
 
-      <motion.div
-
-        animate={{
-          rotate:360
-        }}
-
-        transition={{
-          duration:45,
-          repeat:Infinity,
-          ease:"linear"
-        }}
-
+      <div
         className="
-          absolute
-          h-[430px]
-          w-[430px]
-          rounded-full
-          border
-          border-[#D6B25E]/50
-          shadow-[0_0_90px_rgba(214,178,94,0.35)]
+          relative
+          h-[260px]
+          w-[260px]
         "
-
-      />
-
+      >
 
 
-      {/* Outer ring glow */}
+        {rings.map((ring,index)=>(
 
-      <motion.div
+          <motion.div
 
-        animate={{
-          opacity:[0.2,0.55,0.2]
-        }}
+            key={index}
 
-        transition={{
-          duration:5,
-          repeat:Infinity
-        }}
+            initial={{
+              opacity:0,
+              scale:0.7,
+            }}
 
-        className="
-          absolute
-          h-[430px]
-          w-[430px]
-          rounded-full
-          border
-          border-[#D6B25E]/30
-          blur-[8px]
-        "
+            animate={{
+              opacity:1,
+              scale:1,
+            }}
 
-      />
+            transition={{
+              delay:index*0.12,
+              duration:1.2,
+              ease:"easeOut",
+            }}
 
+            style={{
+              rotate:ring.rotate,
+              scaleX:ring.scaleX,
+              scaleY:ring.scaleY,
+            }}
 
+            className="
+              absolute
+              inset-0
+              rounded-full
+              border
+              border-[#D6B25E]/60
+            "
 
-      {/* Inner ring */}
+          />
 
-      <motion.div
-
-        animate={{
-          rotate:-360
-        }}
-
-        transition={{
-          duration:30,
-          repeat:Infinity,
-          ease:"linear"
-        }}
-
-        className="
-          absolute
-          h-[250px]
-          w-[250px]
-          rounded-full
-          border
-          border-[#D6B25E]
-          shadow-[0_0_70px_rgba(214,178,94,0.65)]
-        "
-
-      />
+        ))}
 
 
+        {/* Core light */}
 
-      {/* Inner glow */}
+        <motion.div
 
-      <motion.div
+          animate={{
+            opacity:[0.4,0.8,0.4],
+            scale:[1,1.2,1],
+          }}
 
-        animate={{
-          scale:[1,1.15,1],
-          opacity:[0.5,0.9,0.5]
-        }}
+          transition={{
+            duration:5,
+            repeat:Infinity,
+          }}
 
-        transition={{
-          duration:4,
-          repeat:Infinity,
-          ease:"easeInOut"
-        }}
+          className="
+            absolute
+            left-1/2
+            top-1/2
+            h-3
+            w-3
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-full
+            bg-[#D6B25E]
+            blur-[1px]
+            shadow-[0_0_40px_#D6B25E]
+          "
 
-        className="
-          absolute
-          h-[250px]
-          w-[250px]
-          rounded-full
-          border
-          border-[#D6B25E]/40
-          blur-[15px]
-        "
+        />
 
-      />
-
-
-
-      {/* Small center light */}
-
-      <div className="
-        h-3
-        w-3
-        rounded-full
-        bg-[#F4F1EA]
-        shadow-[0_0_50px_20px_rgba(214,178,94,0.8)]
-      "/>
+      </div>
 
 
     </div>
 
   );
-
 }
