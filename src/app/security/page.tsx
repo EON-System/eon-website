@@ -1,5 +1,10 @@
-import { Container } from "@/components/ui/container";
-import { Section } from "@/components/ui/section";
+"use client";
+
+import { motion } from "framer-motion";
+
+import { GlassCard } from "@/components/ui/glass-card";
+import { Reveal } from "@/components/motion/reveal";
+
 
 
 export default function SecurityPage() {
@@ -7,271 +12,440 @@ export default function SecurityPage() {
 
   return (
 
-    <main>
+    <main
+
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        px-6
+        py-40
+      "
+
+    >
 
 
-      <Section>
+
+      {/* Ambient */}
+
+      <div
+
+        className="
+          absolute
+          left-1/2
+          top-0
+          h-[550px]
+          w-[850px]
+          -translate-x-1/2
+          rounded-full
+          bg-[#D6B25E]/10
+          blur-[220px]
+        "
+
+      />
 
 
-        <Container>
+
+
+
+      <section
+
+        className="
+          relative
+          mx-auto
+          max-w-5xl
+        "
+
+      >
+
+
+
+
+        <div className="text-center">
+
+
+
+
+
+          <motion.p
+
+            initial={{
+              opacity:0,
+              y:20
+            }}
+
+            animate={{
+              opacity:1,
+              y:0
+            }}
+
+            className="
+              text-xs
+              uppercase
+              tracking-[0.6em]
+              text-[#D6B25E]
+            "
+
+          >
+
+            Security
+
+          </motion.p>
+
+
+
+
+
+
+
+
+          <motion.h1
+
+            initial={{
+              opacity:0,
+              y:40
+            }}
+
+            animate={{
+              opacity:1,
+              y:0
+            }}
+
+            transition={{
+              duration:1
+            }}
+
+            className="
+              mt-10
+              text-6xl
+              font-semibold
+              leading-[1.05]
+              tracking-[-0.05em]
+              text-[#F4F1EA]
+              md:text-8xl
+            "
+
+          >
+
+            Security
+            <br/>
+            at EON AI
+
+
+          </motion.h1>
+
+
+
+
+
+
+
+          <p
+
+            className="
+              mx-auto
+              mt-10
+              max-w-3xl
+              text-xl
+              leading-9
+              text-white/50
+            "
+
+          >
+
+            Building trusted intelligence systems
+            with privacy, safety and protection
+            at the core.
+
+          </p>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <Reveal>
 
 
           <div
+
             className="
-              mx-auto
-              max-w-4xl
+              mt-32
+              grid
+              gap-8
+              md:grid-cols-2
             "
+
           >
 
 
-            <p
-              className="
-                text-sm
-                uppercase
-                tracking-[0.45em]
-                text-[#D6B25E]
-              "
-            >
 
-              Security
 
-            </p>
 
 
+            <GlassCard>
 
 
+              <h2
 
-            <h1
-              className="
-                mt-8
-                text-5xl
-                font-semibold
-                tracking-tight
-                text-[#F4F1EA]
-                md:text-7xl
-              "
-            >
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
-              Security at EON AI
+              >
 
-            </h1>
+                Privacy First
 
+              </h2>
 
 
+              <p
 
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
-            <p
-              className="
-                mt-8
-                text-white/50
-                leading-8
-              "
-            >
+              >
 
-              Building trusted intelligence systems
-              with privacy and security at the core.
+                Personal intelligence requires
+                responsible data handling.
+                We focus on protecting user
+                information and minimizing
+                unnecessary collection.
 
-            </p>
+              </p>
 
 
+            </GlassCard>
 
 
 
-            <div
-              className="
-                mt-16
-                space-y-12
-                text-lg
-                leading-8
-                text-white/60
-              "
-            >
 
 
 
 
 
-              <section>
+            <GlassCard>
 
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
+              <h2
 
-                  Privacy First
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
-                </h2>
+              >
 
+                Data Protection
 
-                <p className="mt-4">
+              </h2>
 
-                  EON AI is designed around the principle
-                  that personal intelligence requires
-                  responsible handling of personal data.
 
-                  We aim to minimize unnecessary data
-                  collection and protect user information.
+              <p
 
-                </p>
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
+              >
 
-              </section>
+                Modern security practices,
+                access controls and technical
+                safeguards help protect
+                EON AI systems.
 
+              </p>
 
 
+            </GlassCard>
 
 
 
 
-              <section>
 
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
 
-                  Data Protection
 
-                </h2>
+            <GlassCard>
 
 
-                <p className="mt-4">
+              <h2
 
-                  We use modern security practices to
-                  protect information processed through
-                  EON AI systems.
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
-                  Access controls and technical safeguards
-                  are continuously improved.
+              >
 
-                </p>
+                AI Safety
 
+              </h2>
 
-              </section>
 
+              <p
 
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
+              >
 
+                Our AI systems are developed
+                with reliability, transparency
+                and responsible interaction
+                in mind.
 
+              </p>
 
 
-              <section>
+            </GlassCard>
 
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
 
-                  Artificial Intelligence Safety
 
-                </h2>
 
 
-                <p className="mt-4">
 
-                  Our AI systems are developed with a
-                  focus on reliability, transparency and
-                  responsible interaction.
 
-                  AI should enhance human potential while
-                  respecting user privacy.
+            <GlassCard>
 
-                </p>
 
+              <h2
 
-              </section>
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
+              >
 
+                Continuous Evolution
 
+              </h2>
 
 
+              <p
 
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
-              <section>
+              >
 
+                Security is an ongoing process.
+                EON AI continuously improves
+                reliability and protection.
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
+              </p>
 
-                  Responsible Development
 
-                </h2>
+            </GlassCard>
 
 
-                <p className="mt-4">
 
-                  EON AI continuously works to improve
-                  system reliability, security practices
-                  and user experience.
-
-                </p>
-
-
-              </section>
-
-
-
-
-
-
-
-              <section>
-
-
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
-
-                  Contact
-
-                </h2>
-
-
-                <p className="mt-4">
-
-                  If you discover a security concern,
-                  please contact EON AI.
-
-                </p>
-
-
-              </section>
-
-
-
-
-
-            </div>
 
 
           </div>
 
 
-        </Container>
+        </Reveal>
 
 
-      </Section>
+
+
+
+
+
+
+        <Reveal delay={0.2}>
+
+
+          <div
+
+            className="
+              mt-32
+              border-t
+              border-white/10
+              pt-20
+              text-center
+            "
+
+          >
+
+
+
+            <p
+
+              className="
+                text-xs
+                uppercase
+                tracking-[0.5em]
+                text-white/30
+              "
+
+            >
+
+              Trust Layer
+
+            </p>
+
+
+
+
+
+            <h2
+
+              className="
+                mt-8
+                text-4xl
+                font-semibold
+                tracking-tight
+                text-[#F4F1EA]
+                md:text-6xl
+              "
+
+            >
+
+              Intelligence you can
+              trust.
+
+            </h2>
+
+
+
+          </div>
+
+
+        </Reveal>
+
+
+
+
+
+      </section>
+
 
 
     </main>
