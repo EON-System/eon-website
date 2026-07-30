@@ -23,6 +23,7 @@ const links = [
 
 export function Navbar(){
 
+
   const pathname = usePathname();
 
   const router = useRouter();
@@ -31,6 +32,7 @@ export function Navbar(){
 
   function navigateToSection(id:string){
 
+
     if(pathname === "/"){
 
       document
@@ -38,6 +40,7 @@ export function Navbar(){
         ?.scrollIntoView({
           behavior:"smooth",
         });
+
 
     } else {
 
@@ -52,6 +55,7 @@ export function Navbar(){
   return (
 
     <header
+
       className="
         fixed
         top-5
@@ -59,9 +63,11 @@ export function Navbar(){
         right-0
         z-50
         px-4
+
         md:top-6
         md:px-6
       "
+
     >
 
 
@@ -74,13 +80,15 @@ export function Navbar(){
           max-w-6xl
           items-center
           justify-center
-          overflow-hidden
+
           rounded-[26px]
           border
           border-white/[0.08]
           bg-[#080808]/70
+
           px-6
           py-4
+
           backdrop-blur-3xl
           shadow-[0_30px_100px_rgba(0,0,0,0.6)]
 
@@ -91,9 +99,11 @@ export function Navbar(){
       >
 
 
-        {/* Glass reflection */}
+
+        {/* Glass line */}
 
         <div
+
           className="
             pointer-events-none
             absolute
@@ -105,11 +115,15 @@ export function Navbar(){
             via-white/20
             to-transparent
           "
+
         />
 
 
 
+
+
         {/* Logo */}
+
 
         <Link
 
@@ -119,39 +133,53 @@ export function Navbar(){
             group
             flex
             items-center
-            gap-1.5
+            gap-2
           "
 
         >
 
+
           <span
+
             className="
               text-xl
-              font-semibold
-              tracking-[-0.08em]
+              font-medium
+              tracking-[-0.04em]
               text-[#F4F1EA]
+
               transition-all
               duration-700
+
               group-hover:text-[#D6B25E]
               group-hover:drop-shadow-[0_0_15px_rgba(214,178,94,0.35)]
             "
+
           >
+
             EON
+
           </span>
 
 
+
           <span
+
             className="
               text-xl
               font-light
-              tracking-[-0.08em]
+              tracking-[-0.03em]
               text-white/35
+
               transition-all
               duration-700
+
               group-hover:text-[#D6B25E]/70
             "
+
           >
+
             AI
+
           </span>
 
 
@@ -161,7 +189,11 @@ export function Navbar(){
 
 
 
+
+
+
         {/* Desktop Navigation */}
+
 
         <div
 
@@ -169,6 +201,7 @@ export function Navbar(){
             hidden
             items-center
             gap-12
+
             md:flex
           "
 
@@ -187,10 +220,13 @@ export function Navbar(){
               className="
                 group
                 relative
+
                 text-sm
                 text-white/55
+
                 transition-all
                 duration-500
+
                 hover:text-[#D6B25E]
               "
 
@@ -206,12 +242,17 @@ export function Navbar(){
                   absolute
                   -bottom-2
                   left-0
+
                   h-px
                   w-0
+
                   bg-[#D6B25E]
+
                   shadow-[0_0_12px_rgba(214,178,94,0.8)]
+
                   transition-all
                   duration-700
+
                   group-hover:w-full
                 "
 
@@ -230,7 +271,12 @@ export function Navbar(){
 
 
 
-        {/* Contact Desktop Only */}
+
+
+
+
+        {/* Contact */}
+
 
         <button
 
@@ -238,24 +284,34 @@ export function Navbar(){
 
           className="
             hidden
+
             group
             relative
             overflow-hidden
+
             rounded-2xl
+
             border
             border-[#D6B25E]/25
+
             bg-white/[0.025]
+
             px-7
             py-3
+
             text-sm
             font-medium
+
             text-[#F4F1EA]
+
             backdrop-blur-xl
+
             transition-all
             duration-700
 
             hover:border-[#D6B25E]/70
             hover:text-[#D6B25E]
+
             hover:shadow-[0_0_45px_rgba(214,178,94,0.18)]
 
             md:block
@@ -263,8 +319,18 @@ export function Navbar(){
 
         >
 
-          <span className="relative z-10">
+
+          <span
+
+            className="
+              relative
+              z-10
+            "
+
+          >
+
             Contact
+
           </span>
 
 
@@ -274,10 +340,14 @@ export function Navbar(){
             className="
               absolute
               inset-0
+
               translate-y-full
+
               bg-[#D6B25E]/10
+
               transition-transform
               duration-700
+
               group-hover:translate-y-0
             "
 
