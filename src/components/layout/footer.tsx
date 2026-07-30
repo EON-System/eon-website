@@ -90,7 +90,9 @@ overflow-hidden
 border-t
 border-white/10
 px-6
-py-32
+py-24
+
+md:py-32
 "
 
 >
@@ -144,11 +146,18 @@ max-w-7xl
 
 
 
+{/* Brand */}
+
 <div
 
 className="
-mb-24
+mb-20
+mx-auto
 max-w-3xl
+text-center
+
+md:mx-0
+md:text-left
 "
 
 >
@@ -159,13 +168,15 @@ max-w-3xl
 href="/"
 
 className="
-text-5xl
+text-4xl
 font-semibold
-tracking-[0.18em]
+tracking-[0.22em]
 text-[#F4F1EA]
 transition-all
 duration-700
 hover:text-[#D6B25E]
+
+md:text-5xl
 "
 
 >
@@ -179,11 +190,17 @@ EON AI
 <p
 
 className="
-mt-8
+mx-auto
+mt-6
 max-w-xl
-text-lg
-leading-8
+text-base
+leading-7
 text-white/40
+
+md:mx-0
+md:mt-8
+md:text-lg
+md:leading-8
 "
 
 >
@@ -201,17 +218,23 @@ identity and human potential.
 
 
 
+
+
 <div
 
 className="
 grid
-gap-14
+gap-12
+
+text-center
+
 sm:grid-cols-2
+
 lg:grid-cols-4
+lg:text-left
 "
 
 >
-
 
 
 <FooterColumn
@@ -245,20 +268,24 @@ items={socials}
 
 
 
+
 <div
 
 className="
-mt-24
+mt-20
 flex
 flex-col
+items-center
 gap-4
 border-t
 border-white/10
 pt-8
+text-center
 text-xs
 uppercase
 tracking-[0.3em]
 text-white/30
+
 md:flex-row
 md:justify-between
 "
