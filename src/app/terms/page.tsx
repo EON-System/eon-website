@@ -1,5 +1,10 @@
-import { Container } from "@/components/ui/container";
-import { Section } from "@/components/ui/section";
+"use client";
+
+import { motion } from "framer-motion";
+
+import { GlassCard } from "@/components/ui/glass-card";
+import { Reveal } from "@/components/motion/reveal";
+
 
 
 export default function TermsPage() {
@@ -7,258 +12,410 @@ export default function TermsPage() {
 
   return (
 
-    <main>
+    <main
+
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        px-6
+        py-40
+      "
+
+    >
 
 
-      <Section>
+      {/* Ambient light */}
+
+      <div
+
+        className="
+          absolute
+          left-1/2
+          top-0
+          h-[520px]
+          w-[800px]
+          -translate-x-1/2
+          rounded-full
+          bg-[#D6B25E]/10
+          blur-[220px]
+        "
+
+      />
 
 
-        <Container>
+
+
+      <section
+
+        className="
+          relative
+          mx-auto
+          max-w-5xl
+        "
+
+      >
+
+
+
+        <div className="text-center">
+
+
+          <motion.p
+
+            initial={{
+              opacity:0,
+              y:20
+            }}
+
+            animate={{
+              opacity:1,
+              y:0
+            }}
+
+            className="
+              text-xs
+              uppercase
+              tracking-[0.6em]
+              text-[#D6B25E]
+            "
+
+          >
+
+            Legal
+
+          </motion.p>
+
+
+
+
+
+          <motion.h1
+
+            initial={{
+              opacity:0,
+              y:40
+            }}
+
+            animate={{
+              opacity:1,
+              y:0
+            }}
+
+            transition={{
+              duration:1
+            }}
+
+            className="
+              mt-10
+              text-6xl
+              font-semibold
+              leading-[1.05]
+              tracking-[-0.05em]
+              text-[#F4F1EA]
+              md:text-8xl
+            "
+
+          >
+
+            Terms
+            <br/>
+            of Service
+
+
+          </motion.h1>
+
+
+
+
+
+          <p
+
+            className="
+              mt-8
+              text-sm
+              uppercase
+              tracking-[0.4em]
+              text-white/30
+            "
+
+          >
+
+            Last updated July 2026
+
+          </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <Reveal>
 
 
           <div
+
             className="
-              mx-auto
-              max-w-4xl
+              mt-32
+              grid
+              gap-8
+              md:grid-cols-2
             "
+
           >
 
 
-            <p
-              className="
-                text-sm
-                uppercase
-                tracking-[0.45em]
-                text-[#D6B25E]
-              "
-            >
 
-              Legal
 
-            </p>
 
+            <GlassCard>
 
 
-            <h1
-              className="
-                mt-8
-                text-5xl
-                font-semibold
-                tracking-tight
-                text-[#F4F1EA]
-                md:text-7xl
-              "
-            >
+              <h2
 
-              Terms of Service
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
-            </h1>
+              >
 
+                Acceptance
 
+              </h2>
 
-            <p
-              className="
-                mt-8
-                text-white/50
-                leading-8
-              "
-            >
 
-              Last updated: July 2026
+              <p
 
-            </p>
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
+              >
 
+                By accessing EON AI services,
+                you agree to these terms and
+                responsible usage principles.
 
+              </p>
 
 
-            <div
-              className="
-                mt-16
-                space-y-12
-                text-lg
-                leading-8
-                text-white/60
-              "
-            >
+            </GlassCard>
 
 
 
 
-              <section>
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
 
-                  Acceptance of Terms
 
-                </h2>
+            <GlassCard>
 
 
-                <p className="mt-4">
+              <h2
 
-                  By accessing or using EON AI services,
-                  you agree to these Terms of Service.
-                  If you do not agree with these terms,
-                  please do not use our services.
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
-                </p>
+              >
 
+                AI Services
 
-              </section>
+              </h2>
 
 
+              <p
 
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
+              >
 
+                EON AI provides intelligent systems
+                designed for reflection, creativity
+                and personal growth.
 
-              <section>
+              </p>
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
 
-                  AI Services
+            </GlassCard>
 
-                </h2>
 
 
-                <p className="mt-4">
 
-                  EON AI provides artificial intelligence
-                  tools designed to assist users with
-                  personal reflection, creativity and
-                  self-development.
 
-                  AI responses may not always be accurate
-                  and should not replace professional
-                  advice.
 
-                </p>
 
+            <GlassCard>
 
-              </section>
 
+              <h2
 
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
+              >
 
+                User Responsibility
 
+              </h2>
 
-              <section>
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
+              <p
 
-                  User Responsibilities
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
-                </h2>
+              >
 
+                Users are responsible for their
+                information, accounts and interactions
+                with EON AI systems.
 
-                <p className="mt-4">
+              </p>
 
-                  Users are responsible for the information
-                  they provide and for maintaining the
-                  security of their accounts.
 
-                  You agree not to misuse EON AI systems
-                  or attempt to interfere with the service.
+            </GlassCard>
 
-                </p>
 
 
-              </section>
 
 
 
 
+            <GlassCard>
 
 
-              <section>
+              <h2
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
-                  Subscriptions
+              >
 
-                </h2>
+                Subscriptions
 
+              </h2>
 
-                <p className="mt-4">
 
-                  Some EON AI features may require a paid
-                  subscription.
+              <p
 
-                  Subscription terms, pricing and available
-                  features may change in the future.
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
-                </p>
+              >
 
+                Premium features may require
+                subscriptions. Pricing and features
+                may evolve over time.
 
-              </section>
+              </p>
 
 
-
-
-
-
-              <section>
-
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
-
-                  Contact
-
-                </h2>
-
-
-                <p className="mt-4">
-
-                  For questions regarding these Terms,
-                  please contact EON AI.
-
-                </p>
-
-
-              </section>
-
-
-
-
-            </div>
+            </GlassCard>
 
 
 
           </div>
 
 
-        </Container>
+        </Reveal>
 
 
-      </Section>
+
+
+
+
+
+
+        <Reveal delay={0.2}>
+
+
+          <div
+
+            className="
+              mt-32
+              border-t
+              border-white/10
+              pt-20
+              text-center
+            "
+
+          >
+
+
+
+            <p
+
+              className="
+                text-xs
+                uppercase
+                tracking-[0.5em]
+                text-white/30
+              "
+
+            >
+
+              EON AI
+
+            </p>
+
+
+
+
+            <h2
+
+              className="
+                mt-8
+                text-4xl
+                font-semibold
+                tracking-tight
+                text-[#F4F1EA]
+                md:text-6xl
+              "
+
+            >
+
+              Building intelligence
+              with responsibility.
+
+            </h2>
+
+
+
+          </div>
+
+
+        </Reveal>
+
+
+
+
+      </section>
 
 
     </main>
