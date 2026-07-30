@@ -5,37 +5,13 @@ import { motion } from "framer-motion";
 
 export function EonSymbol() {
 
-  const rings = [
-    {
-      rotate: 0,
-      scaleX: 1,
-      scaleY: 0.45,
-    },
-    {
-      rotate: 60,
-      scaleX: 1,
-      scaleY: 0.45,
-    },
-    {
-      rotate: 120,
-      scaleX: 1,
-      scaleY: 0.45,
-    },
-    {
-      rotate: 30,
-      scaleX: 0.8,
-      scaleY: 0.35,
-    },
-    {
-      rotate: 90,
-      scaleX: 0.8,
-      scaleY: 0.35,
-    },
-    {
-      rotate: 150,
-      scaleX: 0.8,
-      scaleY: 0.35,
-    },
+  const paths = [
+    "M130 40 C220 40 220 220 130 220 C40 220 40 40 130 40",
+    "M130 40 C40 40 40 220 130 220 C220 220 220 40 130 40",
+    "M55 130 C55 45 205 45 205 130 C205 215 55 215 55 130",
+    "M130 55 C215 55 215 205 130 205 C45 205 45 55 130 55",
+    "M80 80 C170 20 240 160 160 220 C80 280 20 140 80 80",
+    "M180 80 C90 20 20 160 100 220 C180 280 240 140 180 80",
   ];
 
 
@@ -52,17 +28,17 @@ export function EonSymbol() {
       "
     >
 
-      {/* Ambient glow */}
+      {/* Soft energy field */}
 
       <motion.div
 
         animate={{
-          opacity:[0.15,0.35,0.15],
-          scale:[1,1.15,1],
+          opacity:[0.15,0.3,0.15],
+          scale:[1,1.08,1],
         }}
 
         transition={{
-          duration:8,
+          duration:10,
           repeat:Infinity,
           ease:"easeInOut",
         }}
@@ -71,97 +47,62 @@ export function EonSymbol() {
           absolute
           inset-0
           rounded-full
-          bg-[#D6B25E]/20
-          blur-[100px]
+          bg-[#D6B25E]/10
+          blur-[120px]
         "
 
       />
 
 
 
-      {/* Symbol */}
-
-      <div
+      <svg
+        width="260"
+        height="260"
+        viewBox="0 0 260 260"
+        fill="none"
         className="
           relative
-          h-[260px]
-          w-[260px]
         "
       >
 
+        {paths.map((path,index)=>(
 
-        {rings.map((ring,index)=>(
-
-          <motion.div
+          <motion.path
 
             key={index}
 
+            d={path}
+
+            stroke="#D6B25E"
+
+            strokeOpacity="0.75"
+
+            strokeWidth="2"
+
+            strokeLinecap="round"
+
             initial={{
+              pathLength:0,
               opacity:0,
-              scale:0.7,
             }}
 
             animate={{
+              pathLength:1,
               opacity:1,
-              scale:1,
             }}
 
             transition={{
-              delay:index*0.12,
-              duration:1.2,
+              delay:index*0.15,
+              duration:1.8,
               ease:"easeOut",
             }}
-
-            style={{
-              rotate:ring.rotate,
-              scaleX:ring.scaleX,
-              scaleY:ring.scaleY,
-            }}
-
-            className="
-              absolute
-              inset-0
-              rounded-full
-              border
-              border-[#D6B25E]/60
-            "
 
           />
 
         ))}
 
 
-        {/* Core light */}
-
-        <motion.div
-
-          animate={{
-            opacity:[0.4,0.8,0.4],
-            scale:[1,1.2,1],
-          }}
-
-          transition={{
-            duration:5,
-            repeat:Infinity,
-          }}
-
-          className="
-            absolute
-            left-1/2
-            top-1/2
-            h-3
-            w-3
-            -translate-x-1/2
-            -translate-y-1/2
-            rounded-full
-            bg-[#D6B25E]
-            blur-[1px]
-            shadow-[0_0_40px_#D6B25E]
-          "
-
-        />
-
-      </div>
+      </svg>
 
 
     </div>
