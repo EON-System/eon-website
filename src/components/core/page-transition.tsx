@@ -5,64 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 
-type Brand =
-  | "eon"
-  | "soulmirror"
-  | "futureself";
-
-
-interface PageTransitionProps {
-
-  brand?: Brand;
-
-}
-
-
-
-const themes = {
-
-  eon: {
-
-    title:"EON",
-
-    subtitle:"Initializing Intelligence",
-
-    color:"#D6B25E",
-
-  },
-
-
-  soulmirror: {
-
-    title:"SOULMIRROR",
-
-    subtitle:"Reflecting Identity",
-
-    color:"#8B5CF6",
-
-  },
-
-
-  futureself: {
-
-    title:"FUTURESELF",
-
-    subtitle:"Building Tomorrow's Self",
-
-    color:"#60A5FA",
-
-  },
-
-
-};
-
-
-
-export function PageTransition({
-
-  brand="eon"
-
-}:PageTransitionProps){
+export function PageTransition(){
 
 
   const pathname = usePathname();
@@ -78,12 +21,11 @@ export function PageTransition({
     setVisible(true);
 
 
-
     const timer = setTimeout(()=>{
 
       setVisible(false);
 
-    },1200);
+    },2500);
 
 
 
@@ -96,19 +38,13 @@ export function PageTransition({
 
 
 
-
-  const theme = themes[brand];
-
-
-
-
-
   return (
 
     <AnimatePresence>
 
 
       {visible && (
+
 
         <motion.div
 
@@ -125,8 +61,9 @@ export function PageTransition({
           }}
 
           transition={{
-            duration:0.5,
+            duration:0.8,
           }}
+
 
           className="
             fixed
@@ -159,8 +96,8 @@ export function PageTransition({
 
               initial={{
                 opacity:0,
-                scale:0.9,
-                letterSpacing:"0.1em",
+                scale:0.85,
+                letterSpacing:"0.05em",
               }}
 
 
@@ -172,24 +109,21 @@ export function PageTransition({
 
 
               transition={{
-                duration:1,
-              }}
-
-
-              style={{
-                color:theme.color,
+                duration:1.5,
+                ease:"easeOut",
               }}
 
 
               className="
-                text-5xl
+                text-6xl
                 font-semibold
+                text-[#F4F1EA]
                 md:text-7xl
               "
 
             >
 
-              {theme.title}
+              EON
 
 
             </motion.h1>
@@ -200,6 +134,7 @@ export function PageTransition({
 
 
             <motion.p
+
 
               initial={{
                 opacity:0,
@@ -214,22 +149,22 @@ export function PageTransition({
 
 
               transition={{
-                delay:0.5,
-                duration:0.8,
+                delay:0.8,
+                duration:1,
               }}
 
 
               className="
                 mt-8
-                text-xs
+                text-sm
                 uppercase
-                tracking-[0.6em]
-                text-white/40
+                tracking-[0.55em]
+                text-[#D6B25E]
               "
 
             >
 
-              {theme.subtitle}
+              Initializing Intelligence
 
 
             </motion.p>
@@ -238,34 +173,35 @@ export function PageTransition({
 
 
 
-
-
             <motion.div
 
-              initial={{
-                width:0,
-              }}
-
               animate={{
-                width:120,
+
+                opacity:[
+                  0.2,
+                  0.8,
+                  0.2
+                ]
+
               }}
 
               transition={{
-                delay:0.8,
-                duration:1,
-              }}
 
-              style={{
-                backgroundColor:theme.color,
+                duration:2,
+                repeat:Infinity,
+
               }}
 
               className="
                 mt-10
-                h-px
+                h-1
+                w-1
+                rounded-full
+                bg-[#D6B25E]
+                shadow-[0_0_40px_#D6B25E]
               "
 
             />
-
 
 
 
@@ -275,8 +211,8 @@ export function PageTransition({
 
 
 
-
         </motion.div>
+
 
       )}
 
