@@ -1,5 +1,10 @@
-import { Container } from "@/components/ui/container";
-import { Section } from "@/components/ui/section";
+"use client";
+
+import { motion } from "framer-motion";
+
+import { GlassCard } from "@/components/ui/glass-card";
+import { Reveal } from "@/components/motion/reveal";
+
 
 
 export default function CookiesPage() {
@@ -7,267 +12,433 @@ export default function CookiesPage() {
 
   return (
 
-    <main>
+    <main
+
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        px-6
+        py-40
+      "
+
+    >
 
 
-      <Section>
+
+      {/* Ambient light */}
+
+      <div
+
+        className="
+          absolute
+          left-1/2
+          top-0
+          h-[520px]
+          w-[800px]
+          -translate-x-1/2
+          rounded-full
+          bg-[#D6B25E]/10
+          blur-[220px]
+        "
+
+      />
 
 
-        <Container>
+
+
+
+      <section
+
+        className="
+          relative
+          mx-auto
+          max-w-5xl
+        "
+
+      >
+
+
+
+
+        <div className="text-center">
+
+
+
+
+
+          <motion.p
+
+            initial={{
+              opacity:0,
+              y:20
+            }}
+
+            animate={{
+              opacity:1,
+              y:0
+            }}
+
+            className="
+              text-xs
+              uppercase
+              tracking-[0.6em]
+              text-[#D6B25E]
+            "
+
+          >
+
+            Legal
+
+          </motion.p>
+
+
+
+
+
+
+
+          <motion.h1
+
+            initial={{
+              opacity:0,
+              y:40
+            }}
+
+            animate={{
+              opacity:1,
+              y:0
+            }}
+
+            transition={{
+              duration:1
+            }}
+
+            className="
+              mt-10
+              text-6xl
+              font-semibold
+              leading-[1.05]
+              tracking-[-0.05em]
+              text-[#F4F1EA]
+              md:text-8xl
+            "
+
+          >
+
+            Cookie
+            <br/>
+            Policy
+
+
+          </motion.h1>
+
+
+
+
+
+
+          <p
+
+            className="
+              mt-8
+              text-sm
+              uppercase
+              tracking-[0.4em]
+              text-white/30
+            "
+
+          >
+
+            Last updated July 2026
+
+          </p>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <Reveal>
 
 
           <div
+
             className="
-              mx-auto
-              max-w-4xl
+              mt-32
+              grid
+              gap-8
+              md:grid-cols-2
             "
+
           >
 
 
-            <p
-              className="
-                text-sm
-                uppercase
-                tracking-[0.45em]
-                text-[#D6B25E]
-              "
-            >
 
-              Legal
 
-            </p>
 
+            <GlassCard>
 
 
+              <h2
 
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
-            <h1
-              className="
-                mt-8
-                text-5xl
-                font-semibold
-                tracking-tight
-                text-[#F4F1EA]
-                md:text-7xl
-              "
-            >
+              >
 
-              Cookie Policy
+                What Are Cookies?
 
-            </h1>
+              </h2>
 
 
 
+              <p
 
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
-            <p
-              className="
-                mt-8
-                text-white/50
-                leading-8
-              "
-            >
+              >
 
-              Last updated: July 2026
+                Cookies are small data files
+                stored on your device that help
+                websites remember information
+                and provide better experiences.
 
-            </p>
+              </p>
 
 
+            </GlassCard>
 
 
 
 
 
-            <div
-              className="
-                mt-16
-                space-y-12
-                text-lg
-                leading-8
-                text-white/60
-              "
-            >
 
 
 
+            <GlassCard>
 
 
-              <section>
+              <h2
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
-                  What Are Cookies?
+              >
 
-                </h2>
+                Usage
 
+              </h2>
 
-                <p className="mt-4">
 
-                  Cookies are small data files stored
-                  on your device that help websites
-                  remember information about your visit.
 
-                  They allow services to function
-                  properly and improve user experience.
+              <p
 
-                </p>
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
+              >
 
-              </section>
+                EON AI may use cookies to maintain
+                functionality, understand usage
+                patterns and improve our services.
 
+              </p>
 
 
+            </GlassCard>
 
 
 
 
 
-              <section>
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
 
-                  How We Use Cookies
 
-                </h2>
+            <GlassCard>
 
 
-                <p className="mt-4">
+              <h2
 
-                  EON AI may use cookies and similar
-                  technologies to maintain functionality,
-                  understand usage patterns and improve
-                  our products.
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
-                </p>
+              >
 
+                Control
 
-              </section>
+              </h2>
 
 
 
+              <p
 
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
+              >
 
+                You can manage cookie preferences
+                through your browser settings.
+                Some features may require cookies.
 
+              </p>
 
-              <section>
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
+            </GlassCard>
 
-                  Managing Cookies
 
-                </h2>
 
 
-                <p className="mt-4">
 
-                  You can control or disable cookies
-                  through your browser settings.
 
-                  Some features of our services may not
-                  function correctly without cookies.
 
-                </p>
 
+            <GlassCard>
 
-              </section>
 
+              <h2
 
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
+              >
 
+                Evolution
 
+              </h2>
 
 
 
-              <section>
+              <p
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
-                  Updates
+              >
 
-                </h2>
+                As EON AI technology evolves,
+                this policy may be updated
+                to reflect new capabilities.
 
+              </p>
 
-                <p className="mt-4">
 
-                  This Cookie Policy may be updated as
-                  EON AI products and technologies evolve.
+            </GlassCard>
 
-                </p>
-
-
-              </section>
-
-
-
-
-
-
-
-
-              <section>
-
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
-
-                  Contact
-
-                </h2>
-
-
-                <p className="mt-4">
-
-                  If you have questions about cookies,
-                  please contact EON AI.
-
-                </p>
-
-
-              </section>
-
-
-
-
-
-            </div>
 
 
           </div>
 
 
-        </Container>
+        </Reveal>
 
 
-      </Section>
+
+
+
+
+
+
+        <Reveal delay={0.2}>
+
+
+          <div
+
+            className="
+              mt-32
+              border-t
+              border-white/10
+              pt-20
+              text-center
+            "
+
+          >
+
+
+
+
+            <p
+
+              className="
+                text-xs
+                uppercase
+                tracking-[0.5em]
+                text-white/30
+              "
+
+            >
+
+              EON AI
+
+            </p>
+
+
+
+
+
+            <h2
+
+              className="
+                mt-8
+                text-4xl
+                font-semibold
+                tracking-tight
+                text-[#F4F1EA]
+                md:text-6xl
+              "
+
+            >
+
+              Designed for
+              a seamless experience.
+
+            </h2>
+
+
+
+          </div>
+
+
+        </Reveal>
+
+
+
+
+
+      </section>
+
 
 
     </main>
