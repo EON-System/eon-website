@@ -6,7 +6,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
-import { SiteIntro } from "@/components/core/site-intro";
+import { EonIntro } from "@/components/core/eon-intro";
 import { PageTransition } from "@/components/core/page-transition";
 
 
@@ -34,7 +34,6 @@ const geistMono = Geist_Mono({
 
 
 
-
 export const metadata: Metadata = {
 
   title:
@@ -44,7 +43,6 @@ export const metadata: Metadata = {
     "Building AI companions for human evolution.",
 
 };
-
 
 
 
@@ -86,9 +84,9 @@ export default function RootLayout({
 
 
 
-        {/* Only homepage intro */}
+        {/* First website opening */}
 
-        <SiteIntro />
+        <EonIntro />
 
 
 
@@ -107,6 +105,7 @@ export default function RootLayout({
 
 
         <Footer />
+
 
 
       </body>
