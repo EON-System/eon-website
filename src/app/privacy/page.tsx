@@ -1,5 +1,10 @@
-import { Container } from "@/components/ui/container";
-import { Section } from "@/components/ui/section";
+"use client";
+
+import { motion } from "framer-motion";
+
+import { GlassCard } from "@/components/ui/glass-card";
+import { Reveal } from "@/components/motion/reveal";
+
 
 
 export default function PrivacyPage() {
@@ -7,252 +12,430 @@ export default function PrivacyPage() {
 
   return (
 
-    <main>
+    <main
+
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        px-6
+        py-40
+      "
+
+    >
 
 
-      <Section>
+
+      {/* Ambient */}
+
+      <div
+
+        className="
+          absolute
+          left-1/2
+          top-0
+          h-[500px]
+          w-[760px]
+          -translate-x-1/2
+          rounded-full
+          bg-[#D6B25E]/10
+          blur-[200px]
+        "
+
+      />
 
 
-        <Container>
+
+
+
+      <section
+
+        className="
+          relative
+          mx-auto
+          max-w-5xl
+        "
+
+      >
+
+
+
+
+
+        <div
+
+          className="
+            text-center
+          "
+
+        >
+
+
+
+
+          <motion.p
+
+            initial={{
+              opacity:0,
+              y:20
+            }}
+
+            animate={{
+              opacity:1,
+              y:0
+            }}
+
+            className="
+              text-xs
+              uppercase
+              tracking-[0.6em]
+              text-[#D6B25E]
+            "
+
+          >
+
+            Legal
+
+          </motion.p>
+
+
+
+
+
+
+
+          <motion.h1
+
+            initial={{
+              opacity:0,
+              y:40
+            }}
+
+            animate={{
+              opacity:1,
+              y:0
+            }}
+
+            transition={{
+              duration:1
+            }}
+
+            className="
+              mt-10
+              text-6xl
+              font-semibold
+              tracking-[-0.05em]
+              text-[#F4F1EA]
+              md:text-8xl
+            "
+
+          >
+
+            Privacy
+            <br/>
+            Policy
+
+
+          </motion.h1>
+
+
+
+
+
+
+
+          <p
+
+            className="
+              mt-8
+              text-sm
+              uppercase
+              tracking-[0.4em]
+              text-white/30
+            "
+
+          >
+
+            Last updated July 2026
+
+          </p>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <Reveal>
 
 
           <div
+
             className="
-              mx-auto
-              max-w-4xl
+              mt-32
+              grid
+              gap-8
+              md:grid-cols-2
             "
+
           >
 
 
-            <p
-              className="
-                text-sm
-                uppercase
-                tracking-[0.45em]
-                text-[#D6B25E]
-              "
-            >
 
-              Legal
 
-            </p>
 
 
+            <GlassCard>
 
-            <h1
-              className="
-                mt-8
-                text-5xl
-                font-semibold
-                tracking-tight
-                text-[#F4F1EA]
-                md:text-7xl
-              "
-            >
+              <h2
 
-              Privacy Policy
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
-            </h1>
+              >
 
+                Privacy First
 
+              </h2>
 
-            <p
-              className="
-                mt-8
-                text-white/50
-                leading-8
-              "
-            >
 
-              Last updated: July 2026
+              <p
 
-            </p>
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
+              >
 
+                EON AI is designed around
+                responsible data handling and
+                respect for user privacy.
 
+              </p>
 
 
-            <div
-              className="
-                mt-16
-                space-y-12
-                text-lg
-                leading-8
-                text-white/60
-              "
-            >
+            </GlassCard>
 
 
 
-              <section>
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
 
-                  Introduction
 
-                </h2>
 
 
-                <p className="mt-4">
+            <GlassCard>
 
-                  EON AI develops personal intelligence
-                  systems designed to help people
-                  understand themselves, their identity
-                  and their potential.
+              <h2
 
-                  This Privacy Policy explains how we
-                  collect, use and protect information
-                  when you use our services.
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
-                </p>
+              >
 
+                Information
 
-              </section>
+              </h2>
 
 
+              <p
 
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
+              >
 
+                We collect information required
+                to provide personalized AI experiences
+                and improve our systems.
 
-              <section>
+              </p>
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
 
-                  Information We Collect
+            </GlassCard>
 
-                </h2>
 
 
-                <p className="mt-4">
 
-                  We may collect information you provide
-                  directly, including account information,
-                  generated content, preferences and
-                  interactions with our AI systems.
 
-                </p>
 
 
-              </section>
 
+            <GlassCard>
 
+              <h2
 
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
+              >
 
+                AI Processing
 
-              <section>
+              </h2>
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
 
-                  AI Generated Content
+              <p
 
-                </h2>
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
+              >
 
-                <p className="mt-4">
+                User interactions are processed
+                to create personalized intelligence
+                experiences.
 
-                  EON AI processes user requests to
-                  generate personalized responses.
-                  We use this information only to provide,
-                  improve and maintain our services.
+              </p>
 
-                </p>
 
+            </GlassCard>
 
-              </section>
 
 
 
 
 
 
-              <section>
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
+            <GlassCard>
 
-                  Data Protection
+              <h2
 
-                </h2>
+                className="
+                  text-2xl
+                  font-semibold
+                  text-[#F4F1EA]
+                "
 
+              >
 
-                <p className="mt-4">
+                Protection
 
-                  We apply reasonable technical and
-                  organizational measures designed to
-                  protect user information.
+              </h2>
 
-                </p>
 
+              <p
 
-              </section>
+                className="
+                  mt-5
+                  leading-8
+                  text-white/50
+                "
 
+              >
 
+                We use appropriate technical measures
+                designed to protect information.
 
+              </p>
 
 
+            </GlassCard>
 
-              <section>
 
-                <h2
-                  className="
-                    text-2xl
-                    font-semibold
-                    text-[#F4F1EA]
-                  "
-                >
 
-                  Contact
-
-                </h2>
-
-
-                <p className="mt-4">
-
-                  If you have questions about this Privacy
-                  Policy, please contact EON AI.
-
-                </p>
-
-
-              </section>
-
-
-
-            </div>
 
 
 
           </div>
 
 
-        </Container>
+        </Reveal>
 
 
-      </Section>
+
+
+
+
+
+
+        <Reveal delay={0.2}>
+
+
+          <div
+
+            className="
+              mt-32
+              border-t
+              border-white/10
+              pt-20
+              text-center
+            "
+
+          >
+
+
+
+            <p
+
+              className="
+                text-xs
+                uppercase
+                tracking-[0.5em]
+                text-white/30
+              "
+
+            >
+
+              EON AI
+
+            </p>
+
+
+
+
+            <h2
+
+              className="
+                mt-8
+                text-4xl
+                font-semibold
+                text-[#F4F1EA]
+                md:text-6xl
+              "
+
+            >
+
+              Intelligence built
+              with responsibility.
+
+            </h2>
+
+
+
+          </div>
+
+
+        </Reveal>
+
+
+
+
+
+      </section>
 
 
     </main>
