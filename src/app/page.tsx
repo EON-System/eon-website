@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { Hero } from "@/components/hero/hero";
 
 import { ProductShowcase } from "@/components/product-showcase";
@@ -14,15 +16,80 @@ import { NewsV2 } from "@/components/sections/news-v2";
 import { ContactV2 } from "@/components/sections/contact-v2";
 
 
+
+export const metadata: Metadata = {
+
+
+  title:
+    "EON AI — Building AI Companions for Human Evolution",
+
+
+
+  description:
+    "EON AI creates personal intelligence systems designed around memory, identity and human potential.",
+
+
+
+  openGraph:{
+
+
+    title:
+      "EON AI — Personal Intelligence Company",
+
+
+    description:
+      "Building AI companions designed around memory, identity and human evolution.",
+
+
+    type:
+      "website",
+
+
+    siteName:
+      "EON AI",
+
+
+  },
+
+
+
+  twitter:{
+
+
+    card:
+      "summary_large_image",
+
+
+    title:
+      "EON AI — Personal Intelligence Company",
+
+
+    description:
+      "Building AI companions designed around memory, identity and human potential.",
+
+
+  },
+
+
+};
+
+
+
+
+
 export default function Home() {
+
   return (
+
     <main
       className="
         overflow-hidden
       "
     >
 
+
       <Hero />
+
 
 
       {/* Cinematic bridge */}
@@ -30,9 +97,11 @@ export default function Home() {
       <HeroTransition />
 
 
+
       {/* Product universe */}
 
       <ProductShowcase />
+
 
 
       {/* One AI ecosystem */}
@@ -40,9 +109,11 @@ export default function Home() {
       <EonEcosystem />
 
 
+
       {/* Philosophy */}
 
       <EonIntelligence />
+
 
 
       {/* AI evolution story */}
@@ -50,9 +121,11 @@ export default function Home() {
       <IntelligenceEvolution />
 
 
+
       {/* Company vision */}
 
       <AboutV2 />
+
 
 
       {/* Research */}
@@ -60,9 +133,11 @@ export default function Home() {
       <ResearchV2 />
 
 
+
       {/* Future statement */}
 
       <FutureIntelligence />
+
 
 
       {/* Updates */}
@@ -70,11 +145,15 @@ export default function Home() {
       <NewsV2 />
 
 
+
       {/* Contact */}
 
       <ContactV2 />
 
 
+
     </main>
+
   );
+
 }
