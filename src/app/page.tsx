@@ -1,5 +1,5 @@
 import { Hero } from "@/components/hero/hero";
-console.log("EON HOME LOADED");
+
 import { ProductShowcase } from "@/components/product-showcase";
 import { EonEcosystem } from "@/components/eon-ecosystem";
 import { EonIntelligence } from "@/components/eon-intelligence";
