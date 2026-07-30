@@ -5,16 +5,16 @@ import { motion } from "framer-motion";
 
 const lines = [
   { x: "5%", height: "45%", delay: 0 },
-  { x: "18%", height: "70%", delay: 0.3 },
-  { x: "32%", height: "90%", delay: 0.6 },
-  { x: "50%", height: "100%", delay: 0.9 },
-  { x: "68%", height: "85%", delay: 1.2 },
-  { x: "82%", height: "65%", delay: 1.5 },
-  { x: "95%", height: "40%", delay: 1.8 },
+  { x: "18%", height: "70%", delay: 0.4 },
+  { x: "32%", height: "90%", delay: 0.8 },
+  { x: "50%", height: "100%", delay: 1.1 },
+  { x: "68%", height: "85%", delay: 1.4 },
+  { x: "82%", height: "60%", delay: 1.8 },
+  { x: "95%", height: "40%", delay: 2.1 },
 ];
 
 
-const particles = Array.from({ length: 30 });
+const particles = Array.from({ length: 28 });
 
 
 export function EonSymbol() {
@@ -35,35 +35,35 @@ export function EonSymbol() {
     >
 
 
-      {/* Intelligence field */}
+      {/* Soft intelligence glow */}
 
       <motion.div
 
         animate={{
-          opacity:[0.12,0.3,0.12],
-          scale:[1,1.15,1],
+          opacity:[0.08,0.18,0.08],
+          scale:[1,1.12,1],
         }}
 
         transition={{
-          duration:10,
+          duration:12,
           repeat:Infinity,
           ease:"easeInOut",
         }}
 
         className="
           absolute
-          h-72
-          w-[500px]
+          h-80
+          w-[520px]
           rounded-full
-          bg-[#D6B25E]/10
-          blur-[120px]
+          bg-[#D6B25E]/5
+          blur-[160px]
         "
 
       />
 
 
 
-      {/* Energy architecture */}
+      {/* Energy lines */}
 
       <div
         className="
@@ -84,39 +84,52 @@ export function EonSymbol() {
             className="
               absolute
               bottom-0
-              w-[2px]
+              w-px
               bg-gradient-to-t
               from-transparent
-              via-[#D6B25E]
+              via-[#D6B25E]/40
               to-transparent
-              shadow-[0_0_25px_rgba(214,178,94,0.8)]
+              shadow-[0_0_20px_rgba(214,178,94,0.35)]
             "
 
             style={{
               left:line.x,
             }}
 
+
             initial={{
               height:0,
               opacity:0,
             }}
 
+
             animate={{
+
               height:line.height,
+
               opacity:[
-                0,
-                1,
-                0.35,
-                1,
-                0,
+
+                0.05,
+                0.5,
+                0.15,
+                0.45,
+                0.05,
+
               ],
+
             }}
 
+
             transition={{
-              duration:3.5,
+
+              duration:4,
+
               repeat:Infinity,
+
               delay:line.delay,
+
               ease:"easeInOut",
+
             }}
 
           />
@@ -125,7 +138,7 @@ export function EonSymbol() {
 
 
 
-        {/* Floating intelligence particles */}
+        {/* Floating data particles */}
 
         {particles.map((_,index)=>(
 
@@ -136,12 +149,13 @@ export function EonSymbol() {
 
             className="
               absolute
-              h-[3px]
-              w-[3px]
+              h-[2px]
+              w-[2px]
               rounded-full
-              bg-[#F4F1EA]
-              shadow-[0_0_20px_#D6B25E]
+              bg-[#D6B25E]/60
+              shadow-[0_0_12px_rgba(214,178,94,0.5)]
             "
+
 
             style={{
 
@@ -149,7 +163,7 @@ export function EonSymbol() {
                 `${Math.random()*100}%`,
 
               bottom:
-                `${Math.random()*90}%`,
+                `${Math.random()*80}%`,
 
             }}
 
@@ -157,15 +171,27 @@ export function EonSymbol() {
             animate={{
 
               opacity:[
+
                 0,
-                1,
+                0.7,
                 0,
+
               ],
 
               y:[
-                30,
-                -60,
-                -120,
+
+                20,
+                -50,
+                -100,
+
+              ],
+
+              scale:[
+
+                0.5,
+                1,
+                0,
+
               ],
 
             }}
@@ -174,13 +200,15 @@ export function EonSymbol() {
             transition={{
 
               duration:
-                3 + Math.random()*3,
+                4 + Math.random()*3,
 
               repeat:
                 Infinity,
 
               delay:
-                Math.random()*4,
+                Math.random()*5,
+
+              ease:"easeOut",
 
             }}
 
@@ -196,4 +224,5 @@ export function EonSymbol() {
     </div>
 
   );
+
 }
