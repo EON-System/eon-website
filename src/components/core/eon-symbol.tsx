@@ -3,16 +3,39 @@
 import { motion } from "framer-motion";
 
 
-export function EonSymbol() {
+const lines = [
+  {
+    x: "20%",
+    height: "55%",
+    delay: 0,
+  },
+  {
+    x: "35%",
+    height: "85%",
+    delay: 0.4,
+  },
+  {
+    x: "50%",
+    height: "100%",
+    delay: 0.8,
+  },
+  {
+    x: "65%",
+    height: "75%",
+    delay: 1.2,
+  },
+  {
+    x: "80%",
+    height: "50%",
+    delay: 1.6,
+  },
+];
 
-  const paths = [
-    "M130 40 C220 40 220 220 130 220 C40 220 40 40 130 40",
-    "M130 40 C40 40 40 220 130 220 C220 220 220 40 130 40",
-    "M55 130 C55 45 205 45 205 130 C205 215 55 215 55 130",
-    "M130 55 C215 55 215 205 130 205 C45 205 45 55 130 55",
-    "M80 80 C170 20 240 160 160 220 C80 280 20 140 80 80",
-    "M180 80 C90 20 20 160 100 220 C180 280 240 140 180 80",
-  ];
+
+const particles = Array.from({ length: 18 });
+
+
+export function EonSymbol() {
 
 
   return (
@@ -25,76 +48,90 @@ export function EonSymbol() {
         w-[420px]
         items-center
         justify-center
+        overflow-hidden
       "
     >
 
-      {/* Soft energy field */}
+
+      {/* Energy glow */}
 
       <motion.div
 
         animate={{
-          opacity:[0.15,0.3,0.15],
-          scale:[1,1.08,1],
+          opacity:[0.15,0.35,0.15],
+          scale:[1,1.2,1],
         }}
 
         transition={{
-          duration:10,
+          duration:8,
           repeat:Infinity,
-          ease:"easeInOut",
         }}
 
         className="
           absolute
-          inset-0
+          h-64
+          w-64
           rounded-full
           bg-[#D6B25E]/10
-          blur-[120px]
+          blur-[100px]
         "
 
       />
 
 
 
-      <svg
-        width="260"
-        height="260"
-        viewBox="0 0 260 260"
-        fill="none"
+      {/* Vertical intelligence streams */}
+
+      <div
         className="
           relative
+          h-72
+          w-48
         "
       >
 
-        {paths.map((path,index)=>(
 
-          <motion.path
+        {lines.map((line,index)=>(
+
+          <motion.div
 
             key={index}
 
-            d={path}
+            className="
+              absolute
+              bottom-0
+              w-px
+              bg-gradient-to-t
+              from-transparent
+              via-[#D6B25E]
+              to-transparent
+            "
 
-            stroke="#D6B25E"
-
-            strokeOpacity="0.75"
-
-            strokeWidth="2"
-
-            strokeLinecap="round"
+            style={{
+              left:line.x,
+            }}
 
             initial={{
-              pathLength:0,
+              height:0,
               opacity:0,
             }}
 
             animate={{
-              pathLength:1,
-              opacity:1,
+              height:line.height,
+              opacity:[
+                0,
+                1,
+                0.4,
+                1,
+                0,
+              ],
             }}
 
             transition={{
-              delay:index*0.15,
-              duration:1.8,
-              ease:"easeOut",
+              duration:3,
+              repeat:Infinity,
+              delay:line.delay,
+              ease:"easeInOut",
             }}
 
           />
@@ -102,7 +139,69 @@ export function EonSymbol() {
         ))}
 
 
-      </svg>
+
+        {/* Particles */}
+
+        {particles.map((_,index)=>(
+
+          <motion.div
+
+            key={index}
+
+            className="
+              absolute
+              h-1
+              w-1
+              rounded-full
+              bg-[#D6B25E]
+              shadow-[0_0_20px_#D6B25E]
+            "
+
+            style={{
+              left:`${10 + Math.random()*80}%`,
+              bottom:`${10 + Math.random()*80}%`,
+            }}
+
+            animate={{
+
+              opacity:[
+                0,
+                1,
+                0,
+              ],
+
+              y:[
+                20,
+                -40,
+                -80,
+              ],
+
+              scale:[
+                0.5,
+                1,
+                0,
+              ],
+
+            }}
+
+            transition={{
+
+              duration:
+                2 + Math.random()*3,
+
+              repeat:Infinity,
+
+              delay:
+                Math.random()*3,
+
+            }}
+
+          />
+
+        ))}
+
+
+      </div>
 
 
     </div>
