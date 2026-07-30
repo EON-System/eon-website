@@ -1,37 +1,65 @@
 "use client";
 
+
 import { AnimatePresence, motion } from "framer-motion";
+
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+
+import { useEffect, useRef, useState } from "react";
 
 
-export function PageTransition() {
+
+export function PageTransition(){
 
 
   const pathname = usePathname();
 
-  const [visible, setVisible] = useState(false);
+
+  const mounted = useRef(false);
+
+
+  const [visible,setVisible] = useState(false);
 
 
 
-  useEffect(() => {
+
+  useEffect(()=>{
+
+
+    // skip first website load
+
+    if(!mounted.current){
+
+      mounted.current = true;
+
+      return;
+
+    }
+
+
 
 
     setVisible(true);
 
 
-    const timer = setTimeout(() => {
+
+    const timer = setTimeout(()=>{
+
 
       setVisible(false);
 
-    }, 4500);
+
+    },4500);
 
 
 
-    return () => clearTimeout(timer);
+
+    return ()=>clearTimeout(timer);
 
 
-  }, [pathname]);
+
+  },[pathname]);
+
 
 
 
@@ -44,6 +72,7 @@ export function PageTransition() {
 
 
       {visible && (
+
 
 
         <motion.div
@@ -66,7 +95,6 @@ export function PageTransition() {
 
           transition={{
             duration:1.2,
-            ease:"easeInOut",
           }}
 
 
@@ -78,7 +106,6 @@ export function PageTransition() {
             flex
             items-center
             justify-center
-            overflow-hidden
             bg-[#050505]
           "
 
@@ -89,63 +116,8 @@ export function PageTransition() {
 
 
 
-          {/* Ambient gold energy */}
-
-
-          <motion.div
-
-
-            animate={{
-
-              scale:[
-                1,
-                1.25,
-                1
-              ],
-
-              opacity:[
-                0.08,
-                0.25,
-                0.08
-              ]
-
-            }}
-
-
-            transition={{
-
-              duration:6,
-
-              repeat:Infinity,
-
-              ease:"easeInOut"
-
-            }}
-
-
-
-            className="
-              absolute
-              h-[500px]
-              w-[500px]
-              rounded-full
-              bg-[#D6B25E]
-              blur-[180px]
-            "
-
-
-          />
-
-
-
-
-
-
-
-
           <div
             className="
-              relative
               flex
               flex-col
               items-center
@@ -155,11 +127,6 @@ export function PageTransition() {
 
 
 
-
-
-
-
-            {/* EON Logo */}
 
 
             <motion.h1
@@ -215,7 +182,6 @@ export function PageTransition() {
                 md:text-[10rem]
               "
 
-
             >
 
               EON
@@ -229,12 +195,6 @@ export function PageTransition() {
 
 
 
-
-
-            {/* Subtitle */}
-
-
-
             <motion.p
 
 
@@ -242,7 +202,7 @@ export function PageTransition() {
 
                 opacity:0,
 
-                y:30
+                y:20
 
               }}
 
@@ -260,7 +220,7 @@ export function PageTransition() {
 
               transition={{
 
-                delay:1.3,
+                delay:1.2,
 
                 duration:1.5
 
@@ -276,7 +236,6 @@ export function PageTransition() {
                 text-[#D6B25E]
               "
 
-
             >
 
               Initializing Intelligence
@@ -287,12 +246,6 @@ export function PageTransition() {
 
 
 
-
-
-
-
-
-            {/* Energy point */}
 
 
 
@@ -307,10 +260,9 @@ export function PageTransition() {
                   0.2
                 ],
 
-
                 scale:[
                   1,
-                  1.8,
+                  1.6,
                   1
                 ]
 
@@ -322,9 +274,7 @@ export function PageTransition() {
 
                 duration:3,
 
-                repeat:Infinity,
-
-                ease:"easeInOut"
+                repeat:Infinity
 
               }}
 
@@ -339,10 +289,7 @@ export function PageTransition() {
                 shadow-[0_0_60px_#D6B25E]
               "
 
-
             />
-
-
 
 
 
@@ -352,21 +299,15 @@ export function PageTransition() {
 
 
 
-
-
-
-
         </motion.div>
 
 
       )}
 
 
-
     </AnimatePresence>
 
 
   );
-
 
 }
