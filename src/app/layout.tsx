@@ -6,8 +6,9 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
-import { EonIntro } from "@/components/core/eon-intro";
+import { SiteIntro } from "@/components/core/site-intro";
 import { PageTransition } from "@/components/core/page-transition";
+
 
 
 const geistSans = Geist({
@@ -33,6 +34,7 @@ const geistMono = Geist_Mono({
 
 
 
+
 export const metadata: Metadata = {
 
   title:
@@ -42,6 +44,7 @@ export const metadata: Metadata = {
     "Building AI companions for human evolution.",
 
 };
+
 
 
 
@@ -56,57 +59,61 @@ export default function RootLayout({
 }>) {
 
 
-return (
+  return (
 
-<html
+    <html
 
-lang="en"
+      lang="en"
 
-className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable}`}
 
->
-
-
-<body
-
-className="
-font-sans
-antialiased
-bg-[#050505]
-text-[#F4F1EA]
-"
-
->
+    >
 
 
-<div className="eon-grid" />
+      <body
+
+        className="
+          font-sans
+          antialiased
+          bg-[#050505]
+          text-[#F4F1EA]
+        "
+
+      >
 
 
-
-<EonIntro />
-
-
-<PageTransition />
+        <div className="eon-grid" />
 
 
 
-<Navbar />
+        {/* Only homepage intro */}
 
-
-{children}
-
-
-
-<Footer />
+        <SiteIntro />
 
 
 
-</body>
+        {/* Page changing animation */}
+
+        <PageTransition />
 
 
-</html>
 
-);
+        <Navbar />
 
+
+
+        {children}
+
+
+
+        <Footer />
+
+
+      </body>
+
+
+    </html>
+
+  );
 
 }
