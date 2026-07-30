@@ -7,7 +7,6 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
 import { EonIntro } from "@/components/core/eon-intro";
-import { PageTransition } from "@/components/core/page-transition";
 
 
 
@@ -22,6 +21,7 @@ const geistSans = Geist({
 });
 
 
+
 const geistMono = Geist_Mono({
 
   subsets:["latin"],
@@ -34,15 +34,19 @@ const geistMono = Geist_Mono({
 
 
 
+
 export const metadata: Metadata = {
 
   title:
     "EON AI — Personal Intelligence Company",
 
+
   description:
     "Building AI companions for human evolution.",
 
 };
+
+
 
 
 
@@ -84,15 +88,9 @@ export default function RootLayout({
 
 
 
-        {/* First website opening */}
+        {/* Global EON loading experience */}
 
         <EonIntro />
-
-
-
-        {/* Page changing animation */}
-
-        <PageTransition />
 
 
 
