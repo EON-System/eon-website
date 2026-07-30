@@ -1,106 +1,229 @@
-import Link from "next/link";
+import { motion } from "framer-motion";
 
-export default function FutureSelfPage() {
+
+export default function FutureSelfPage(){
+
+
   return (
-    <main className="min-h-screen px-6 pt-40">
 
-      <div className="mx-auto max-w-6xl">
-
-
-        <span className="text-xs uppercase tracking-[0.4em] text-[#D6B25E]">
-          EON AI Product
-        </span>
-
-
-        <h1 className="mt-8 text-6xl font-semibold md:text-8xl">
-          FutureSelf AI
-        </h1>
-
-
-        <p className="mt-8 max-w-3xl text-xl leading-9 text-white/60">
-          A personal AI companion that helps you imagine,
-          design and build the future version of yourself.
-        </p>
+    <main
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        flex
+        items-center
+        justify-center
+        bg-[#050505]
+      "
+    >
 
 
+      {/* Ambient light */}
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+      <motion.div
 
+        animate={{
 
-          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl">
+          opacity:[
+            0.08,
+            0.2,
+            0.08
+          ],
 
-            <h3 className="text-2xl font-semibold">
-              Future Vision
-            </h3>
+          scale:[
+            1,
+            1.15,
+            1
+          ]
 
-            <p className="mt-4 text-white/60">
-              Explore possible paths and understand where
-              your decisions can lead.
-            </p>
+        }}
 
-          </div>
+        transition={{
 
+          duration:10,
 
+          repeat:Infinity,
 
-          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl">
+          ease:"easeInOut"
 
-            <h3 className="text-2xl font-semibold">
-              Personal Growth
-            </h3>
+        }}
 
-            <p className="mt-4 text-white/60">
-              Build habits, goals and strategies with
-              an intelligent companion.
-            </p>
+        className="
+          absolute
+          h-[500px]
+          w-[500px]
+          rounded-full
+          bg-[#D6B25E]/10
+          blur-[160px]
+        "
 
-          </div>
-
-
-
-          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl">
-
-            <h3 className="text-2xl font-semibold">
-              Life Simulation
-            </h3>
-
-            <p className="mt-4 text-white/60">
-              Explore different versions of your future
-              and make better decisions today.
-            </p>
-
-          </div>
-
-
-        </div>
+      />
 
 
 
-        <div className="mt-12 rounded-[40px] border border-[#D6B25E]/20 bg-[#D6B25E]/5 p-10">
 
-          <h2 className="text-3xl font-semibold">
-            Your future is not predicted.
-            It is created.
-          </h2>
+      <div
+        className="
+          relative
+          z-10
+          text-center
+        "
+      >
 
-          <p className="mt-5 max-w-2xl text-white/60">
-            FutureSelf AI helps people transform
-            possibilities into intentional action.
+
+
+        <motion.p
+
+          initial={{
+            opacity:0,
+            y:20
+          }}
+
+          animate={{
+            opacity:1,
+            y:0
+          }}
+
+          transition={{
+            duration:1
+          }}
+
+          className="
+            text-sm
+            uppercase
+            tracking-[0.6em]
+            text-[#D6B25E]
+          "
+
+        >
+
+          EON AI
+
+        </motion.p>
+
+
+
+
+
+        <motion.h1
+
+          initial={{
+            opacity:0,
+            scale:0.95
+          }}
+
+          animate={{
+            opacity:1,
+            scale:1
+          }}
+
+          transition={{
+            delay:0.4,
+            duration:1.2
+          }}
+
+          className="
+            mt-10
+            text-6xl
+            font-semibold
+            tracking-[-0.05em]
+            text-[#F4F1EA]
+            md:text-8xl
+          "
+
+        >
+
+          FutureSelf
+
+        </motion.h1>
+
+
+
+
+
+        <motion.div
+
+          initial={{
+            opacity:0
+          }}
+
+          animate={{
+            opacity:1
+          }}
+
+          transition={{
+            delay:1,
+            duration:1
+          }}
+
+          className="
+            mt-12
+          "
+
+        >
+
+          <p
+
+            className="
+              text-xl
+              tracking-[0.35em]
+              uppercase
+              text-white/40
+            "
+
+          >
+
+            Coming Soon
+
           </p>
 
-        </div>
 
 
+          <div
 
-        <Link
-          href="/"
-          className="mt-12 inline-flex rounded-full bg-[#D6B25E] px-8 py-4 text-black"
-        >
-          Back to EON AI
-        </Link>
+            className="
+              mx-auto
+              mt-8
+              h-px
+              w-32
+              bg-gradient-to-r
+              from-transparent
+              via-[#D6B25E]/50
+              to-transparent
+            "
+
+          />
+
+
+          <p
+
+            className="
+              mt-8
+              max-w-md
+              text-sm
+              leading-7
+              text-white/30
+            "
+
+          >
+
+            A new intelligence
+            is preparing to emerge.
+
+          </p>
+
+
+        </motion.div>
+
 
 
       </div>
 
+
+
     </main>
+
   );
+
 }
