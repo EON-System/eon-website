@@ -35,16 +35,124 @@ const geistMono = Geist_Mono({
 
 
 
+
 export const metadata: Metadata = {
 
-  title:
-    "EON AI — Personal Intelligence Company",
+
+  title: {
+
+    default:
+      "EON AI — Personal Intelligence Company",
+
+    template:
+      "%s | EON AI",
+
+  },
+
 
 
   description:
-    "Building AI companions for human evolution.",
+
+    "EON AI builds personal intelligence systems designed around memory, identity and human potential.",
+
+
+
+  keywords:[
+
+    "EON AI",
+
+    "Artificial Intelligence",
+
+    "Personal AI",
+
+    "AI companions",
+
+    "Future of AI",
+
+    "Human AI interaction",
+
+    "Personal intelligence",
+
+  ],
+
+
+
+  authors:[
+
+    {
+
+      name:"EON AI",
+
+    },
+
+  ],
+
+
+
+  creator:"EON AI",
+
+
+
+  openGraph:{
+
+
+    title:
+      "EON AI — Personal Intelligence Company",
+
+
+    description:
+      "Building AI companions for human evolution.",
+
+
+    siteName:
+      "EON AI",
+
+
+    type:
+      "website",
+
+
+    locale:
+      "en_US",
+
+
+  },
+
+
+
+  twitter:{
+
+
+    card:
+      "summary_large_image",
+
+
+    title:
+      "EON AI — Personal Intelligence Company",
+
+
+    description:
+      "Building AI companions for human evolution.",
+
+
+  },
+
+
+
+  robots:{
+
+
+    index:true,
+
+    follow:true,
+
+
+  },
+
 
 };
+
+
 
 
 
