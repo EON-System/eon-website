@@ -1,78 +1,123 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 
 const links = [
   {
-    name: "Products",
-    href: "#products",
+    name:"Products",
+    target:"products",
   },
   {
-    name: "Research",
-    href: "#research",
+    name:"Research",
+    target:"research",
   },
   {
-    name: "About",
-    href: "#about",
+    name:"About",
+    target:"about",
   },
 ];
 
 
-export function Navbar() {
+
+export function Navbar(){
+
+  const pathname = usePathname();
+
+  const router = useRouter();
+
+
+
+  function navigateToSection(id:string){
+
+
+    if(pathname === "/"){
+
+
+      document
+        .getElementById(id)
+        ?.scrollIntoView({
+
+          behavior:"smooth",
+
+        });
+
+
+    } else {
+
+
+      router.push(`/#${id}`);
+
+
+    }
+
+
+  }
+
+
 
   return (
 
-    <header className="
-      fixed
-      top-6
-      left-0
-      right-0
-      z-50
-      px-6
-    ">
+    <header
+      className="
+        fixed
+        top-6
+        left-0
+        right-0
+        z-50
+        px-6
+      "
+    >
 
 
-      <nav className="
-        relative
-        mx-auto
-        flex
-        max-w-6xl
-        items-center
-        justify-between
-        overflow-hidden
-        rounded-[28px]
-        border
-        border-white/[0.08]
-        bg-[#080808]/70
-        px-8
-        py-4
-        backdrop-blur-3xl
-        shadow-[0_30px_100px_rgba(0,0,0,0.6)]
-      ">
+      <nav
+
+        className="
+          relative
+          mx-auto
+          flex
+          max-w-6xl
+          items-center
+          justify-between
+          overflow-hidden
+          rounded-[28px]
+          border
+          border-white/[0.08]
+          bg-[#080808]/70
+          px-8
+          py-4
+          backdrop-blur-3xl
+          shadow-[0_30px_100px_rgba(0,0,0,0.6)]
+        "
+
+      >
 
 
-        {/* Glass reflection */}
+        {/* reflection */}
 
-        <div className="
-          pointer-events-none
-          absolute
-          inset-x-0
-          top-0
-          h-px
-          bg-gradient-to-r
-          from-transparent
-          via-white/20
-          to-transparent
-        " />
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-x-0
+            top-0
+            h-px
+            bg-gradient-to-r
+            from-transparent
+            via-white/20
+            to-transparent
+          "
+        />
 
 
 
         {/* Logo */}
 
+
         <Link
 
-          href="#top"
+          href="/"
 
           className="
             group
@@ -83,31 +128,37 @@ export function Navbar() {
 
         >
 
-          <span className="
-            text-xl
-            font-semibold
-            tracking-[-0.06em]
-            text-[#F4F1EA]
-            transition-all
-            duration-700
-            group-hover:text-[#D6B25E]
-            group-hover:drop-shadow-[0_0_15px_rgba(214,178,94,0.35)]
-          ">
+          <span
+            className="
+              text-xl
+              font-semibold
+              tracking-[-0.06em]
+              text-[#F4F1EA]
+              transition-all
+              duration-700
+              group-hover:text-[#D6B25E]
+              group-hover:drop-shadow-[0_0_15px_rgba(214,178,94,0.35)]
+            "
+          >
 
             EON
 
           </span>
 
 
-          <span className="
-            text-xl
-            font-light
-            tracking-[-0.06em]
-            text-white/35
-            transition-all
-            duration-700
-            group-hover:text-[#D6B25E]/70
-          ">
+          <span
+
+            className="
+              text-xl
+              font-light
+              tracking-[-0.06em]
+              text-white/35
+              transition-all
+              duration-700
+              group-hover:text-[#D6B25E]/70
+            "
+
+          >
 
             AI
 
@@ -122,21 +173,27 @@ export function Navbar() {
 
         {/* Navigation */}
 
-        <div className="
-          hidden
-          items-center
-          gap-12
-          md:flex
-        ">
+
+        <div
+
+          className="
+            hidden
+            items-center
+            gap-12
+            md:flex
+          "
+
+        >
 
 
-          {links.map((link) => (
+          {links.map((link)=>(
 
-            <Link
+
+            <button
 
               key={link.name}
 
-              href={link.href}
+              onClick={()=>navigateToSection(link.target)}
 
               className="
                 group
@@ -154,21 +211,26 @@ export function Navbar() {
 
 
 
-              <span className="
-                absolute
-                -bottom-2
-                left-0
-                h-px
-                w-0
-                bg-[#D6B25E]
-                shadow-[0_0_12px_rgba(214,178,94,0.8)]
-                transition-all
-                duration-700
-                group-hover:w-full
-              " />
+              <span
+
+                className="
+                  absolute
+                  -bottom-2
+                  left-0
+                  h-px
+                  w-0
+                  bg-[#D6B25E]
+                  shadow-[0_0_12px_rgba(214,178,94,0.8)]
+                  transition-all
+                  duration-700
+                  group-hover:w-full
+                "
+
+              />
 
 
-            </Link>
+            </button>
+
 
           ))}
 
@@ -179,11 +241,12 @@ export function Navbar() {
 
 
 
-        {/* Contact Button */}
+        {/* Contact */}
 
-        <Link
 
-          href="#contact"
+        <button
+
+          onClick={()=>navigateToSection("contact")}
 
           className="
             group
@@ -204,15 +267,12 @@ export function Navbar() {
             hover:border-[#D6B25E]/70
             hover:text-[#D6B25E]
             hover:shadow-[0_0_45px_rgba(214,178,94,0.18)]
-            cursor-pointer
           "
 
         >
 
-          <span className="
-            relative
-            z-10
-          ">
+
+          <span className="relative z-10">
 
             Contact
 
@@ -220,18 +280,23 @@ export function Navbar() {
 
 
 
-          <span className="
-            absolute
-            inset-0
-            translate-y-full
-            bg-[#D6B25E]/10
-            transition-transform
-            duration-700
-            group-hover:translate-y-0
-          " />
+          <span
+
+            className="
+              absolute
+              inset-0
+              translate-y-full
+              bg-[#D6B25E]/10
+              transition-transform
+              duration-700
+              group-hover:translate-y-0
+            "
+
+          />
 
 
-        </Link>
+        </button>
+
 
 
       </nav>
