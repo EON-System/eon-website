@@ -24,21 +24,20 @@
     "three": "^0.178.0"
   },
   "devDependencies": {
-<<<<<<< Updated upstream
+
     "@opennextjs/cloudflare": "^1.6.0",
-=======
+
     "@opennextjs/cloudflare": "^1.20.2",
->>>>>>> Stashed changes
     "@tailwindcss/postcss": "^4.1.7",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "tailwindcss": "^4.1.7",
     "typescript": "^5.8.3",
-<<<<<<< Updated upstream
+
     "wrangler": "^4.0.0"
-=======
+
     "wrangler": "^4.118.0"
->>>>>>> Stashed changes
+
   }
 }
