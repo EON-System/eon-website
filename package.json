@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:deploy": "npm run cf:build && wrangler deploy"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.6",
@@ -22,11 +24,13 @@
     "three": "^0.178.0"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.6.0",
     "@tailwindcss/postcss": "^4.1.7",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "tailwindcss": "^4.1.7",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "wrangler": "^4.0.0"
   }
 }
